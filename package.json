@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "add-paths": "bash scripts/add-path-headers.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

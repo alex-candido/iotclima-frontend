@@ -1,3 +1,5 @@
+// src/app/(app)/app/layout.tsx
+
 export default function AppLayout({
   children,
 }: {
