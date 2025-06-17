@@ -18,6 +18,7 @@ Criar Páginas de Autenticação (src/app/(auth)/(routes)/.../page.tsx):
 Desenvolver as páginas de sign-in (login), sign-up (registro), forgot-password e reset-password.
 Utilizar os componentes shadcn/ui (Input, Button, Form, Label, Card) para montar os formulários.
 Conectar esses formulários às auth-actions.ts.
+
 Fase 2: Módulos de Dados (CRUD Básico)
 Para cada módulo de dados (users, places, stations, sensors, station_sensors, records, events, logs):
 

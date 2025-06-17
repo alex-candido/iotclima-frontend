@@ -1,0 +1,105 @@
+// src/constants/messages.ts
+
+export const API_MESSAGES = {
+  AUTH: {
+    LOGIN_SUCCESS: "Login successful. Welcome!", 
+    LOGIN_FAILED: "Authentication failed. Please check your credentials.",
+    LOGIN_FAILED_API_CLIENT: "Django login failed via auth-action. Verify backend logs.", 
+    LOGOUT_SUCCESS: "You have been successfully logged out.",
+    PASSWORD_CHANGE_SUCCESS: "Password changed successfully.",
+    PASSWORD_RESET_REQUEST_SUCCESS: "Password reset link sent to your email.",
+    PASSWORD_RESET_CONFIRM_SUCCESS: "Password has been reset successfully.",
+    UNAUTHORIZED: "Unauthorized access. Please log in.",
+    FORBIDDEN: "Access denied. You don't have permission to perform this action.",
+    REFRESH_TOKEN_FAILED: "Session expired. Please log in again.",
+    ATTEMPT_REFRESH_TOKEN: "Attempting to refresh token...",
+    TOKEN_REFRESH_SUCCESS: "Token refreshed successfully.",
+    TOKEN_REFRESH_FAILED: "Token refresh failed. You need to re-authenticate.", 
+    GENERIC_ERROR: "An unexpected authentication error occurred. Please try again.",
+    REGISTER_SUCCESS: "Registration successful. Please check your email to verify your account.", 
+    REGISTER_FAILED: "Registration failed. Please check your input or try again.", 
+  },
+  COMMON: {
+    FETCH_SUCCESS: "Data loaded successfully.",
+    CREATE_SUCCESS: "Record created successfully.", 
+    UPDATE_SUCCESS: "Record updated successfully.", 
+    DELETE_SUCCESS: "Record deleted successfully.", 
+    FETCH_ERROR: "Failed to load data.",
+    CREATE_ERROR: "Failed to create record.",
+    UPDATE_ERROR: "Failed to update record.",
+    DELETE_ERROR: "Failed to delete record.",
+    NOT_FOUND: "Resource not found.",
+    VALIDATION_ERROR: "Validation failed. Please check your input.",
+    NETWORK_ERROR: "Network error. Please check your internet connection and backend status.", 
+    GENERIC_API_ERROR: "An unexpected API error occurred.", 
+  },
+  RECORDS: {
+    FETCH_ERROR: "Error fetching records.", 
+    CREATE_ERROR: "Error creating record.",
+    UPDATE_ERROR: "Error updating record.",
+    DELETE_ERROR: "Error deleting record.",
+    FETCH_STATION_DATA_ERROR: "Error fetching station data for record.",
+    RECORD_EXISTS: "Record for this station and time already exists.",
+  },
+  GEOLOCATION: {
+    NO_DATA_FOUND: "No geolocation data found for this city.",
+    API_ERROR: "Geolocation service error. Please try again later.",
+  },
+  PLACE: {
+    FETCH_ERROR: "Error fetching places.",
+    CREATE_ERROR: "Error creating place.",
+    UPDATE_ERROR: "Error updating place.",
+    DELETE_ERROR: "Error deleting place.",
+    LAT_LON_MISSING: "Latitude and longitude must both be provided or neither.",
+  },
+  STATION: {
+    FETCH_ERROR: "Error fetching stations.",
+    CREATE_ERROR: "Error creating station.",
+    UPDATE_ERROR: "Error updating station.",
+    DELETE_ERROR: "Error deleting station.",
+  },
+  SENSOR: {
+    FETCH_ERROR: "Error fetching sensors.",
+    CREATE_ERROR: "Error creating sensor.",
+    UPDATE_ERROR: "Error updating sensor.",
+    DELETE_ERROR: "Error deleting sensor.",
+  },
+  STATION_SENSOR: {
+    FETCH_ERROR: "Error fetching station-sensor links.",
+    CREATE_ERROR: "Error creating station-sensor link.",
+    UPDATE_ERROR: "Error updating station-sensor link.",
+    DELETE_ERROR: "Error deleting station-sensor link.",
+  },
+  EVENT: {
+    FETCH_ERROR: "Error fetching events.",
+    CREATE_ERROR: "Error creating event.",
+    UPDATE_ERROR: "Error updating event.",
+    DELETE_ERROR: "Error deleting event.",
+  },
+  LOG: {
+    FETCH_ERROR: "Error fetching logs.",
+    CREATE_ERROR: "Error creating log.",
+    UPDATE_ERROR: "Error updating log.",
+    DELETE_ERROR: "Error deleting log.",
+  },
+};
+
+export const UI_MESSAGES = {
+  FORMS: {
+    REQUIRED_FIELD: "This field is required.",
+    INVALID_EMAIL: "Please enter a valid email address.",
+    PASSWORD_MISMATCH: "Passwords do not match.",
+    PASSWORD_TOO_SHORT: "Password must be at least 8 characters long.",
+  },
+  NOTIFICATIONS: {
+    GENERIC_SUCCESS: "Operation successful!",
+    GENERIC_ERROR: "Something went wrong. Please try again.",
+    LOGIN_WELCOME: "Welcome back!", 
+    LOGIN_REDIRECT: "Redirecting to dashboard...", 
+  },
+  DASHBOARD: {
+    WELCOME: "Welcome to your IoT Clima Dashboard!",
+    NO_DATA: "No data available for display.",
+  },
+};
+
