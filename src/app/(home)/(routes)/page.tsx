@@ -1,3 +1,9 @@
-export default function Page() {
-  return <h1>Hello Next.js!</h1>;
+// src/app/(admin)/admin/dashboard/page.tsx
+
+export default async function Page() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+    </div>
+  );
 }

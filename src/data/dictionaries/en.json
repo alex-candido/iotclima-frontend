@@ -1,0 +1,121 @@
+{
+  "GLOBAL": {
+    "APP_NAME": "MeteoIoT"
+  },
+  "AUTH_PAGES": {
+    "SIGN_IN": {
+      "TITLE": "Sign In",
+      "DESCRIPTION": "Enter your email and password to access the system",
+      "EMAIL_LABEL": "Email",
+      "EMAIL_PLACEHOLDER": "your@email.com",
+      "PASSWORD_LABEL": "Password",
+      "PASSWORD_PLACEHOLDER": "••••••••",
+      "FORGOT_PASSWORD_LINK": "Forgot password?",
+      "REMEMBER_ME_LABEL": "Remember me",
+      "LOGIN_BUTTON": "Sign In",
+      "LOGIN_LOADING_BUTTON": "Signing in...",
+      "DEMO_CREDENTIALS_TITLE": "Demo credentials:",
+      "DEMO_CREDENTIALS_ADMIN": "admin@example.com / Admin@123",
+      "OR_CONTINUE_WITH": "Or continue with",
+      "NO_ACCOUNT_QUESTION": "Don't have an account?",
+      "SIGN_UP_LINK": "Sign Up",
+      "GOOGLE_LOGIN_BUTTON": "Google",
+      "MICROSOFT_LOGIN_BUTTON": "Microsoft"
+    },
+    "SIGN_UP": {
+      "TITLE": "Create Account",
+      "DESCRIPTION": "Fill in the details below to create your account",
+      "USERNAME_LABEL": "Username",
+      "USERNAME_PLACEHOLDER": "your_username",
+      "USERNAME_TOO_SHORT": "Username must be at least 3 characters.",
+      "EMAIL_LABEL": "Email",
+      "EMAIL_PLACEHOLDER": "your@email.com",
+      "PASSWORD_LABEL": "Password",
+      "PASSWORD_PLACEHOLDER": "••••••••",
+      "CONFIRM_PASSWORD_LABEL": "Confirm Password",
+      "AGREE_TERMS_TEXT_PART1": "I agree to the",
+      "TERMS_OF_SERVICE_LINK_TEXT": "Terms of Service",
+      "AGREE_TERMS_TEXT_PART2": "and",
+      "PRIVACY_POLICY_LINK_TEXT": "Privacy Policy",
+      "AGREE_TERMS_REQUIRED": "You must agree to the terms of service.",
+      "CREATE_ACCOUNT_BUTTON": "Create Account",
+      "CREATING_ACCOUNT_LOADING": "Creating account...",
+      "HAS_ACCOUNT_QUESTION": "Already have an account?",
+      "SIGN_IN_LINK": "Sign In",
+      "OR_CONTINUE_WITH": "Or continue with"
+    },
+    "RESET_PASSWORD": {
+      "TITLE": "Reset Password",
+      "DESCRIPTION": "Create a new password for your account.",
+      "NEW_PASSWORD_LABEL": "New Password",
+      "CONFIRM_NEW_PASSWORD_LABEL": "Confirm New Password",
+      "RESET_PASSWORD_BUTTON": "Reset Password",
+      "RESETTING_PASSWORD_LOADING": "Resetting...",
+      "SUCCESS_MESSAGE": "Your password has been reset successfully!",
+      "RETURN_TO_LOGIN_BUTTON": "Back to Login",
+      "INVALID_LINK_TITLE": "Invalid Link",
+      "INVALID_LINK_DESCRIPTION": "The password reset link is invalid or expired. Please request a new one.",
+      "REQUEST_NEW_LINK_BUTTON": "Request New Link"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Forgot Password",
+      "DESCRIPTION": "Enter your email to receive a password reset link.",
+      "DESCRIPTION_SUCCESS": "We have sent an email with instructions to reset your password.",
+      "EMAIL_LABEL": "Email",
+      "EMAIL_PLACEHOLDER": "your@email.com",
+      "REQUEST_BUTTON": "Reset Password",
+      "REQUESTING_LOADING": "Sending...",
+      "SUCCESS_MESSAGE_PART1": "Check your inbox and follow the instructions sent to",
+      "DID_NOT_RECEIVE_EMAIL": "Didn't receive the email? Check your spam folder or",
+      "TRY_AGAIN_LINK": "try again",
+      "RETURN_TO_LOGIN_BUTTON": "Back to Login"
+    }
+  },
+  "ADMIN_LAYOUT": {
+    "DASHBOARD_LINK": "Dashboard",
+    "USERS_LINK": "Users",
+    "PLACES_LINK": "Places",
+    "STATIONS_LINK": "Stations",
+    "SENSORS_LINK": "Sensors",
+    "RECORDS_LINK": "Records",
+    "EVENTS_LINK": "Events",
+    "LOGS_LINK": "Logs",
+    "ACCOUNT_LINK": "My Account",
+    "SETTINGS_LINK": "Settings",
+    "MAP_VIEW_LINK": "Map View",
+    "LOGOUT_BUTTON": "Logout"
+  },
+  "RECORD_FORM": {
+    "TITLE_CREATE": "Register New Reading",
+    "TITLE_EDIT": "Edit Reading",
+    "STATION_LABEL": "Station",
+    "SELECT_STATION_PLACEHOLDER": "Select a station",
+    "RECORDED_AT_LABEL": "Measurement Date & Time",
+    "TEMPERATURE_LABEL": "Temperature (°C)",
+    "HUMIDITY_LABEL": "Humidity (%)",
+    "WIND_SPEED_LABEL": "Wind Speed (m/s)",
+    "WIND_DIRECTION_LABEL": "Wind Direction (°)",
+    "PRESSURE_LABEL": "Pressure (hPa)",
+    "RAINFALL_LABEL": "Rainfall (mm)",
+    "STATUS_LABEL": "Record Status",
+    "SELECT_STATUS_PLACEHOLDER": "Select a status",
+    "RECORD_STATUS_OPTIONS": {
+      "1": "Active",
+      "0": "Inactive"
+    }
+  },
+  "DASHBOARD_PAGE": {
+    "TOTAL_USERS_CARD_TITLE": "Total Users",
+    "ACTIVE_STATIONS_CARD_TITLE": "Active Stations"
+  },
+  "COMMON_UI": {
+    "SAVE_BUTTON": "Save",
+    "CREATE_BUTTON": "Create",
+    "CANCEL_BUTTON": "Cancel",
+    "EDIT_BUTTON": "Edit",
+    "DELETE_BUTTON": "Delete",
+    "LOADING_DATA": "Loading data...",
+    "ERROR_LOADING_DATA": "Error loading data.",
+    "SAVING_LOADING": "Saving..."
+  }
+}
