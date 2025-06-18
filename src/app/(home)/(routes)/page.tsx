@@ -15,9 +15,13 @@ export default function AdminDashboardPage() {
         const response = await api.get('/users/'); 
         setData(response.data);
         console.log('API Test: Success', response.data);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('API Test: Error', err);
-        setError(err.message || 'An unknown error occurred');
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }

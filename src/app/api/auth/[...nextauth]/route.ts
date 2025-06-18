@@ -1,7 +1,7 @@
 // src/app/api/auth/[...nextauth]/route.ts
 
 import { login, refreshAccessToken } from '@/actions/auth-actions';
-import { API_MESSAGES } from '@/constants/messages';
+import { API_MESSAGES } from '@/data/messages';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -15,14 +15,16 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
         if (!credentials?.email || !credentials.password) {
-          return null; 
+          return null;
         }
 
         try {
-          const authResponse = await login({ 
-            email: credentials.email, 
-            password: credentials.password 
+          const authResponse = await login({
+            email: credentials.email,
+            password: credentials.password
           });
+
+          console.log(authResponse)
 
           if (authResponse.access && authResponse.refresh && authResponse.user) {
             return {
@@ -38,14 +40,14 @@ const handler = NextAuth({
           }
         } catch (error: any) {
           console.error(API_MESSAGES.AUTH.LOGIN_FAILED_API_CLIENT, error.response?.data || error.message);
-          return null; 
+          return null;
         }
       },
     }),
   ],
   session: {
     strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, 
+    maxAge: 30 * 24 * 60 * 60,
   },
   callbacks: {
     async jwt({ token, user, account }) {
@@ -60,11 +62,11 @@ const handler = NextAuth({
         console.log(API_MESSAGES.AUTH.ATTEMPT_REFRESH_TOKEN);
         try {
           const refreshedTokens = await refreshAccessToken(token.refreshToken as string);
-          token.accessToken = refreshedTokens.access; 
+          token.accessToken = refreshedTokens.access;
           console.log(API_MESSAGES.AUTH.TOKEN_REFRESH_SUCCESS);
         } catch (refreshError) {
           console.error(API_MESSAGES.AUTH.TOKEN_REFRESH_FAILED, refreshError);
-          token.accessToken = null; 
+          token.accessToken = null;
         }
       }
 

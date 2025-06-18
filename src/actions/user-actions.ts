@@ -21,7 +21,7 @@ export type UserInput = {
 export async function getUsers(params?: {
   page?: number;
   page_size?: number;
-  [key: string]: any; // Allow any other filter parameters
+  [key: string]: unknown; // Allow any other filter parameters
 }): Promise<UserListResponse> {
   const response = await api.get<UserListResponse>('/users/', { params });
   return response.data;
