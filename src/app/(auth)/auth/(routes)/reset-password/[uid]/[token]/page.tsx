@@ -8,7 +8,6 @@ import {
 import { Cloud } from "lucide-react";
 
 import { AuthHero } from "@/components/auth/auth-hero";
-import { AuthLayout } from "@/components/auth/auth-layout";
 import { InvalidLinkMessage } from "@/components/auth/invalid-link-message";
 import { ResetPasswordForm } from "@/components/auth/reset-password-form";
 import { APP_TEXT } from "@/data/ui-content";
@@ -30,7 +29,7 @@ export default function ResetPasswordPage({ params }: ResetPasswordPageProps) {
   }
 
   return (
-    <AuthLayout>
+    <>
       <AuthHero>
         <Cloud className="h-8 w-8 text-primary" />
         <h1 className="2xl font-bold">{APP_TEXT.GLOBAL.APP_NAME}</h1>
@@ -48,6 +47,6 @@ export default function ResetPasswordPage({ params }: ResetPasswordPageProps) {
           <ResetPasswordForm token={token} uid={uid} />
         </CardContent>
       </Card>
-    </AuthLayout>
+    </>
   );
 }

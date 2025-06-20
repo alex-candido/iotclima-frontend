@@ -1,8 +1,7 @@
-// src/data/ui-content.ts
-
 export const APP_TEXT = {
   GLOBAL: {
     APP_NAME: "MeteoIoT",
+    ALL_RIGHTS_RESERVED: "All rights reserved.",
   },
   AUTH_PAGES: {
     SIGN_IN: {
@@ -78,6 +77,8 @@ export const APP_TEXT = {
     },
   },
   ADMIN_LAYOUT: {
+    GENERAL_GROUP_LABEL: "Geral",
+    OTHERS_GROUP_LABEL: "Outros",
     DASHBOARD_LINK: "Dashboard",
     USERS_LINK: "Usuários",
     PLACES_LINK: "Locais",
@@ -86,10 +87,21 @@ export const APP_TEXT = {
     RECORDS_LINK: "Registros",
     EVENTS_LINK: "Eventos",
     LOGS_LINK: "Logs",
-    ACCOUNT_LINK: "Minha Conta",
     SETTINGS_LINK: "Configurações",
     MAP_VIEW_LINK: "Visualização no Mapa",
     LOGOUT_BUTTON: "Sair",
+    NOTIFICATIONS_LABEL: "Notificações",
+    NOTIFICATION_ALERT_TITLE: "Alerta de temperatura",
+    NOTIFICATION_ALERT_DESCRIPTION: "Estação Centro registrou temperatura acima do limite",
+    NOTIFICATION_TIME_AGO: (minutes: number) => `Há ${minutes} minutos`,
+    MY_ACCOUNT_LABEL: "Minha conta",
+    PROFILE_LINK_TEXT: "Perfil",
+    ACCOUNT_LINK_TEXT: "Conta",
+    NOTIFICATIONS_LINK_TEXT: "Notificações",
+    APPEARANCE_LINK_TEXT: "Aparência",
+    DISPLAY_LINK_TEXT: "Exibição",
+    NO_NEW_NOTIFICATIONS_TEXT: "Nenhuma nova notificação.",
+    VIEW_ALL_NOTIFICATIONS_LINK: "Ver todas as notificações",
   },
   RECORD_FORM: {
     TITLE_CREATE: "Registrar Nova Medição",
@@ -123,5 +135,17 @@ export const APP_TEXT = {
     LOADING_DATA: "Carregando dados...",
     ERROR_LOADING_DATA: "Erro ao carregar dados.",
     SAVING_LOADING: "Salvando...",
+    SEARCH_PLACEHOLDER: "Buscar...",
+    GUEST_USER_NAME: "Convidado",
+    NO_ROLE_ASSIGNED: "Sem Papel Atribuído",
+    SUPPORT_TITLE: "Suporte Técnico",
+    SUPPORT_EMAIL: "suporte@meteoiot.com",
+    ABOUT_US_LINK: "Sobre Nós",
+    CONTACT_LINK: "Contato",
+    HELP_LINK: "Ajuda",
+    TOGGLE_THEME_TEXT: "Alternar tema",
+    THEME_LIGHT: "Claro",
+    THEME_DARK: "Escuro",
+    THEME_SYSTEM: "Sistema",
   }
 };

@@ -36,41 +36,27 @@ export function useForm<TFormValues extends FieldValues, TApiResult>({
 
   const [apiError, setApiError] = useState<string | null>(null);
 
-  const onSubmit = async (data: TFormValues) => {
-    setApiError(null);
-    setFormError("root", { type: "manual", message: "" });
+const onSubmit = async (data: TFormValues) => {
+  setApiError(null);
+  setFormError("root", { type: "manual", message: "" });
 
-    try {
-      const result = await mutationFn(data);
-      onSuccess?.(result, data);
-    } catch (err: any) {
-      console.error("API call error:", err);
-      const finalError = err instanceof Error ? err : new Error(String(err));
+  try {
+    const result = await mutationFn(data);
+    onSuccess?.(result, data);
+  } catch (err: any) {
+    let message = API_MESSAGES.COMMON.GENERIC_API_ERROR;
 
-      if (err?.response?.status === 400 && err?.response?.data) {
-        Object.entries(err.response.data).forEach(([field, messages]) => {
-          if (Array.isArray(messages)) {
-            setFormError(field as any, {
-              type: "manual",
-              message: messages[0],
-            });
-          }
-        });
-
-        const msg =err.response.data.message || API_MESSAGES.COMMON.VALIDATION_ERROR;
-
-        setFormError("root", { type: "manual", message: msg });
-        setApiError(msg);
-      } else {
-        const msg = finalError.message || API_MESSAGES.COMMON.GENERIC_API_ERROR;
-
-        setFormError("root", { type: "manual", message: msg });
-        setApiError(msg);
-      }
-
-      onError?.(finalError, data);
+    if (typeof err?.message === "string") {
+      message = err.message;
+    } else if (typeof err?.message === "object") {
+      message = JSON.stringify(err.message);
     }
-  };
+
+    setFormError("root", { type: "manual", message });
+    setApiError(message);
+    onError?.(new Error(message), data);
+  }
+};
 
   return {
     form,

@@ -54,7 +54,9 @@ export function ResetPasswordForm({ token, uid }: ResetPasswordFormProps) {
         });
 
         if (!result) {
-          throw new Error(result?.error || API_MESSAGES.AUTH.LOGIN_FAILED);
+          return Promise.reject({
+            message: API_MESSAGES.AUTH.LOGIN_FAILED,
+          });
         }
         return result;
       },

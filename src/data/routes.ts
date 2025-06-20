@@ -1,5 +1,3 @@
-// src/data/routes.ts
-
 export interface AppRoute {
   path: string;
   label?: string;
@@ -58,19 +56,42 @@ export const APP_ROUTES = {
       authRequired: true,
       roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER'],
     },
-    ACCOUNT: {
-      path: '/admin/account',
-      label: 'My Account',
-      icon: 'User',
-      authRequired: true,
-      roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER'],
-    },
     SETTINGS: {
       path: '/admin/settings',
       label: 'Settings',
       icon: 'Settings',
       authRequired: true,
       roles: ['ADMIN'],
+      PROFILE: {
+        path: '/admin/settings/profile',
+        label: 'Profile Settings',
+        authRequired: true,
+        roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER', 'CUSTOMER'],
+      },
+      ACCOUNT_DETAILS: {
+        path: '/admin/settings/account',
+        label: 'Account Details',
+        authRequired: true,
+        roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER', 'CUSTOMER'],
+      },
+      NOTIFICATIONS: {
+        path: '/admin/settings/notifications',
+        label: 'Notifications Settings',
+        authRequired: true,
+        roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER', 'CUSTOMER'],
+      },
+      APPEARANCE: {
+        path: '/admin/settings/appearance',
+        label: 'Appearance Settings',
+        authRequired: true,
+        roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER', 'CUSTOMER'],
+      },
+      DISPLAY: {
+        path: '/admin/settings/display',
+        label: 'Display Settings',
+        authRequired: true,
+        roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR', 'EMPLOYEE', 'VIEWER', 'CUSTOMER'],
+      },
     },
     MAP_VIEW: {
       path: '/admin/map-view',

@@ -50,7 +50,9 @@ export function SignInForm() {
         password: data.password,
       });
       if (!result?.ok) {
-        throw new Error(result?.error || API_MESSAGES.AUTH.LOGIN_FAILED);
+        return Promise.reject({
+          message: API_MESSAGES.AUTH.LOGIN_FAILED,
+        });
       }
       return result;
     },

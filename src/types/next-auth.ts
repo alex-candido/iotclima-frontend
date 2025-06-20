@@ -21,7 +21,8 @@ declare module "next-auth" {
       id?: string | number;
       email?: string;
       username?: string;
-      groupNames?: UserGroup[];
+      groupNames?: UserGroup[] | string[];
+      avatar?: string | null;
     } & DefaultSession["user"];
   }
 
@@ -32,6 +33,7 @@ declare module "next-auth" {
     email?: string;
     username?: string;
     groupNames?: UserGroup[];
+    avatar?: string | null;
   }
 }
 
@@ -45,6 +47,7 @@ declare module "next-auth/jwt" {
       email?: string;
       username?: string;
       groupNames?: UserGroup[];
+      avatar?: string | null;
     };
   }
 }

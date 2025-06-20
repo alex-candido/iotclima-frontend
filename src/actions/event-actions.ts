@@ -3,7 +3,7 @@
 import { API_CONTENT_TYPE } from '@/config/api';
 import { API_ENDPOINTS } from '@/constants/api-endpoints';
 import api from '@/lib/api';
-import { Event, EventListResponse } from '@/types/event';
+import { AppEventListResponse } from '@/types/app-event';
 
 export type EventInput = {
   title: string;
@@ -24,8 +24,8 @@ export async function getEvents(params?: {
   page?: number;
   page_size?: number;
   [key: string]: unknown;
-}): Promise<EventListResponse> {
-  const response = await api.get<EventListResponse>(API_ENDPOINTS.EVENTS.LIST, { params });
+}): Promise<AppEventListResponse> {
+  const response = await api.get<AppEventListResponse>(API_ENDPOINTS.EVENTS.LIST, { params });
   return response.data;
 }
 

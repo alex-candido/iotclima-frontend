@@ -54,7 +54,9 @@ export function SignUpForm() {
       });
 
       if (!result) {
-        throw new Error(API_MESSAGES.AUTH.REGISTER_FAILED);
+        return Promise.reject({
+          message: API_MESSAGES.AUTH.REGISTER_FAILED,
+        });
       }
 
       return result;

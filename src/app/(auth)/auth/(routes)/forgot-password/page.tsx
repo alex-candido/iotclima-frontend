@@ -2,7 +2,13 @@
 
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ArrowLeft, Cloud } from "lucide-react";
 import { useState } from "react";
 
@@ -11,7 +17,6 @@ import { ForgotPasswordSuccessMessage } from "@/components/auth/forgot-password-
 
 import { AuthFooter } from "@/components/auth/auth-footer";
 import { AuthHero } from "@/components/auth/auth-hero";
-import { AuthLayout } from "@/components/auth/auth-layout";
 import { APP_TEXT } from "@/data/ui-content";
 import Link from "next/link";
 
@@ -30,7 +35,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <AuthLayout>
+    <>
       <AuthHero>
         <Cloud className="h-8 w-8 text-primary" />
         <h1 className="text-2xl font-bold">{APP_TEXT.GLOBAL.APP_NAME}</h1>
@@ -66,6 +71,6 @@ export default function ForgotPasswordPage() {
           </Link>
         </AuthFooter>
       </Card>
-    </AuthLayout>
+    </>
   );
 }

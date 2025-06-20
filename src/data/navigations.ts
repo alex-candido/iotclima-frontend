@@ -1,29 +1,30 @@
+import { APP_ROUTES } from './routes';
 import { APP_TEXT } from './ui-content';
+
 
 interface NavLink {
   href: string;
   label: string;
-  icon?: React.ElementType;
+  icon?: string;
   isExternal?: boolean;
   authRequired?: boolean;
   roles?: string[];
 }
 
 export const ADMIN_SIDEBAR_LINKS: NavLink[] = [
-  { href: "/admin/dashboard", label: APP_TEXT.ADMIN_LAYOUT.DASHBOARD_LINK },
-  { href: "/admin/users", label: APP_TEXT.ADMIN_LAYOUT.USERS_LINK, roles: ['ADMIN', 'MANAGER'] },
-  { href: "/admin/places", label: APP_TEXT.ADMIN_LAYOUT.PLACES_LINK },
-  { href: "/admin/stations", label: APP_TEXT.ADMIN_LAYOUT.STATIONS_LINK },
-  { href: "/admin/sensors", label: APP_TEXT.ADMIN_LAYOUT.SENSORS_LINK },
-  { href: "/admin/records", label: APP_TEXT.ADMIN_LAYOUT.RECORDS_LINK },
-  { href: "/admin/events", label: APP_TEXT.ADMIN_LAYOUT.EVENTS_LINK },
-  { href: "/admin/logs", label: APP_TEXT.ADMIN_LAYOUT.LOGS_LINK, roles: ['ADMIN', 'VIEWER'] },
-  { href: "/admin/map-view", label: APP_TEXT.ADMIN_LAYOUT.MAP_VIEW_LINK },
-  { href: "/admin/account", label: APP_TEXT.ADMIN_LAYOUT.ACCOUNT_LINK, authRequired: true },
-  { href: "/admin/settings", label: APP_TEXT.ADMIN_LAYOUT.SETTINGS_LINK, roles: ['ADMIN'] },
+  { href: APP_ROUTES.ADMIN.DASHBOARD.path, label: APP_TEXT.ADMIN_LAYOUT.DASHBOARD_LINK, icon: APP_ROUTES.ADMIN.DASHBOARD.icon, roles: APP_ROUTES.ADMIN.DASHBOARD.roles },
+  { href: APP_ROUTES.ADMIN.MAP_VIEW.path, label: APP_TEXT.ADMIN_LAYOUT.MAP_VIEW_LINK, icon: APP_ROUTES.ADMIN.MAP_VIEW.icon, roles: APP_ROUTES.ADMIN.MAP_VIEW.roles },
+  { href: APP_ROUTES.ADMIN.PLACES.LIST, label: APP_TEXT.ADMIN_LAYOUT.PLACES_LINK, icon: APP_ROUTES.ADMIN.PLACES.icon, roles: APP_ROUTES.ADMIN.PLACES.roles },
+  { href: APP_ROUTES.ADMIN.STATIONS.LIST, label: APP_TEXT.ADMIN_LAYOUT.STATIONS_LINK, icon: APP_ROUTES.ADMIN.STATIONS.icon, roles: APP_ROUTES.ADMIN.STATIONS.roles },
+  { href: APP_ROUTES.ADMIN.SENSORS.LIST, label: APP_TEXT.ADMIN_LAYOUT.SENSORS_LINK, icon: APP_ROUTES.ADMIN.SENSORS.icon, roles: APP_ROUTES.ADMIN.SENSORS.roles },
+  { href: APP_ROUTES.ADMIN.RECORDS.LIST, label: APP_TEXT.ADMIN_LAYOUT.RECORDS_LINK, icon: APP_ROUTES.ADMIN.RECORDS.icon, roles: APP_ROUTES.ADMIN.RECORDS.roles },
+  { href: APP_ROUTES.ADMIN.EVENTS.LIST, label: APP_TEXT.ADMIN_LAYOUT.EVENTS_LINK, icon: APP_ROUTES.ADMIN.EVENTS.icon, roles: APP_ROUTES.ADMIN.EVENTS.roles },
+  { href: APP_ROUTES.ADMIN.LOGS.LIST, label: APP_TEXT.ADMIN_LAYOUT.LOGS_LINK, icon: APP_ROUTES.ADMIN.LOGS.icon, roles: APP_ROUTES.ADMIN.LOGS.roles },
+  { href: APP_ROUTES.ADMIN.USERS.LIST, label: APP_TEXT.ADMIN_LAYOUT.USERS_LINK, icon: APP_ROUTES.ADMIN.USERS.icon, roles: APP_ROUTES.ADMIN.USERS.roles },
+  { href: APP_ROUTES.ADMIN.SETTINGS.path, label: APP_TEXT.ADMIN_LAYOUT.SETTINGS_LINK, icon: APP_ROUTES.ADMIN.SETTINGS.icon, roles: APP_ROUTES.ADMIN.SETTINGS.roles },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: APP_TEXT.COMMON_UI.ABOUT_US_LINK },
+  { href: "/contact", label: APP_TEXT.COMMON_UI.CONTACT_LINK },
 ];

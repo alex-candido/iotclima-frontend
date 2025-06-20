@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 
 import { createEvent, deleteEvent, EventInput, getEventById, getEvents, partialUpdateEvent, updateEvent } from '@/actions/event-actions';
 import { API_MESSAGES } from '@/data/messages';
-import { Event, EventListResponse } from '@/types/event';
+import { AppEventListResponse } from '@/types/app-event';
 
 
 export const EVENT_QUERY_KEYS = {
@@ -18,14 +18,14 @@ export function useEvents(params?: {
   page_size?: number;
   [key: string]: unknown;
 }) {
-  const query = useQuery<EventListResponse, Error>({
+  const query = useQuery<AppEventListResponse, Error>({
     queryKey: [EVENT_QUERY_KEYS.LIST, params],
     queryFn: () => getEvents(params),
     onError: (error: Error) => {
       console.error('Error fetching events:', error);
       toast.error(API_MESSAGES.EVENT.FETCH_ERROR);
     },
-  } as UseQueryOptions<EventListResponse, Error>);
+  } as UseQueryOptions<AppEventListResponse, Error>);
   return query;
 }
 

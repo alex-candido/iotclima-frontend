@@ -1,33 +1,33 @@
-// src/types/event.d.ts
+// src/types/app-event.d.ts
 
-export enum EventType {
+export enum AppEventType {
   ALERT = 1,
   WARNING = 2,
   INFO = 3,
   ERROR = 4,
 }
 
-export enum EventCategory {
+export enum AppEventCategory {
   WEATHER = 1,
   SENSOR = 2,
   SYSTEM = 3,
   MAINTENANCE = 4,
 }
 
-export enum EventSeverity {
+export enum AppEventSeverity {
   LOW = 1,
   MEDIUM = 2,
   HIGH = 3,
   CRITICAL = 4,
 }
 
-export enum EventStatus {
+export enum AppEventStatus {
   OPEN = 1,
   ACKNOWLEDGED = 2,
   RESOLVED = 3,
 }
 
-export type Event = {
+export type AppEvent = {
   id: number;
   uuid: string;
   title: string;
@@ -35,13 +35,13 @@ export type Event = {
   occurred_at: string;
   resolved_at: string | null;
 
-  type: EventType;
+  type: AppEventType;
   type_display: string;
-  category: EventCategory;
+  category: AppEventCategory;
   category_display: string;
-  severity: EventSeverity;
+  severity: AppEventSeverity;
   severity_display: string;
-  status: EventStatus;
+  status: AppEventStatus;
   status_display: string;
 
   user: number | null;
@@ -57,9 +57,9 @@ export type Event = {
   updated_at: string;
 };
 
-export type EventListResponse = {
+export type AppEventListResponse = {
   count: number;
   next: string | null;
   previous: string | null;
-  results: Event[];
+  results: AppEvent[];
 };
