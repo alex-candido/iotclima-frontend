@@ -1,3 +1,3 @@
 export default function Page() {
-  return <h1>My Page</h1>;
+  return <div className="space-y-6">My Page</div>;
 }

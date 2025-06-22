@@ -2,7 +2,7 @@
 
 import { Cloud } from "lucide-react";
 
-import { SignInForm } from "@/components/auth/sign-in-form";
+import { SignInForm } from "@/components/pages/auth/sign-in-form";
 import {
   Card,
   CardContent,
@@ -11,8 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { AuthFooter } from "@/components/auth/auth-footer";
-import { AuthHero } from "@/components/auth/auth-hero";
+import { AuthFooter } from "@/components/pages/auth/auth-footer";
+import { AuthHero } from "@/components/pages/auth/auth-hero";
 import { APP_TEXT } from "@/data/ui-content";
 import Link from "next/link";
 

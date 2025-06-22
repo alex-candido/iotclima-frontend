@@ -10,66 +10,30 @@ import { UsersHeaderSection } from "@/components/pages/admin/users/users-header-
 import { UsersListSection } from "@/components/pages/admin/users/users-list-section";
 import { UsersStatsSection } from "@/components/pages/admin/users/users-stats-section";
 
-import { Button } from "@/components/ui/button";
-import { APP_ROUTES } from "@/data/routes";
 import { APP_TEXT } from "@/data/ui-content";
-import { UserGroupEnum } from "@/schemas/user-schema";
-import { AlertTriangle, Loader2, Plus } from "lucide-react";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
+import { UserRoleEnum } from "@/schemas/user-schema";
+import { AlertTriangle, Loader2 } from "lucide-react";
 
 export default function UsersPage() {
-  const { data: session } = useSession();
-  const userGroups = session?.user?.groupNames || [];
-
-  const requiredRolesForNewUser = APP_ROUTES.ADMIN.USERS.roles || [];
-
-  const canCreateUser = userGroups.some((group) =>
-    requiredRolesForNewUser.includes(group),
-  );
-
-  console.log("User groups:", canCreateUser);
-
   const [filterParams, setFilterParams] = useState<UserFilterFormData>({
     page: 1,
     page_size: 10,
-    search_term: "",
-    group_name: "all",
+    searchTerm: "",
+    role: "all",
   });
-
-  const apiQueryParams: { [key: string]: unknown } = {
-    page: filterParams.page,
-    page_size: filterParams.page_size,
-  };
-
-  if (filterParams.search_term) {
-    apiQueryParams.search_term = filterParams.search_term;
-  }
-
-  if (filterParams.group_name && filterParams.group_name !== "all") {
-    apiQueryParams.group_name = filterParams.group_name;
-  }
 
   const {
     data: usersData,
     isLoading,
     error: listError,
-  } = useUsers(apiQueryParams);
-
-  const {
-    data: usersCountData,
-    isLoading: isLoadingUsersCount,
-    error: usersError,
-  } = useUsers({
-    customQueryKey: ["adminCountData"],
-  });
+  } = useUsers(filterParams);
 
   const {
     data: adminCountData,
     isLoading: isLoadingAdminCount,
     error: adminError,
   } = useUsers({
-    group_name: UserGroupEnum.Enum.ADMIN,
+    group_name: UserRoleEnum.Enum.ADMIN,
     count_only: true,
     customQueryKey: ["adminCountData"],
   });
@@ -79,7 +43,7 @@ export default function UsersPage() {
     isLoading: isLoadingOperatorCount,
     error: operatorError,
   } = useUsers({
-    group_name: UserGroupEnum.Enum.OPERATOR,
+    group_name: UserRoleEnum.Enum.OPERATOR,
     count_only: true,
     customQueryKey: ["operatorCountData"],
   });
@@ -89,14 +53,14 @@ export default function UsersPage() {
     isLoading: isLoadingViewerCount,
     error: viewerError,
   } = useUsers({
-    group_name: UserGroupEnum.Enum.VIEWER,
+    group_name: UserRoleEnum.Enum.VIEWER,
     count_only: true,
     customQueryKey: ["viewerCountData"],
   });
 
   const users = usersData?.results || [];
+  const totalUsers = usersData?.count || 0;
 
-  const usersCount = usersCountData?.total_count || 0;
   const adminUsersCount = adminCountData?.count || 0;
   const operatorUsersCount = operatorCountData?.count || 0;
   const viewerUsersCount = viewerCountData?.count || 0;
@@ -117,11 +81,11 @@ export default function UsersPage() {
   };
 
   const overallLoading =
-    isLoadingUsersCount ||
+    isLoading ||
     isLoadingAdminCount ||
     isLoadingOperatorCount ||
     isLoadingViewerCount;
-  const overallError = usersError || adminError || operatorError || viewerError;
+  const overallError = listError || adminError || operatorError || viewerError;
 
   if (overallLoading) {
     return (
@@ -146,28 +110,10 @@ export default function UsersPage() {
 
   return (
     <div className="space-y-6">
-      <UsersHeaderSection>
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            {APP_TEXT.ADMIN_LAYOUT.USERS_LINK}
-          </h1>
-          <p className="text-muted-foreground">
-            {APP_TEXT.ADMIN_LAYOUT.USERS_DESCRIPTION ||
-              "Gerencie os usuários do sistema"}
-          </p>
-        </div>
-        {canCreateUser && (
-          <Button asChild className="flex items-center gap-2">
-            <Link href={APP_ROUTES.ADMIN.USERS.NEW}>
-              <Plus className="h-4 w-4" />
-              {APP_TEXT.ADMIN_LAYOUT.NEW_USER_BUTTON || "Novo Usuário"}
-            </Link>
-          </Button>
-        )}
-      </UsersHeaderSection>
+      <UsersHeaderSection />
 
       <UsersStatsSection
-        totalUsers={usersCount}
+        totalUsers={totalUsers}
         adminUsers={adminUsersCount}
         operatorUsers={operatorUsersCount}
         viewerUsers={viewerUsersCount}
@@ -178,7 +124,6 @@ export default function UsersPage() {
         filterParams={filterParams}
         onFilterChange={handleFilterChange}
         onPageChange={handlePageChange}
-        isLoading={isLoading}
         pagination={{
           count: usersData?.count || 0,
           next: usersData?.next ?? null,

@@ -18,6 +18,7 @@ export type User = {
 };
 
 export type UserListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;

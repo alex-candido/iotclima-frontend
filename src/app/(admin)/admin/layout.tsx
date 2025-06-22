@@ -1,6 +1,5 @@
 // src/app/(admin)/admin/Layout.tsx
 
-import { NotificationsDropdown } from "@/components/base/notifications-dropdown";
 import { ProfileDropdown } from "@/components/base/profile-dropdown";
 import { Search } from "@/components/base/search";
 import { ThemeSwitch } from "@/components/base/theme-switch";
@@ -20,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Search />
             <div className="ml-auto flex items-center gap-4">
               <ThemeSwitch />
-              <NotificationsDropdown />
+              {/* <NotificationsDropdown /> */}
               <ProfileDropdown variant="header" />
             </div>
           </Header>

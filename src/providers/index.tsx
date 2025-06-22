@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { NextAuthProvider } from "@/providers/next-auth-provider";
 import { ReactQueryProvider } from "@/providers/react-query-provider";
+import { ReduxProvider } from "@/providers/redux-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 export function Providers({
@@ -16,18 +17,20 @@ export function Providers({
   children: ReactNode;
 }>) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
+    <ReduxProvider>
       <ReactQueryProvider>
-        <NextAuthProvider session={session}>
-          {children}
-          <Toaster />
-        </NextAuthProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextAuthProvider session={session}>
+            {children}
+            <Toaster />
+          </NextAuthProvider>
+        </ThemeProvider>
       </ReactQueryProvider>
-    </ThemeProvider>
+    </ReduxProvider>
   );
 }
