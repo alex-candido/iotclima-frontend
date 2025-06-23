@@ -32,6 +32,7 @@ interface DataTableProps<TData, TValue> {
   canNextPage?: boolean;
   onPageChange?: (updater: number | ((old: number) => number)) => void;
   isLoading?: boolean;
+  noPagination?: boolean;
 }
 
 export function DataTable<TData, TValue>({
@@ -44,6 +45,7 @@ export function DataTable<TData, TValue>({
   canNextPage = false,
   onPageChange,
   isLoading = false,
+  noPagination = false,
 }: DataTableProps<TData, TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
@@ -115,7 +117,7 @@ export function DataTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
-      {pageCount > 1 && (
+      {!noPagination && pageCount > 1 && (
         <div className="flex items-center justify-end px-2 py-4 border-t">
           <Button
             variant="outline"

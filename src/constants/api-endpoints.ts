@@ -12,13 +12,12 @@ export const API_ENDPOINTS = {
     LOGOUT: '/auth/logout/',
     TOKEN_REFRESH: '/auth/token/refresh/',
     TOKEN_VERIFY: '/auth/token/verify/',
-    // Endpoints de verificação de e-mail (se usados por actions)
     VERIFY_EMAIL: '/auth/registration/verify-email/',
     RESEND_VERIFY_EMAIL: '/auth/registration/resend-email/',
   },
   USERS: {
     LIST: '/users/',
-    DETAIL: (id: number) => `/users/${id}/`,
+    DETAIL: (id: number | string) => `/users/${id}/`,
     CREATE: '/users/',
     UPDATE: (id: number) => `/users/${id}/`, // PUT
     PARTIAL_UPDATE: (id: number) => `/users/${id}/`, // PATCH

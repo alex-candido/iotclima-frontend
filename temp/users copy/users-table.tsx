@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/table";
 
 import { APP_TEXT } from "@/data/ui-content";
-import { getUserRoleColor, getUserRoleLabel } from "@/lib/user-helpers";
-import { UserFilterFormData, UserRoleData } from "@/schemas/user-schema";
+import { getUserGroupColor, getUserGroupLabel } from "@/lib/user-helpers";
+import { UserFilterFormData, UserGroupData } from "@/schemas/user-schema";
 import { User } from "@/types/user";
 
 import { UserRowActions } from "./user-row-actions";
@@ -62,7 +62,7 @@ export function UsersTable({
               {APP_TEXT.USERS_PAGE.TABLE_HEADER_EMAIL || "Email"}
             </TableHead>
             <TableHead>
-              {APP_TEXT.USERS_PAGE.TABLE_HEADER_ROLE || "Função"}
+              {APP_TEXT.USERS_PAGE.TABLE_HEADER_GROUP || "Função"}
             </TableHead>
             <TableHead>
               {APP_TEXT.USERS_PAGE.TABLE_HEADER_CREATED_AT || "Criado em"}
@@ -103,11 +103,11 @@ export function UsersTable({
                 </TableCell>
                 <TableCell>
                   <Badge
-                    variant={getUserRoleColor(
-                      user.group_names[0] as UserRoleData,
+                    variant={getUserGroupColor(
+                      user.group_names[0] as UserGroupData,
                     )}
                   >
-                    {getUserRoleLabel(user.group_names[0] as UserRoleData)}
+                    {getUserGroupLabel(user.group_names[0] as UserGroupData)}
                   </Badge>
                 </TableCell>
                 <TableCell>

@@ -47,7 +47,7 @@ export function useUsers(params?: {
   return query;
 }
 
-export function useUser(id: number) {
+export function useUser(id: number | string) {
   const query = useQuery<User, Error>({
     queryKey: [USER_QUERY_KEYS.DETAIL, id],
     queryFn: () => getUserById(id),
@@ -116,7 +116,7 @@ export function useDeleteUser() {
     mutationFn: deleteUser,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [USER_QUERY_KEYS.LIST] });
-      toast.success(API_MESSAGES.COMMON.DELETE_SUCCESS);
+      // toast.success(API_MESSAGES.COMMON.DELETE_SUCCESS);
     },
     onError: (error) => {
       console.error('Error deleting user:', error);
