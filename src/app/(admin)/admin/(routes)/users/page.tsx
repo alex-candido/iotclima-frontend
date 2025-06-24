@@ -10,13 +10,11 @@ import { UsersHeaderSection } from "@/components/pages/admin/users/users-header-
 import { UsersListSection } from "@/components/pages/admin/users/users-list-section";
 import { UsersStatsSection } from "@/components/pages/admin/users/users-stats-section";
 
-import { Button } from "@/components/ui/button";
 import { APP_ROUTES } from "@/data/routes";
 import { APP_TEXT } from "@/data/ui-content";
 import { UserGroupEnum } from "@/schemas/user-schema";
-import { AlertTriangle, Loader2, Plus } from "lucide-react";
+import { AlertTriangle, Loader2 } from "lucide-react";
 import { useSession } from "next-auth/react";
-import Link from "next/link";
 
 export default function UsersPage() {
   const { data: session } = useSession();
@@ -27,8 +25,6 @@ export default function UsersPage() {
   const canCreateUser = userGroups.some((group) =>
     requiredRolesForNewUser.includes(group),
   );
-
-  console.log("User groups:", canCreateUser);
 
   const [filterParams, setFilterParams] = useState<UserFilterFormData>({
     page: 1,
@@ -146,25 +142,7 @@ export default function UsersPage() {
 
   return (
     <div className="space-y-6">
-      <UsersHeaderSection>
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            {APP_TEXT.ADMIN_LAYOUT.USERS_LINK}
-          </h1>
-          <p className="text-muted-foreground">
-            {APP_TEXT.ADMIN_LAYOUT.USERS_DESCRIPTION ||
-              "Gerencie os usuários do sistema"}
-          </p>
-        </div>
-        {canCreateUser && (
-          <Button asChild className="flex items-center gap-2">
-            <Link href={APP_ROUTES.ADMIN.USERS.NEW}>
-              <Plus className="h-4 w-4" />
-              {APP_TEXT.ADMIN_LAYOUT.NEW_USER_BUTTON || "Novo Usuário"}
-            </Link>
-          </Button>
-        )}
-      </UsersHeaderSection>
+      <UsersHeaderSection />
 
       <UsersStatsSection
         totalUsers={usersCount}

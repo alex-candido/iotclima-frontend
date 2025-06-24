@@ -7,6 +7,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+import { Button } from "@/components/ui/button";
+import { APP_ROUTES } from "@/data/routes";
+import { APP_TEXT } from "@/data/ui-content";
+import { UserGroup } from "@/types/next-auth";
+import { User } from "@/types/user";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,20 +24,17 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 
-import { APP_ROUTES } from "@/data/routes";
-import { APP_TEXT } from "@/data/ui-content";
-import { useDeleteUser } from "@/hooks/use-users";
-import { UserGroup } from "@/types/next-auth";
-import { User } from "@/types/user";
+import { useDeleteUser } from "@/hooks/use-users"; // Importar hook de exclusão
 
 interface UserDetailHeaderSectionProps {
-  userId: number;
+  isLoading: boolean;
+  userId: number | string;
   user: User;
 }
 
 export function UserDetailHeaderSection({
+  isLoading,
   userId,
   user,
 }: UserDetailHeaderSectionProps) {
@@ -50,43 +53,65 @@ export function UserDetailHeaderSection({
   );
 
   const handleDelete = async () => {
+    if (!user || !user.id) {
+      toast.error(
+        APP_TEXT.COMMON_UI.DELETE_ERROR_MESSAGE ||
+          "ID do usuário não encontrado para exclusão.",
+      );
+      return;
+    }
     try {
-      deleteUserMutation(userId);
+      deleteUserMutation(user.id);
       toast.info(
         APP_TEXT.COMMON_UI.DELETING_LOADING_MESSAGE || "Excluindo usuário...",
       );
+      router.push(APP_ROUTES.ADMIN.USERS.LIST);
     } catch (error: any) {
-      console.error(
-        "Erro ao tentar deletar usuário (acionado no componente):",
-        error,
+      console.error("Erro ao tentar deletar usuário:", error);
+      toast.error(
+        error.message ||
+          APP_TEXT.COMMON_UI.DELETE_ERROR_MESSAGE ||
+          "Erro ao excluir usuário.",
       );
     }
   };
 
   return (
     <div className="flex items-center gap-4">
-      <Button variant="ghost" size="icon" onClick={() => router.back()}>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => router.back()}
+        disabled={isLoading || isDeletingUser}
+      >
         <ArrowLeft className="h-4 w-4" />
       </Button>
       <div className="flex-1">
-        <h1 className="text-3xl font-bold tracking-tight">{user.username}</h1>
+        <h1 className="text-3xl font-bold tracking-tight">
+          {APP_TEXT.USERS_PAGE.DETAIL_TITLE || "Detalhes do Usuário"}
+          <span className="text-muted-foreground ml-2">({user.username})</span>
+        </h1>
         <p className="text-muted-foreground">
-          {APP_TEXT.USERS_PAGE.DETAIL_DESCRIPTION || "Detalhes do usuário"}
+          {APP_TEXT.USERS_PAGE.DETAIL_DESCRIPTION ||
+            "Informações detalhadas do perfil do usuário."}
         </p>
       </div>
       <div className="flex gap-2">
         {canEdit && (
-          <Button variant="outline" asChild>
-            <Link href={APP_ROUTES.ADMIN.USERS.EDIT(userId)}>
+          <Link href={APP_ROUTES.ADMIN.USERS.EDIT(userId)} passHref>
+            <Button variant="outline" disabled={isLoading || isDeletingUser}>
               <Edit className="h-4 w-4 mr-2" />
               {APP_TEXT.COMMON_UI.EDIT_BUTTON || "Editar"}
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         )}
         {canDelete && (
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button variant="destructive" disabled={isDeletingUser}>
+              <Button
+                variant="destructive"
+                disabled={isLoading || isDeletingUser}
+              >
                 {isDeletingUser ? (
                   <Loader2 className="h-4 w-4 animate-spin mr-2" />
                 ) : (
@@ -108,13 +133,13 @@ export function UserDetailHeaderSection({
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel disabled={isDeletingUser}>
+                <AlertDialogCancel disabled={isLoading || isDeletingUser}>
                   {APP_TEXT.COMMON_UI.CANCEL_BUTTON || "Cancelar"}
                 </AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleDelete}
                   className="bg-red-500 hover:bg-red-600"
-                  disabled={isDeletingUser}
+                  disabled={isLoading || isDeletingUser}
                 >
                   {APP_TEXT.COMMON_UI.DELETE_BUTTON || "Deletar"}
                 </AlertDialogAction>

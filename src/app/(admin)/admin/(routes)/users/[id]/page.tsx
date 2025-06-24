@@ -43,7 +43,11 @@ export default function UserDetailPage() {
 
   return (
     <div className="space-y-6">
-      <UserDetailHeaderSection userId={userData.id} user={userData} />
+      <UserDetailHeaderSection
+        userId={userData.uuid}
+        user={userData}
+        isLoading={isLoading}
+      />
 
       <div className="flex flex-col gap-6">
         <div className="">

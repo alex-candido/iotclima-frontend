@@ -7,7 +7,7 @@ import { Place, PlaceListResponse } from '@/types/place';
 
 export type PlaceInput = {
   name: string;
-  description?: string;
+  description?: string | null;
   address: string;
   city: string;
   state: string;
@@ -16,8 +16,8 @@ export type PlaceInput = {
   latitude: number;
   longitude: number;
 
-  status?: number;
-  type?: number;
+  status?: number | string;
+  type?: number | string;
 
   user?: number | null;
 };
@@ -38,12 +38,12 @@ export async function createPlace(data: PlaceInput): Promise<Place> {
   return response.data;
 }
 
-export async function getPlaceById(id: number): Promise<Place> {
+export async function getPlaceById(id: number | string): Promise<Place> {
   const response = await api.get<Place>(API_ENDPOINTS.PLACES.DETAIL(id));
   return response.data;
 }
 
-export async function updatePlace(id: number, data: PlaceInput): Promise<Place> {
+export async function updatePlace(id: number | string, data: Partial<PlaceInput>): Promise<Place> {
   const response = await api.put<Place>(API_ENDPOINTS.PLACES.UPDATE(id), data, {
     headers: { 'Content-Type': API_CONTENT_TYPE },
   });
