@@ -32,7 +32,7 @@ export async function createUser(data: UserInput): Promise<User> {
   return response.data;
 }
 
-export async function getUserById(id: number): Promise<User> {
+export async function getUserById(id: number | string): Promise<User> {
   const response = await api.get<User>(API_ENDPOINTS.USERS.DETAIL(id));
   return response.data;
 }

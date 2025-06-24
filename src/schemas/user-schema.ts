@@ -2,10 +2,7 @@
 
 import { z } from "zod";
 
-// Definições para os diferentes roles (funções) de usuário que podem vir da API.
-// Usar um enum Zod para garantir que os roles sejam válidos.
-// Estas strings devem corresponder aos `group_names` retornados pela API do backend.
-export const UserRoleEnum = z.enum([
+export const UserGroupEnum = z.enum([
   "ADMIN",
   "CUSTOMER",
   "EMPLOYEE",
@@ -15,7 +12,6 @@ export const UserRoleEnum = z.enum([
   "VIEWER",
 ]);
 
-// Esquema base para os dados de entrada do usuário (comum para criação e edição)
 export const baseUserSchema = z.object({
   username: z.string()
     .min(3, { message: "O nome de usuário deve ter pelo menos 3 caracteres." })
@@ -43,12 +39,12 @@ export const updateUserSchema = baseUserSchema.extend({
     .min(8, { message: "A senha deve ter pelo menos 8 caracteres." })
     .max(128, { message: "A senha não pode exceder 128 caracteres." })
     .optional(),
-  roles: z.array(UserRoleEnum).optional(),
+  groups: z.array(UserGroupEnum).optional(),
 });
 
 export const userFilterSchema = z.object({
-  searchTerm: z.string().optional(),
-  role: z.union([UserRoleEnum, z.literal("all")]).optional().default("all"),
+  search_term: z.string().optional(),
+  group_name: z.union([UserGroupEnum, z.literal("all")]).optional().default("all"),
   is_active: z.boolean().optional(),
   page: z.number().int().min(1).optional().default(1),
   page_size: z.number().int().min(1).max(100).optional().default(10),
@@ -57,3 +53,4 @@ export const userFilterSchema = z.object({
 export type CreateUserFormData = z.infer<typeof createUserSchema>;
 export type UpdateUserFormData = z.infer<typeof updateUserSchema>;
 export type UserFilterFormData = z.infer<typeof userFilterSchema>;
+export type UserGroupData = z.infer<typeof UserGroupEnum>;

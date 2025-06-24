@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { API_BASE_URL, API_CONTENT_TYPE, API_TIMEOUT } from '@/config/api';
+import { API_BASE_URL, API_CONTENT_TYPE } from '@/config/api';
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
 // REMOVIDO: import { signOut } from 'next-auth/react';
@@ -13,7 +13,6 @@ import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'ax
  */
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: API_TIMEOUT,
   headers: {
     'Content-Type': API_CONTENT_TYPE,
   },

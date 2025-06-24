@@ -52,7 +52,7 @@
   "editor.parameterHints.enabled": false,
   "editor.renderLineHighlight": "gutter",
   "cSpell.language": "en,pt",
-  "editor.lineHeight": 26,
+  "editor.lineHeight": 22,
   "material-icon-theme.languages.associations": {
     "dotenv": "tune"
   },
