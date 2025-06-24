@@ -35,10 +35,10 @@ export default function PlacesPage() {
     apiQueryParams.search_term = filterParams.search_term;
   }
   if (filterParams.status && filterParams.status !== "all") {
-    apiQueryParams.status = parseInt(filterParams.status);
+    apiQueryParams.status = filterParams.status;
   }
   if (filterParams.type && filterParams.type !== "all") {
-    apiQueryParams.type = parseInt(filterParams.type);
+    apiQueryParams.type = filterParams.type;
   }
   if (filterParams.city) {
     apiQueryParams.city = filterParams.city;

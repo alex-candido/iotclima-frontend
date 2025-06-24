@@ -18,12 +18,6 @@ import {
 import { EditUserFormSection } from "@/components/pages/admin/users/edit-user-form-section";
 import { EditUserHeaderSection } from "@/components/pages/admin/users/edit-user-header-section";
 
-interface EditUserPageProps {
-  params: {
-    id: string;
-  };
-}
-
 export default function EditUserPage() {
   const router = useRouter();
   const { id } = useParams<{ id: string }>();

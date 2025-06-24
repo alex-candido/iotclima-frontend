@@ -3,10 +3,8 @@
 import { PlaceStatus, PlaceType } from '@/types/place';
 import { z } from "zod";
 
-export const PlaceStatusEnum = z.enum([
-  PlaceStatus.ACTIVE.toString(),
-  PlaceStatus.INACTIVE.toString(),
-]);
+export const PlaceStatusEnum = z.nativeEnum(PlaceStatus);
+export const PlaceTypeEnum = z.nativeEnum(PlaceType);
 
 export const getPlaceStatusLabel = (status: PlaceStatus | "all"): string => {
   if (status === "all") return "Todas";
@@ -16,14 +14,6 @@ export const getPlaceStatusLabel = (status: PlaceStatus | "all"): string => {
     default: return String(status);
   }
 };
-
-export const PlaceTypeEnum = z.enum([
-  PlaceType.FARM.toString(),
-  PlaceType.CAMPUS.toString(),
-  PlaceType.CITY.toString(),
-  PlaceType.RESERVE.toString(),
-  PlaceType.OTHER.toString(),
-]);
 
 export const getPlaceTypeLabel = (type: PlaceType | "all"): string => {
   if (type === "all") return "Todos";
@@ -50,7 +40,7 @@ export const placePropertiesSchema = z.object({
   name: z.string()
     .min(3, { message: "O nome do local deve ter pelo menos 3 caracteres." })
     .max(100, { message: "O nome do local não pode exceder 100 caracteres." }),
-  description: z.string().max(500, { message: "A descrição não pode exceder 500 caracteres." }).optional().nullable(),
+  description: z.string().max(500).optional().nullable(),
   address: z.string()
     .min(5, { message: "O endereço deve ter pelo menos 5 caracteres." })
     .max(200, { message: "O endereço não pode exceder 200 caracteres." }),
@@ -89,7 +79,7 @@ export const createPlaceSchema = z.object({
   name: z.string()
     .min(3, { message: "O nome do local deve ter pelo menos 3 caracteres." })
     .max(100, { message: "O nome do local não pode exceder 100 caracteres." }),
-  description: z.string().max(500, { message: "A descrição não pode exceder 500 caracteres." }).optional().nullable(),
+  description: z.string().max(500).optional().nullable(),
   address: z.string()
     .min(5, { message: "O endereço deve ter pelo menos 5 caracteres." })
     .max(200, { message: "O endereço não pode exceder 200 caracteres." }),
@@ -134,8 +124,8 @@ export const placeFilterSchema = z.object({
   city: z.string().optional(),
   state: z.string().optional(),
   country: z.string().optional(),
-  status: z.union([PlaceStatusEnum, z.literal("all")]).optional().default("all"),
-  type: z.union([PlaceTypeEnum, z.literal("all")]).optional().default("all"),
+  status: z.union([z.nativeEnum(PlaceStatus), z.literal("all")]).optional().default("all"),
+  type: z.union([z.nativeEnum(PlaceType), z.literal("all")]).optional().default("all"),
   page: z.number().int().min(1).optional().default(1),
   page_size: z.number().int().min(1).max(100).optional().default(10),
 });
@@ -143,7 +133,6 @@ export const placeFilterSchema = z.object({
 export type CreatePlaceFormData = z.infer<typeof createPlaceSchema>;
 export type UpdatePlaceFormData = z.infer<typeof updatePlaceSchema>;
 export type PlaceFilterFormData = z.infer<typeof placeFilterSchema>;
-
 
 export type PlaceStatusData = z.infer<typeof PlaceStatusEnum>;
 export type PlaceTypeData = z.infer<typeof PlaceTypeEnum>;

@@ -7,7 +7,7 @@ import { Place, PlaceListResponse } from '@/types/place';
 
 export type PlaceInput = {
   name: string;
-  description?: string;
+  description?: string | null;
   address: string;
   city: string;
   state: string;
@@ -16,8 +16,8 @@ export type PlaceInput = {
   latitude: number;
   longitude: number;
 
-  status?: number;
-  type?: number;
+  status?: number | string;
+  type?: number | string;
 
   user?: number | null;
 };
