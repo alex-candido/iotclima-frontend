@@ -1,5 +1,3 @@
-// src/types/place.d.ts
-
 export enum PlaceStatus {
   ACTIVE = 1,
   INACTIVE = 0,
@@ -25,33 +23,41 @@ export type GeoPoint = {
 
 export type Place = {
   id: number;
-  uuid: string;
-  name: string;
-  description: string;
-  address: string;
-  city: string;
-  state: string;
-  country: string;
-  
-  status: PlaceStatus;
-  status_display: string;
+  type: "Feature";
+  geometry: GeoPoint;
+  properties: {
+    uuid: string;
+    name: string;
+    description: string;
+    address: string;
+    city: string;
+    state: string;
+    country: string;
 
-  type: PlaceType;
-  type_display: string;
+    status_display: string;
+    type_display: string;
 
-  user: number | null;
-  user_username: string | null;
-  user_email: string | null;
+    user: number | null;
+    user_username: string | null;
+    user_email: string | null;
 
-  created_at: string;
-  updated_at: string;
+    created_at: string;
+    updated_at: string;
 
-  location: GeoPoint;
+    status?: PlaceStatus;
+    type?: PlaceType;
+  };
+};
+
+export type FeatureCollection<T = Place> = {
+  type: "FeatureCollection";
+  features: T[];
 };
 
 export type PlaceListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;
-  results: Place[];
+  results: FeatureCollection<Place>;
 };

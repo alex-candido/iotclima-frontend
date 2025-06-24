@@ -16,11 +16,20 @@ export const PLACE_QUERY_KEYS = {
 export function usePlaces(params?: {
   page?: number;
   page_size?: number;
+  customQueryKey?: string[];
+  cacheTime?: number;
   [key: string]: unknown;
 }) {
+  const { customQueryKey, ...filters } = params || {};
+
+  const queryKey = customQueryKey
+    ? [...customQueryKey, filters]
+    : [PLACE_QUERY_KEYS.LIST, filters];
+
   const query = useQuery<PlaceListResponse, Error>({
-    queryKey: [PLACE_QUERY_KEYS.LIST, params],
-    queryFn: () => getPlaces(params),
+    queryKey,
+    queryFn: () => getPlaces(filters),
+    cacheTime: params?.cacheTime || 1000 * 60 * 5,
     onError: (error: Error) => {
       console.error('Error fetching places:', error);
       toast.error(API_MESSAGES.PLACE.FETCH_ERROR);
@@ -29,7 +38,7 @@ export function usePlaces(params?: {
   return query;
 }
 
-export function usePlace(id: number) {
+export function usePlace(id: number | string) {
   const query = useQuery<Place, Error>({
     queryKey: [PLACE_QUERY_KEYS.DETAIL, id],
     queryFn: () => getPlaceById(id),
@@ -94,7 +103,7 @@ export function usePartialUpdatePlace() {
 
 export function useDeletePlace() {
   const queryClient = useQueryClient();
-  return useMutation<void, Error, number>({
+  const mutation = useMutation<void, Error, number>({
     mutationFn: deletePlace,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [PLACE_QUERY_KEYS.LIST] });
@@ -105,4 +114,5 @@ export function useDeletePlace() {
       toast.error(error.message || API_MESSAGES.PLACE.DELETE_ERROR);
     },
   });
+  return mutation
 }

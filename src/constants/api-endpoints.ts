@@ -25,7 +25,7 @@ export const API_ENDPOINTS = {
   },
   PLACES: {
     LIST: '/places/',
-    DETAIL: (id: number) => `/places/${id}/`,
+    DETAIL: (id: number | string) => `/places/${id}/`,
     CREATE: '/places/',
     UPDATE: (id: number) => `/places/${id}/`,
     PARTIAL_UPDATE: (id: number) => `/places/${id}/`,

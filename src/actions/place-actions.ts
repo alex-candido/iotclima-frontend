@@ -38,7 +38,7 @@ export async function createPlace(data: PlaceInput): Promise<Place> {
   return response.data;
 }
 
-export async function getPlaceById(id: number): Promise<Place> {
+export async function getPlaceById(id: number | string): Promise<Place> {
   const response = await api.get<Place>(API_ENDPOINTS.PLACES.DETAIL(id));
   return response.data;
 }

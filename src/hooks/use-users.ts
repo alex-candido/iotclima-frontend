@@ -43,7 +43,6 @@ export function useUsers(params?: {
       toast.error(API_MESSAGES.USER.FETCH_ERROR);
     },
   } as UseQueryOptions<UserListResponse, Error>);
-
   return query;
 }
 
