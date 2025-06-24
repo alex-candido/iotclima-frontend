@@ -1,5 +1,3 @@
-// src/types/station.d.ts
-
 export enum StationStatus {
   ACTIVE = 1,
   INACTIVE = 0,
@@ -47,13 +45,14 @@ export type Station = {
   user_username: string | null;
   user_email: string | null;
 
-  sensors: StationSensorLink[];
+  sensors?: StationSensorLink[];
 
   created_at: string;
   updated_at: string;
 };
 
 export type StationListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;
