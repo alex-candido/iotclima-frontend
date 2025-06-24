@@ -43,7 +43,7 @@ export async function getPlaceById(id: number | string): Promise<Place> {
   return response.data;
 }
 
-export async function updatePlace(id: number, data: PlaceInput): Promise<Place> {
+export async function updatePlace(id: number | string, data: Partial<PlaceInput>): Promise<Place> {
   const response = await api.put<Place>(API_ENDPOINTS.PLACES.UPDATE(id), data, {
     headers: { 'Content-Type': API_CONTENT_TYPE },
   });

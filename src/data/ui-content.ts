@@ -317,6 +317,7 @@ export const APP_TEXT = {
     CREATE_ERROR_MESSAGE: "Erro ao criar. Tente novamente.",
     UPDATE_SUCCESS_MESSAGE: "Atualizado com sucesso!",
     UPDATE_ERROR_MESSAGE: "Erro ao atualizar. Tente novamente.",
-    TABLE_HEADER_ACTIONS: "Ações"
+    TABLE_HEADER_ACTIONS: "Ações",
+    VIEW_DETAILS_BUTTON: "Ver Detalhes",
   },
 };

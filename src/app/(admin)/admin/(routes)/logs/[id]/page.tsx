@@ -1,5 +1,3 @@
-// src/app/(admin)/admin/(routes)/sensors/page.tsx
-
 export default function Page() {
   return <h1>My Page</h1>;
 }

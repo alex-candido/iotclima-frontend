@@ -29,7 +29,7 @@ import { useDeleteUser } from "@/hooks/use-users"; // Importar hook de exclusão
 
 interface UserDetailHeaderSectionProps {
   isLoading: boolean;
-  userId: number;
+  userId: number | string;
   user: User;
 }
 

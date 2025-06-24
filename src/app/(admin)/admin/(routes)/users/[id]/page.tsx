@@ -44,7 +44,7 @@ export default function UserDetailPage() {
   return (
     <div className="space-y-6">
       <UserDetailHeaderSection
-        userId={userData.id}
+        userId={userData.uuid}
         user={userData}
         isLoading={isLoading}
       />
