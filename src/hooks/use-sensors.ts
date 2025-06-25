@@ -29,7 +29,7 @@ export function useSensors(params?: {
   return query;
 }
 
-export function useSensor(id: number) {
+export function useSensor(id: number | string) {
   const query = useQuery<Sensor, Error>({
     queryKey: [SENSOR_QUERY_KEYS.DETAIL, id],
     queryFn: () => getSensorById(id),

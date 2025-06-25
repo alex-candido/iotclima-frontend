@@ -106,7 +106,6 @@ export default function PlacesPage() {
   };
 
   const overallLoading =
-    isLoading ||
     isLoadingOverallTotal ||
     isLoadingActivePlacesCount ||
     isLoadingInactivePlacesCount;

@@ -16,12 +16,6 @@ import { StationInput } from "@/actions/station-actions";
 import { EditStationFormSection } from "@/components/pages/admin/stations/edit-station-form-section";
 import { EditStationHeaderSection } from "@/components/pages/admin/stations/edit-station-header-section";
 
-interface EditStationPageProps {
-  params: {
-    id: string;
-  };
-}
-
 export default function EditStationPage() {
   const router = useRouter();
   const { id } = useParams<{ id: string }>();
@@ -128,7 +122,7 @@ export default function EditStationPage() {
     <div className="space-y-6">
       <EditStationHeaderSection
         isLoading={isUpdating}
-        stationId={stationData.id}
+        stationId={stationData.uuid}
         station={stationData}
       />
 

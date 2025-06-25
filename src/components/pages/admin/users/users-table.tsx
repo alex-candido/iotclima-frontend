@@ -37,7 +37,7 @@ const userColumns: ColumnDef<User, any>[] = [
       <div>
         <div className="font-medium">{info.getValue()}</div>
         <div className="text-sm text-muted-foreground font-mono">
-          {info.row.original.id}
+          {info.row.original.uuid}
         </div>
       </div>
     ),

@@ -3,14 +3,14 @@
 
 import { useState } from "react";
 
-import { Loader2, AlertTriangle } from "lucide-react";
+import { AlertTriangle, Loader2 } from "lucide-react";
 
+import { StationsHeaderSection } from "@/components/pages/admin/stations/stations-header-section";
+import { StationsListSection } from "@/components/pages/admin/stations/stations-list-section";
+import { StationsStatsSection } from "@/components/pages/admin/stations/stations-stats-section";
 import { APP_TEXT } from "@/data/ui-content";
 import { useStations } from "@/hooks/use-stations";
-import { StationFilterFormData } from "@/schemas/station-schema"; 
-import { StationsHeaderSection } from "@/components/pages/admin/stations/stations-header-section";
-import { StationsStatsSection } from "@/components/pages/admin/stations/stations-stats-section";
-import { StationsListSection } from "@/components/pages/admin/stations/stations-list-section";
+import { StationFilterFormData } from "@/schemas/station-schema";
 
 import { StationStatus } from '@/types/station';
 
@@ -88,7 +88,11 @@ export default function StationsPage() {
     }));
   };
 
-  const overallLoading = isLoading || isLoadingOverallTotal || isLoadingActiveStationsCount || isLoadingInactiveStationsCount || isLoadingOnlineStationsCount;
+  const overallLoading =
+    isLoadingOverallTotal ||
+    isLoadingActiveStationsCount ||
+    isLoadingInactiveStationsCount ||
+    isLoadingOnlineStationsCount;
   const overallError = listError || overallTotalError || activeStationsError || inactiveStationsError || onlineStationsError;
 
   if (overallLoading) {

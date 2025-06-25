@@ -1,7 +1,7 @@
 // src/schemas/station-schema.ts
 
-import { z } from "zod";
 import { StationStatus } from '@/types/station';
+import { z } from "zod";
 
 export const StationStatusEnum = z.nativeEnum(StationStatus);
 

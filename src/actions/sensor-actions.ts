@@ -31,7 +31,7 @@ export async function createSensor(data: SensorInput): Promise<Sensor> {
   return response.data;
 }
 
-export async function getSensorById(id: number): Promise<Sensor> {
+export async function getSensorById(id: number | string): Promise<Sensor> {
   const response = await api.get<Sensor>(API_ENDPOINTS.SENSORS.DETAIL(id));
   return response.data;
 }
