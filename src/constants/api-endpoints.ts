@@ -33,7 +33,7 @@ export const API_ENDPOINTS = {
   },
   STATIONS: {
     LIST: '/stations/',
-    DETAIL: (id: number) => `/stations/${id}/`,
+    DETAIL: (id: number | string) => `/stations/${id}/`,
     CREATE: '/stations/',
     UPDATE: (id: number) => `/stations/${id}/`,
     PARTIAL_UPDATE: (id: number) => `/stations/${id}/`,

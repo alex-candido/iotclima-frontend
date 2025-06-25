@@ -1,28 +1,48 @@
 // src/hooks/use-records.ts
 
-import { useMutation, useQuery, useQueryClient, UseQueryOptions } from '@tanstack/react-query';
-import { toast } from 'sonner';
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+  UseQueryOptions,
+} from "@tanstack/react-query";
+import { toast } from "sonner";
 
-import { createRecord, deleteRecord, getRecordById, getRecords, partialUpdateRecord, RecordInput, updateRecord } from '@/actions/record-actions';
-import { API_MESSAGES } from '@/data/messages';
-import { Record, RecordListResponse } from '@/types/record';
-
+import {
+  createRecord,
+  deleteRecord,
+  getRecordById,
+  getRecords,
+  partialUpdateRecord,
+  RecordInput,
+  updateRecord,
+} from "@/actions/record-actions";
+import { API_MESSAGES } from "@/data/messages";
+import { Record, RecordListResponse } from "@/types/record";
 
 export const RECORD_QUERY_KEYS = {
-  LIST: 'recordList',
-  DETAIL: 'recordDetail',
+  LIST: "recordList",
+  DETAIL: "recordDetail",
 };
 
 export function useRecords(params?: {
   page?: number;
   page_size?: number;
+  customQueryKey?: string[];
+  cacheTime?: number;
   [key: string]: unknown;
 }) {
+  const { customQueryKey, ...filters } = params || {};
+
+  const queryKey = customQueryKey
+    ? [...customQueryKey, filters]
+    : [RECORD_QUERY_KEYS.LIST, filters];
+
   const query = useQuery<RecordListResponse, Error>({
-    queryKey: [RECORD_QUERY_KEYS.LIST, params],
-    queryFn: () => getRecords(params),
+    queryKey,
+    queryFn: () => getRecords(filters),
     onError: (error: Error) => {
-      console.error('Error fetching records:', error);
+      console.error("Error fetching records:", error);
       toast.error(API_MESSAGES.RECORDS.FETCH_ERROR);
     },
   } as UseQueryOptions<RecordListResponse, Error>);
@@ -51,7 +71,7 @@ export function useCreateRecord() {
       toast.success(API_MESSAGES.COMMON.CREATE_SUCCESS);
     },
     onError: (error) => {
-      console.error('Error creating record:', error);
+      console.error("Error creating record:", error);
       toast.error(error.message || API_MESSAGES.RECORDS.CREATE_ERROR);
     },
   });
@@ -60,15 +80,21 @@ export function useCreateRecord() {
 
 export function useUpdateRecord() {
   const queryClient = useQueryClient();
-  const mutation = useMutation<Record, Error, { id: number; data: RecordInput }>({
+  const mutation = useMutation<
+    Record,
+    Error,
+    { id: number; data: RecordInput }
+  >({
     mutationFn: ({ id, data }) => updateRecord(id, data),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: [RECORD_QUERY_KEYS.LIST] });
-      queryClient.invalidateQueries({ queryKey: [RECORD_QUERY_KEYS.DETAIL, data.id] });
+      queryClient.invalidateQueries({
+        queryKey: [RECORD_QUERY_KEYS.DETAIL, data.id],
+      });
       toast.success(API_MESSAGES.COMMON.UPDATE_SUCCESS);
     },
     onError: (error) => {
-      console.error('Error updating record:', error);
+      console.error("Error updating record:", error);
       toast.error(error.message || API_MESSAGES.RECORDS.UPDATE_ERROR);
     },
   });
@@ -77,15 +103,21 @@ export function useUpdateRecord() {
 
 export function usePartialUpdateRecord() {
   const queryClient = useQueryClient();
-  const mutation = useMutation<Record, Error, { id: number; data: Partial<RecordInput> }>({
+  const mutation = useMutation<
+    Record,
+    Error,
+    { id: number; data: Partial<RecordInput> }
+  >({
     mutationFn: ({ id, data }) => partialUpdateRecord(id, data),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: [RECORD_QUERY_KEYS.LIST] });
-      queryClient.invalidateQueries({ queryKey: [RECORD_QUERY_KEYS.DETAIL, data.id] });
+      queryClient.invalidateQueries({
+        queryKey: [RECORD_QUERY_KEYS.DETAIL, data.id],
+      });
       toast.success(API_MESSAGES.COMMON.UPDATE_SUCCESS);
     },
     onError: (error) => {
-      console.error('Error partially updating record:', error);
+      console.error("Error partially updating record:", error);
       toast.error(error.message || API_MESSAGES.RECORDS.UPDATE_ERROR);
     },
   });
@@ -101,7 +133,7 @@ export function useDeleteRecord() {
       toast.success(API_MESSAGES.COMMON.DELETE_SUCCESS);
     },
     onError: (error) => {
-      console.error('Error deleting record:', error);
+      console.error("Error deleting record:", error);
       toast.error(error.message || API_MESSAGES.RECORDS.DELETE_ERROR);
     },
   });

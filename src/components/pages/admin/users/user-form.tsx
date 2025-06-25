@@ -8,25 +8,7 @@ import { z } from "zod";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
+import { Form } from "@/components/ui/form";
 
 import { APP_TEXT } from "@/data/ui-content";
 import { useForm } from "@/hooks/use-form";
@@ -39,7 +21,8 @@ import {
   UserGroupData,
   UserGroupEnum,
 } from "@/schemas/user-schema";
-import { useState } from "react";
+
+import { BaseFormField } from "@/components/base/base-form-field";
 
 interface UserFormProps {
   initialData: CreateUserFormData | UpdateUserFormData;
@@ -71,8 +54,6 @@ export function UserForm({
     mutationFn: (data) => Promise.resolve(onSubmit(data)),
   });
 
-  const [sendWelcomeEmail, setSendWelcomeEmail] = useState(true);
-
   return (
     <Form {...form}>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -85,203 +66,102 @@ export function UserForm({
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormField
+          <BaseFormField
             control={control}
             name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  {APP_TEXT.USERS_PAGE.USERNAME_LABEL || "Nome de Usuário"} *
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    value={field.value ?? ""}
-                    disabled={isSubmitting}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label={APP_TEXT.USERS_PAGE.USERNAME_LABEL || "Nome de Usuário"}
+            placeholder={
+              APP_TEXT.USERS_PAGE.USERNAME_LABEL || "Nome de Usuário"
+            }
+            isSubmitting={isSubmitting}
           />
-          <FormField
+          <BaseFormField
             control={control}
             name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  {APP_TEXT.USERS_PAGE.EMAIL_LABEL || "Email"} *
-                </FormLabel>
-                <FormControl>
-                  <Input {...field} type="email" disabled={isSubmitting} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label={APP_TEXT.USERS_PAGE.EMAIL_LABEL || "Email"}
+            placeholder={APP_TEXT.USERS_PAGE.EMAIL_LABEL || "Email"}
+            isSubmitting={isSubmitting}
+            type="email"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormField
+          <BaseFormField
             control={control}
             name="first_name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  {APP_TEXT.USERS_PAGE.FIRST_NAME_LABEL || "Primeiro Nome"}
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    value={field.value ?? ""}
-                    disabled={isSubmitting}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label={APP_TEXT.USERS_PAGE.FIRST_NAME_LABEL || "Primeiro Nome"}
+            placeholder={
+              APP_TEXT.USERS_PAGE.FIRST_NAME_LABEL || "Primeiro Nome"
+            }
+            isSubmitting={isSubmitting}
           />
-          <FormField
+          <BaseFormField
             control={control}
             name="last_name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  {APP_TEXT.USERS_PAGE.LAST_NAME_LABEL || "Sobrenome"}
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    {...field}
-                    value={field.value ?? ""}
-                    disabled={isSubmitting}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label={APP_TEXT.USERS_PAGE.LAST_NAME_LABEL || "Sobrenome"}
+            placeholder={APP_TEXT.USERS_PAGE.LAST_NAME_LABEL || "Sobrenome"}
+            isSubmitting={isSubmitting}
           />
         </div>
 
         {formType === "create" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
+            <BaseFormField
               control={control}
               name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    {APP_TEXT.AUTH_PAGES.SIGN_UP.PASSWORD_LABEL || "Senha"} *
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} type="password" disabled={isSubmitting} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              label={APP_TEXT.AUTH_PAGES.SIGN_UP.PASSWORD_LABEL || "Senha"}
+              placeholder={
+                APP_TEXT.AUTH_PAGES.SIGN_UP.PASSWORD_LABEL || "Senha"
+              }
+              isSubmitting={isSubmitting}
+              type="password"
             />
-            <FormField
+            <BaseFormField
               control={control}
               name="confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    {APP_TEXT.AUTH_PAGES.SIGN_UP.CONFIRM_PASSWORD_LABEL ||
-                      "Confirmar Senha"}{" "}
-                    *
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} type="password" disabled={isSubmitting} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              label={
+                APP_TEXT.AUTH_PAGES.SIGN_UP.CONFIRM_PASSWORD_LABEL ||
+                "Confirmar Senha"
+              }
+              placeholder={
+                APP_TEXT.AUTH_PAGES.SIGN_UP.CONFIRM_PASSWORD_LABEL ||
+                "Confirmar Senha"
+              }
+              isSubmitting={isSubmitting}
+              type="password"
             />
           </div>
         )}
 
-        <FormField
+        <BaseFormField
           control={control}
           name="groups"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                {APP_TEXT.USERS_PAGE.ROLE_LABEL || "Função"} *
-              </FormLabel>
-              <Select
-                value={
-                  field.value && field.value.length > 0 ? field.value[0] : ""
-                }
-                onValueChange={(value) => field.onChange([value])}
-                disabled={isSubmitting}
-              >
-                <SelectTrigger>
-                  <SelectValue
-                    placeholder={
-                      APP_TEXT.USERS_PAGE.GROUP_FILTER_PLACEHOLDER ||
-                      "Selecione uma função"
-                    }
-                  />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.values(UserGroupEnum.enum).map(
-                    (groupName: string) => (
-                      <SelectItem key={groupName} value={groupName}>
-                        {getUserGroupLabel(groupName as UserGroupData)}
-                      </SelectItem>
-                    ),
-                  )}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
+          label={APP_TEXT.USERS_PAGE.ROLE_LABEL || "Função"}
+          placeholder={
+            APP_TEXT.USERS_PAGE.GROUP_FILTER_PLACEHOLDER ||
+            "Selecione uma função"
+          }
+          isSubmitting={isSubmitting}
+          renderAs="select"
+          selectOptions={Object.values(UserGroupEnum.enum).map(
+            (groupName: string) => ({
+              value: groupName,
+              label: getUserGroupLabel(groupName as UserGroupData),
+            }),
           )}
         />
 
-        <FormField
+        <BaseFormField
           control={control}
           name="is_active"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
-              <div className="space-y-0.5">
-                <FormLabel>
-                  {APP_TEXT.USERS_PAGE.IS_ACTIVE_LABEL || "Usuário Ativo"}
-                </FormLabel>
-                <FormDescription>
-                  {APP_TEXT.USERS_PAGE.IS_ACTIVE_DESCRIPTION ||
-                    "O usuário pode fazer login no sistema"}
-                </FormDescription>
-              </div>
-              <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  disabled={isSubmitting}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          label={APP_TEXT.USERS_PAGE.IS_ACTIVE_LABEL || "Usuário Ativo"}
+          description={
+            APP_TEXT.USERS_PAGE.IS_ACTIVE_DESCRIPTION ||
+            "O usuário pode fazer login no sistema"
+          }
+          isSubmitting={isSubmitting}
+          renderAs="switch"
         />
-
-        {formType === "create" && (
-          <div className="flex items-center justify-between rounded-lg border p-4">
-            <div className="space-y-0.5">
-              <Label>
-                {APP_TEXT.USERS_PAGE.SEND_WELCOME_EMAIL_LABEL ||
-                  "Enviar Email de Boas-vindas"}
-              </Label>
-              <p className="text-sm text-muted-foreground">
-                {APP_TEXT.USERS_PAGE.SEND_WELCOME_EMAIL_DESCRIPTION ||
-                  "Enviar instruções de acesso por email"}
-              </p>
-            </div>
-            <Switch
-              checked={sendWelcomeEmail}
-              onCheckedChange={setSendWelcomeEmail}
-              disabled={isSubmitting}
-            />
-          </div>
-        )}
 
         <div className="flex justify-end gap-2">
           <Button

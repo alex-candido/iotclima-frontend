@@ -48,6 +48,7 @@ export type Sensor = {
 };
 
 export type SensorListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;

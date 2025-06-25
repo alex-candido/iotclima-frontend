@@ -6,6 +6,7 @@
   "editor.fontSize": 13,
   "javascript.suggest.autoImports": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.wordWrap": "off",
   "editor.rulers": [
     // 80,
     130

@@ -32,6 +32,7 @@ export type Log = {
 };
 
 export type LogListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;

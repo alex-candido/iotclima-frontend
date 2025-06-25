@@ -51,7 +51,7 @@ export async function createStation(data: StationInput): Promise<Station> {
   return response.data;
 }
 
-export async function getStationById(id: number): Promise<Station> {
+export async function getStationById(id: number | string): Promise<Station> {
   const response = await api.get<Station>(API_ENDPOINTS.STATIONS.DETAIL(id));
   return response.data;
 }

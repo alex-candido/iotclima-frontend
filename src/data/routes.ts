@@ -1,3 +1,5 @@
+// src/data/routes.ts
+
 export interface AppRoute {
   path: string;
   label?: string;
@@ -131,7 +133,7 @@ export const APP_ROUTES = {
       authRequired: true,
       roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR'],
     },
-    SENSORS: {
+    SENSORS: { 
       LIST: '/admin/sensors',
       DETAIL: (id: string | number) => `/admin/sensors/${id}`,
       NEW: '/admin/sensors/new',
@@ -140,6 +142,16 @@ export const APP_ROUTES = {
       icon: 'Gauge',
       authRequired: true,
       roles: ['ADMIN', 'OWNER', 'MANAGER', 'OPERATOR'],
+    },
+    STATION_SENSORS: { 
+      LIST: '/admin/station-sensors',
+      DETAIL: (id: string | number) => `/admin/station-sensors/${id}`,
+      NEW: '/admin/station-sensors/new',
+      EDIT: (id: string | number) => `/admin/station-sensors/${id}/edit`,
+      label: 'Station-Sensor Links',
+      icon: 'Link',
+      authRequired: true,
+      roles: ['ADMIN', 'MANAGER', 'OPERATOR'],
     },
     RECORDS: {
       LIST: '/admin/records',

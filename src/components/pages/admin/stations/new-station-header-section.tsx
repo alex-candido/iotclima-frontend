@@ -1,4 +1,4 @@
-// src/components/pages/admin/places/new-place-header-section.tsx
+// src/components/pages/admin/stations/new-station-header-section.tsx
 "use client";
 
 import { ArrowLeft } from "lucide-react";
@@ -10,22 +10,22 @@ import { APP_ROUTES } from "@/data/routes";
 import { APP_TEXT } from "@/data/ui-content";
 import { UserGroup } from "@/types/next-auth";
 
-interface NewPlaceHeaderSectionProps {
+interface NewStationHeaderSectionProps {
   isLoading: boolean;
 }
 
-export function NewPlaceHeaderSection({
+export function NewStationHeaderSection({
   isLoading,
-}: NewPlaceHeaderSectionProps) {
+}: NewStationHeaderSectionProps) {
   const { data: session } = useSession();
   const userGroups: UserGroup[] =
     (session?.user?.groupNames as UserGroup[]) || [];
   const router = useRouter();
 
-  const requiredRolesForNewPlace = APP_ROUTES.ADMIN.PLACES.roles || [];
+  const requiredRolesForNewStation = APP_ROUTES.ADMIN.STATIONS.roles || [];
 
-  const canCreatePlace = userGroups.some((group) =>
-    requiredRolesForNewPlace.includes(group),
+  const canCreateStation = userGroups.some((group) =>
+    requiredRolesForNewStation.includes(group),
   );
 
   return (
@@ -40,12 +40,12 @@ export function NewPlaceHeaderSection({
       </Button>
       <div>
         <h1 className="text-3xl font-bold tracking-tight">
-          {APP_TEXT.PLACES_PAGE.NEW_PLACE_TITLE || "Novo Local"}
-        </h1>
+          {APP_TEXT.STATIONS_PAGE.NEW_STATION_TITLE || "Nova Estação"}
+        </h1>{" "}
         <p className="text-muted-foreground">
-          {APP_TEXT.PLACES_PAGE.NEW_PLACE_DESCRIPTION ||
-            "Adicione um novo local ao sistema"}
-        </p>
+          {APP_TEXT.STATIONS_PAGE.NEW_STATION_DESCRIPTION ||
+            "Adicione uma nova estação meteorológica."}
+        </p>{" "}
       </div>
     </div>
   );

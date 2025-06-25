@@ -15,11 +15,20 @@ export const STATION_QUERY_KEYS = {
 export function useStations(params?: {
   page?: number;
   page_size?: number;
+  customQueryKey?: string[];
+  cacheTime?: number;
   [key: string]: unknown;
 }) {
+    const { customQueryKey, ...filters } = params || {};
+  
+    const queryKey = customQueryKey
+      ? [...customQueryKey, filters]
+      : [STATION_QUERY_KEYS.LIST, filters];
+
   const query = useQuery<StationListResponse, Error>({
-    queryKey: [STATION_QUERY_KEYS.LIST, params],
-    queryFn: () => getStations(params),
+    queryKey,
+    queryFn: () => getStations(filters),
+    cacheTime: params?.cacheTime || 1000 * 60 * 5,
     onError: (error: Error) => {
       console.error('Error fetching stations:', error);
       toast.error(API_MESSAGES.STATION.FETCH_ERROR);
@@ -28,7 +37,7 @@ export function useStations(params?: {
   return query;
 }
 
-export function useStation(id: number) {
+export function useStation(id: number | string) {
   const query = useQuery<Station, Error>({
     queryKey: [STATION_QUERY_KEYS.DETAIL, id],
     queryFn: () => getStationById(id),
