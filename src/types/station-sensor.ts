@@ -44,6 +44,7 @@ export type StationSensor = {
 };
 
 export type StationSensorListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;

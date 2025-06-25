@@ -37,7 +37,7 @@ export function useStations(params?: {
   return query;
 }
 
-export function useStation(id: number) {
+export function useStation(id: number | string) {
   const query = useQuery<Station, Error>({
     queryKey: [STATION_QUERY_KEYS.DETAIL, id],
     queryFn: () => getStationById(id),

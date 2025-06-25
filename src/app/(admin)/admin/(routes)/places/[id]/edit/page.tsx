@@ -1,23 +1,18 @@
 // src/app/(admin)/admin/(routes)/places/[id]/edit/page.tsx
 "use client";
 
+import { AlertTriangle, Loader2 } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { Loader2, AlertTriangle } from "lucide-react";
 import { useEffect } from "react";
 import { toast } from "sonner";
-import React from "react";
 
-import { APP_TEXT } from "@/data/ui-content";
 import { PlaceInput } from "@/actions/place-actions";
-import { usePlace, useUpdatePlace } from "@/hooks/use-places";
-import {
-  UpdatePlaceFormData,
-  PlaceStatusEnum,
-  PlaceTypeEnum,
-} from "@/schemas/place-schema";
-import { PlaceStatus, PlaceType } from "@/types/place";
-import { EditPlaceHeaderSection } from "@/components/pages/admin/places/edit-place-header-section";
 import { EditPlaceFormSection } from "@/components/pages/admin/places/edit-place-form-section";
+import { EditPlaceHeaderSection } from "@/components/pages/admin/places/edit-place-header-section";
+import { APP_TEXT } from "@/data/ui-content";
+import { usePlace, useUpdatePlace } from "@/hooks/use-places";
+import { UpdatePlaceFormData } from "@/schemas/place-schema";
+import { PlaceStatus, PlaceType } from "@/types/place";
 
 interface EditPlacePageProps {
   params: {
@@ -48,10 +43,10 @@ export default function EditPlacePage() {
     if (isSuccess) {
       toast.success(
         APP_TEXT.COMMON_UI.UPDATE_SUCCESS_MESSAGE ||
-          "Local atualizado com sucesso!"
+          "Local atualizado com sucesso!",
       );
-      if (placeData?.id) {
-        router.push(`/admin/places/${placeData.id}`);
+      if (placeData?.properties.uuid) {
+        router.push(`/admin/places/${placeData.properties.uuid}`);
       } else {
         router.push("/admin/places");
       }
@@ -63,7 +58,7 @@ export default function EditPlacePage() {
       toast.error(
         updateError.message ||
           APP_TEXT.COMMON_UI.UPDATE_ERROR_MESSAGE ||
-          "Erro ao atualizar local."
+          "Erro ao atualizar local.",
       );
     }
   }, [isError, updateError]);

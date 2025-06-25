@@ -30,6 +30,7 @@ export type Record = {
 };
 
 export type RecordListResponse = {
+  total_count: number;
   count: number;
   next: string | null;
   previous: string | null;
