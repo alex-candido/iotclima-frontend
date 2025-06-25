@@ -36,7 +36,7 @@ import { User } from "@/types/user";
 interface StationFormProps {
   initialData: CreateStationFormData | UpdateStationFormData;
   onSubmit: (
-    data: CreateStationFormData | UpdateStationFormData,
+    data: CreateStationFormData | UpdateStationFormData | any,
   ) => Promise<void> | void;
   isSubmitting: boolean;
   formType: "create" | "edit";

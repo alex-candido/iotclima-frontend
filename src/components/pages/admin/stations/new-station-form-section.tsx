@@ -10,17 +10,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { APP_TEXT } from "@/data/ui-content";
-import {
-  CreateStationFormData,
-  UpdateStationFormData,
-} from "@/schemas/station-schema";
+import { CreateStationFormData } from "@/schemas/station-schema";
 import { ActivitySquare } from "lucide-react";
 
 interface NewStationFormSectionProps {
   initialData: CreateStationFormData;
-  onSubmit: (
-    data: CreateStationFormData | UpdateStationFormData,
-  ) => Promise<void> | void;
+  onSubmit: (data: CreateStationFormData) => Promise<void> | void;
   isSubmitting: boolean;
 }
 

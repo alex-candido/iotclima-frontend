@@ -44,7 +44,7 @@ export default function StationDetailPage() {
   return (
     <div className="space-y-6">
       <StationDetailHeaderSection
-        stationId={stationData.id}
+        stationId={stationData.uuid}
         station={stationData}
         isLoading={isLoading}
       />

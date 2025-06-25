@@ -73,7 +73,7 @@ export function PlacesFilters({
       </div>
 
       <Select
-        value={filterParams.status}
+        value={filterParams.status?.toString()}
         onValueChange={handleStatusFilterChange}
       >
         <SelectTrigger className="w-full sm:w-[160px]">
@@ -103,7 +103,10 @@ export function PlacesFilters({
         </SelectContent>
       </Select>
 
-      <Select value={filterParams.type} onValueChange={handleTypeFilterChange}>
+      <Select
+        value={filterParams.type?.toString()}
+        onValueChange={handleTypeFilterChange}
+      >
         <SelectTrigger className="w-full sm:w-[160px]">
           <SelectValue
             placeholder={

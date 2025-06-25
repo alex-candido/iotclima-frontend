@@ -27,7 +27,7 @@ import { BaseFormField } from "@/components/base/base-form-field";
 interface UserFormProps {
   initialData: CreateUserFormData | UpdateUserFormData;
   onSubmit: (
-    data: CreateUserFormData | UpdateUserFormData,
+    data: CreateUserFormData | UpdateUserFormData | any,
   ) => Promise<void> | void;
   isSubmitting: boolean;
   formType: "create" | "edit";

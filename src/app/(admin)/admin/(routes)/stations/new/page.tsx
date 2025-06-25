@@ -9,6 +9,7 @@ import { APP_TEXT } from "@/data/ui-content";
 import { useCreateStation } from "@/hooks/use-stations";
 import {
   CreateStationFormData,
+  StationStatusData,
   StationStatusEnum,
 } from "@/schemas/station-schema";
 
@@ -36,7 +37,7 @@ export default function NewStationPage() {
     next_maintenance_at: null,
     battery_level: null,
     signal_strength: null,
-    status: StationStatusEnum.enum.ACTIVE,
+    status: StationStatusEnum.enum.ACTIVE as StationStatusData,
     place: 0,
     user: null,
   };
