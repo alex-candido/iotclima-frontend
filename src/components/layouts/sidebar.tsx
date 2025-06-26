@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 
 import { LucideIconMap } from "@/data/icons";
 import { ADMIN_SIDEBAR_LINKS } from "@/data/navigations";
-import { APP_ROUTES } from "@/data/routes"; // Importar APP_ROUTES aqui
+import { APP_ROUTES } from "@/data/routes";
 import { APP_TEXT } from "@/data/ui-content";
 
 import { ProfileDropdown } from "../base/profile-dropdown";

@@ -45,7 +45,14 @@ export type Station = {
   user_username: string | null;
   user_email: string | null;
 
+  latitude: number; 
+  longitude: number;
+
   sensors?: StationSensorLink[];
+  
+  latest_temperature: number | null;
+  latest_humidity: number | null;
+  latest_wind_speed: number | null;
 
   created_at: string;
   updated_at: string;

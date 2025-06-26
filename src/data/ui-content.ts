@@ -2,7 +2,7 @@
 
 export const APP_TEXT = {
   GLOBAL: {
-    APP_NAME: "MeteoIoT",
+    APP_NAME: "IotClima",
     ALL_RIGHTS_RESERVED: "All rights reserved.",
   },
   AUTH_PAGES: {
@@ -101,7 +101,7 @@ export const APP_TEXT = {
     EVENTS_LINK: "Eventos",
     LOGS_LINK: "Logs",
     SETTINGS_LINK: "Configurações",
-    MAP_VIEW_LINK: "Visualização no Mapa",
+    MAP_VIEW_LINK: "Mapa de Estações",
     LOGOUT_BUTTON: "Sair",
     NOTIFICATIONS_LABEL: "Notificações",
     NOTIFICATION_ALERT_TITLE: "Alerta de temperatura",
@@ -245,7 +245,7 @@ export const APP_TEXT = {
     TAB_MAP: "Mapa",
     TAB_STATIONS: "Estações Associadas",
     MAP_VIEW_TITLE: "Visualização no Mapa",
-    MAP_VIEW_DESCRIPTION: "Localização do ponto de instalação.",
+    MAP_VIEW_DESCRIPTION: "Visualização geográfica das estações meteorológicas.",
     ASSOCIATED_STATIONS_TITLE: "Estações Associadas",
     ASSOCIATED_STATIONS_DESCRIPTION:
       "Estações meteorológicas vinculadas a este local.",
@@ -489,6 +489,37 @@ export const APP_TEXT = {
     TOTAL_USERS_CARD_TITLE: "Total de Usuários",
     ACTIVE_STATIONS_CARD_TITLE: "Estações Ativas",
   },
+ MAP_VIEW_PAGE: {
+    SHOW_PLACES_TOGGLE: "Exibir Locais", 
+    SHOW_STATIONS_TOGGLE: "Exibir Estações",
+    MAP_VIEW_TITLE: "Visualização no Mapa",
+    MAP_VIEW_DESCRIPTION: "Visualize estações e locais no mapa.",
+    MAP_PLACEHOLDER_TEXT: "Integração do Mapa aqui",
+    FILTERS_BUTTON_LABEL: "Filtros Avançados",
+    ADVANCED_FILTERS_TITLE: "Filtros Avançados",
+    ADVANCED_FILTERS_DESCRIPTION: "Configure os filtros para personalizar a visualização do mapa",
+    VISIBILITY_FILTERS_TITLE: "Visibilidade no Mapa",
+    REGIONS_FILTER_LABEL: "Regiões",
+    SENSOR_TYPES_FILTER_LABEL: "Tipos de Sensores",
+    ALERT_LEVEL_FILTER_LABEL: "Nível de Alerta",
+    LAST_UPDATE_FILTER_LABEL: "Última Atualização",
+    BATTERY_LEVEL_FILTER_LABEL: "Nível da Bateria",
+    TEMPERATURE_FILTER_LABEL: "Temperatura",
+    HUMIDITY_FILTER_LABEL: "Umidade",
+    WIND_SPEED_FILTER_LABEL: "Velocidade do Vento",
+    MAP_COORDINATES_LABEL: "Coordenadas",
+    CLICK_MARKER_FOR_DETAILS_TEXT: "Clique no marcador para ver detalhes completos",
+    LEGEND_TITLE: "Legenda",
+    ALERT_LEVEL_NORMAL: "Normal",
+    ALERT_LEVEL_LOW: "Alerta Baixo",
+    ALERT_LEVEL_MEDIUM: "Alerta Médio",
+    ALERT_LEVEL_HIGH: "Alerta Alto",
+    ALERT_LEVEL_CRITICAL: "Crítico",
+    STATUS_OFFLINE: "Offline",
+    ITEMS_DISPLAYED_COUNT: "itens exibidos",
+    NO_DATA_FOUND_TITLE: "Nenhum dado encontrado",
+    NO_DATA_FOUND_DESCRIPTION: "Ajuste os filtros ou verifique a conexão com a API.",
+  },
   COMMON_UI: {
     SAVE_BUTTON: "Salvar",
     CREATE_BUTTON: "Criar",
@@ -543,5 +574,8 @@ export const APP_TEXT = {
     GLOBAL_ERROR_DESCRIPTION:
       "Algo deu muito errado. Por favor, tente novamente mais tarde.",
     TRY_AGAIN_BUTTON: "Tentar Novamente",
+    CLEAR_FILTERS_BUTTON: "Limpar Filtros",
+    APPLY_FILTERS_BUTTON: "Aplicar Filtros",
+    LOADING_MAP: "Carregando mapa..."
   },
 };

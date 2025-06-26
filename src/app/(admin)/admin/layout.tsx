@@ -1,8 +1,7 @@
 // src/app/(admin)/admin/Layout.tsx
 
-import { NotificationsDropdown } from "@/components/base/notifications-dropdown";
 import { ProfileDropdown } from "@/components/base/profile-dropdown";
-// import { Search } from "@/components/base/search";
+import { Search } from "@/components/base/search";
 import { ThemeSwitch } from "@/components/base/theme-switch";
 import { Footer } from "@/components/layouts/footer";
 import { Header } from "@/components/layouts/header";
@@ -17,10 +16,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Sidebar />
         <div className="relative flex w-full flex-1 flex-col">
           <Header>
-            {/* <Search /> */}
+            <Search />
             <div className="ml-auto flex items-center gap-4">
               <ThemeSwitch />
-              <NotificationsDropdown />
+              {/* <NotificationsDropdown /> */}
               <ProfileDropdown variant="header" />
             </div>
           </Header>
