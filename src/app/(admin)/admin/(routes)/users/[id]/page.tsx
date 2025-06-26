@@ -50,13 +50,8 @@ export default function UserDetailPage() {
       />
 
       <div className="flex flex-col gap-6">
-        <div className="">
-          <UserBasicInfoSection user={userData} />
-        </div>
-
-        <div className="">
-          <UserTabsSection user={userData} />
-        </div>
+        <UserBasicInfoSection user={userData} />
+        <UserTabsSection user={userData} />
       </div>
     </div>
   );

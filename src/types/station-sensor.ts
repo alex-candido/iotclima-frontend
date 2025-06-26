@@ -1,20 +1,5 @@
 // src/types/station_sensor.d.ts
 
-export enum SensorType {
-  TEMPERATURE = 1, HUMIDITY = 2, WIND = 3, PRESSURE = 4, RAINFALL = 5, OTHER = 6,
-}
-export enum SensorStatus {
-  ACTIVE = 1, INACTIVE = 0, ERROR = 2,
-}
-export enum UnitType {
-  CELSIUS = 1, FAHRENHEIT = 2, PERCENT = 3, METERS_PER_SECOND = 4,
-  KILOMETERS_PER_HOUR = 5, HECTOPASCAL = 6, MILLIMETERS = 7, OTHER = 8,
-}
-export enum StationStatus {
-  ACTIVE = 1, INACTIVE = 0, ONLINE = 2, OFFLINE = 3, MAINTENANCE = 4,
-}
-
-
 export type StationSensor = {
   id: number;
   uuid: string;
@@ -35,7 +20,7 @@ export type StationSensor = {
 
   position: string | null;
   installed_date: string | null;
-  removed_date: string | null;
+  removed_date: string | null; 
   is_active: boolean;
   calibrated_at: string | null;
 

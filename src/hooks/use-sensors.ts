@@ -16,11 +16,20 @@ export const SENSOR_QUERY_KEYS = {
 export function useSensors(params?: {
   page?: number;
   page_size?: number;
+  customQueryKey?: string[];
+  cacheTime?: number;
   [key: string]: unknown;
 }) {
+  const { customQueryKey, ...filters } = params || {};
+    
+  const queryKey = customQueryKey
+    ? [...customQueryKey, filters]
+    : [SENSOR_QUERY_KEYS.LIST, filters];
+
   const query = useQuery<SensorListResponse, Error>({
-    queryKey: [SENSOR_QUERY_KEYS.LIST, params],
-    queryFn: () => getSensors(params),
+    queryKey,
+    queryFn: () => getSensors(filters),
+    cacheTime: params?.cacheTime || 1000 * 60 * 5,
     onError: (error: Error) => {
       console.error('Error fetching sensors:', error);
       toast.error(API_MESSAGES.SENSOR.FETCH_ERROR);

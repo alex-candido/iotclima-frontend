@@ -6,8 +6,8 @@ import api from '@/lib/api';
 import { StationSensor, StationSensorListResponse } from '@/types/station-sensor';
 
 export type StationSensorInput = {
-  station: number;
-  sensor: number;
+  station_id: number;
+  sensor_id: number;
   position?: string | null;
   installed_date?: string | null;
   removed_date?: string | null;
@@ -18,10 +18,6 @@ export type StationSensorInput = {
 export async function getStationSensors(params?: {
   page?: number;
   page_size?: number;
-  station__id?: number;
-  sensor__model__icontains?: string;
-  is_active?: boolean;
-  installed_date__gt?: string;
   [key: string]: unknown;
 }): Promise<StationSensorListResponse> {
   const response = await api.get<StationSensorListResponse>(API_ENDPOINTS.STATION_SENSORS.LIST, { params });
@@ -35,26 +31,26 @@ export async function createStationSensor(data: StationSensorInput): Promise<Sta
   return response.data;
 }
 
-export async function getStationSensorById(id: number): Promise<StationSensor> {
+export async function getStationSensorById(id: number | string): Promise<StationSensor> {
   const response = await api.get<StationSensor>(API_ENDPOINTS.STATION_SENSORS.DETAIL(id));
   return response.data;
 }
 
-export async function updateStationSensor(id: number, data: StationSensorInput): Promise<StationSensor> {
+export async function updateStationSensor(id: number | string, data: StationSensorInput): Promise<StationSensor> {
   const response = await api.put<StationSensor>(API_ENDPOINTS.STATION_SENSORS.UPDATE(id), data, {
     headers: { 'Content-Type': API_CONTENT_TYPE },
   });
   return response.data;
 }
 
-export async function partialUpdateStationSensor(id: number, data: Partial<StationSensorInput>): Promise<StationSensor> {
+export async function partialUpdateStationSensor(id: number | string, data: Partial<StationSensorInput>): Promise<StationSensor> {
   const response = await api.patch<StationSensor>(API_ENDPOINTS.STATION_SENSORS.PARTIAL_UPDATE(id), data, {
     headers: { 'Content-Type': API_CONTENT_TYPE },
   });
   return response.data;
 }
 
-export async function deleteStationSensor(id: number): Promise<void> {
+export async function deleteStationSensor(id: number | string): Promise<void> {
   await api.delete(API_ENDPOINTS.STATION_SENSORS.DELETE(id));
   return;
 }

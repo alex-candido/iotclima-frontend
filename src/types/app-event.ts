@@ -19,6 +19,7 @@ export enum AppEventSeverity {
   MEDIUM = 2,
   HIGH = 3,
   CRITICAL = 4,
+  WARN = 5
 }
 
 export enum AppEventStatus {
