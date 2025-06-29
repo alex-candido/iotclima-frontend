@@ -71,7 +71,7 @@ POST {{baseUrl}}/auth/password/reset/
 Content-Type: {{contentType}}
 
 {
-  "email": "alex.candido.dev@gmail.com"
+  "email": "alex.candido.tec@gmail.com"
 }
 
 ### Confirm password reset

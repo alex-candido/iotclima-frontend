@@ -1,0 +1,46 @@
+// src/data/icons.ts
+
+import {
+  ActivitySquare,
+  AlertTriangle,
+  BarChart2,
+  BellRing,
+  ClipboardList,
+  Cloud,
+  FileText,
+  Gauge,
+  HelpCircle,
+  Home,
+  LayoutDashboard,
+  LogOut,
+  Map,
+  MapPin,
+  Search,
+  Settings,
+  Thermometer,
+  User as UserIcon,
+  Users,
+} from "lucide-react";
+
+export const LucideIconMap: { [key: string]: React.ElementType } = {
+  'LayoutDashboard': LayoutDashboard,
+  'Map': Map,
+  'MapPin': MapPin,
+  'Cloud': Cloud,
+  'ActivitySquare': ActivitySquare,
+  'Gauge': Gauge,
+  'BarChart2': BarChart2,
+  'BellRing': BellRing,
+  'ClipboardList': ClipboardList,
+  'Users': Users,
+  'Settings': Settings,
+  'User': UserIcon,
+  'Thermometer': Thermometer,
+  'AlertTriangle': AlertTriangle,
+  'FileText': FileText,
+  'Home': Home,
+  'HelpCircle': HelpCircle,
+
+  'LogOut': LogOut,
+  'Search': Search,
+};
