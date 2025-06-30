@@ -6,7 +6,7 @@ interface LeafletMapContainerProps {
 
 export function LeafletMapContainer({ children, ...props }: LeafletMapContainerProps & MapContainerProps) {
   return (
-    <MapContainer className="absolute h-full w-full text-white outline-0" {...props}>
+    <MapContainer className="absolute z-[10] h-full w-full text-white outline-0" {...props}>
       {children}
     </MapContainer>
   );

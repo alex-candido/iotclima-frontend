@@ -1,10 +1,8 @@
 import { ZoomControl, ZoomControlProps } from "react-leaflet";
 
-interface LeafletMapZoomControlProps {}
-
 export function LeafletMapZoomControl({
   ...props
-}: LeafletMapZoomControlProps & ZoomControlProps) {
+}: ZoomControlProps) {
   return (
     <ZoomControl
       {...props}

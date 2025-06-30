@@ -17,7 +17,7 @@ const eslintConfig = [
         "error",
         { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
       ],
-      "@typescript-eslint/no-explicit-any": "false",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];
