@@ -12,8 +12,8 @@ import { UpdateSensorFormData } from "@/schemas/sensor-schema";
 import { SensorStatus } from "@/types/sensor";
 
 import { SensorInput } from "@/actions/sensor-actions";
-import { EditSensorFormSection } from "@/components/pages/admin/sensors/edit-sensor-form-section";
-import { EditSensorHeaderSection } from "@/components/pages/admin/sensors/edit-sensor-header-section";
+import { EditSensorFormSection } from "@/components/admin/sensors/edit-sensor-form-section";
+import { EditSensorHeaderSection } from "@/components/admin/sensors/edit-sensor-header-section";
 
 export default function EditSensorPage() {
   const router = useRouter();

@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { APP_TEXT } from "@/data/ui-content";
 import { useCreateStation } from "@/hooks/use-stations";
 import {
-  CreateStationFormData,
-  StationStatusData,
-  StationStatusEnum,
+    CreateStationFormData,
+    StationStatusData,
+    StationStatusEnum,
 } from "@/schemas/station-schema";
 
 import { StationInput } from "@/actions/station-actions";
-import { NewStationFormSection } from "@/components/pages/admin/stations/new-station-form-section";
-import { NewStationHeaderSection } from "@/components/pages/admin/stations/new-station-header-section";
+import { NewStationFormSection } from "@/components/admin/stations/new-station-form-section";
+import { NewStationHeaderSection } from "@/components/admin/stations/new-station-header-section";
 
 export default function NewStationPage() {
   const router = useRouter();

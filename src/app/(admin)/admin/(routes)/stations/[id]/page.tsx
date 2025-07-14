@@ -7,9 +7,9 @@ import { useParams } from "next/navigation";
 import { APP_TEXT } from "@/data/ui-content";
 import { useStation } from "@/hooks/use-stations";
 
-import { StationBasicInfoSection } from "@/components/pages/admin/stations/station-basic-info-section";
-import { StationDetailHeaderSection } from "@/components/pages/admin/stations/station-detail-header-section";
-import { StationTabsSection } from "@/components/pages/admin/stations/station-tabs-section";
+import { StationBasicInfoSection } from "@/components/admin/stations/station-basic-info-section";
+import { StationDetailHeaderSection } from "@/components/admin/stations/station-detail-header-section";
+import { StationTabsSection } from "@/components/admin/stations/station-tabs-section";
 
 export default function StationDetailPage() {
   const { id } = useParams<{ id: string }>();

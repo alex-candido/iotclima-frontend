@@ -1,15 +1,15 @@
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
 } from "@/components/ui/card";
 import { Cloud } from "lucide-react";
 
-import { AuthHero } from "@/components/pages/auth/auth-hero";
-import { InvalidLinkMessage } from "@/components/pages/auth/invalid-link-message";
-import { ResetPasswordForm } from "@/components/pages/auth/reset-password-form";
+import { AuthHero } from "@/components/auth/auth-hero";
+import { InvalidLinkMessage } from "@/components/auth/invalid-link-message";
+import { ResetPasswordForm } from "@/components/auth/reset-password-form";
 import { APP_TEXT } from "@/data/ui-content";
 
 interface ResetPasswordPageProps {

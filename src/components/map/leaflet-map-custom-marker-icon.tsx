@@ -1,71 +1,87 @@
-import { Station } from "@/types/station";
+import { AppEvent, AppEventSeverity } from "@/types/app-event";
+import { Station, StationStatus } from "@/types/station";
 import L from "leaflet";
+import { AlertTriangle, BatteryWarning } from "lucide-react";
 import ReactDOMServer from "react-dom/server";
+
+import {
+  getEventSeverityColorClass,
+  getStationStatusColorClass
+} from "@/lib/maps-helpers";
 
 interface LeafletMapCustomMarkerIconProps {
   station: Station;
+  events: AppEvent[] | null;
 }
 
-const getAlertColor = (alertLevel?: string) => {
-  switch (alertLevel) {
-    case "critical":
-      return "#8b5cf6"; // purple
-    case "high":
-      return "#ef4444"; // red
-    case "medium":
-      return "#f97316"; // orange
-    case "low":
-      return "#eab308"; // yellow
-    default:
-      return "#22c55e"; // green
-  }
-};
+export const LeafletMapCustomMarkerIcon = ({
+  station,
+  events,
+}: LeafletMapCustomMarkerIconProps) => {
+  const mostSevereAppEvent =
+    events?.length ? events.reduce((a, b) => (a.severity > b.severity ? a : b)) : null;
 
-export const LeafletMapCustomMarkerIcon = ({ station }: LeafletMapCustomMarkerIconProps) => {
-  const isOnline = station.status === "online";
-  const alertColor = getAlertColor(station.alertLevel);
+  const stationStatusClass = getStationStatusColorClass(station.status);
+  const alertSeverityClass = mostSevereAppEvent ? getEventSeverityColorClass(mostSevereAppEvent.severity) : null;
+
+  const isOnline = station.status_display === "ONLINE";
+
+  const isRaining = Boolean(
+    events?.some((e) => e.severity === AppEventSeverity.HIGH && e.type_display === "rain_alert")
+  );
+  const isSunny = Boolean(
+    events?.some((e) => e.severity === AppEventSeverity.LOW && e.type_display === "sunny")
+  );
+  const isWindy = Boolean(
+    events?.some((e) => e.severity === AppEventSeverity.MEDIUM && e.type_display === "wind_alert")
+  );
+  const hasMaintenance = station.status === StationStatus.MAINTENANCE;
+  const hasCriticalAlert = mostSevereAppEvent?.severity === AppEventSeverity.CRITICAL;
+  const hasLowBattery = station.battery_level !== null && station.battery_level < 20;
+
+  // const weatherIconName = getWeatherIconName({
+  //   isRaining,
+  //   isSunny,
+  //   isWindy,
+  //   hasMaintenance,
+  //   hasCriticalAlert,
+  //   hasLowBattery,
+  // });
+
+  // const WeatherIcon = getWeatherIconComponent(weatherIconName);
 
   const iconHtml = (
     <div className="relative">
       <div
-        className="w-8 h-8 rounded-full border-3 border-white shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
-        style={{ backgroundColor: alertColor }}
+        className={`${stationStatusClass} w-8 h-8 rounded-full border-3 border-white shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110`}
       >
-        <div className="w-3 h-3 rounded-full bg-white"></div>
-        {station.batteryLevel !== undefined && station.batteryLevel < 20 && (
+        {/* <WeatherIcon className="w-5 h-5 text-white" /> */}
+
+        {hasLowBattery && (
           <div className="absolute -top-1 -left-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
-            <svg className="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M4 7a1 1 0 011-1h.01a1 1 0 110 2H5a1 1 0 01-1-1zM4 12a1 1 0 011-1h.01a1 1 0 110 2H5a1 1 0 01-1-1zM4 17a1 1 0 011-1h.01a1 1 0 110 2H5a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+            <BatteryWarning className="h-2 w-2 text-white" />
           </div>
         )}
-        {station.alertLevel && station.alertLevel !== "none" && (
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full flex items-center justify-center">
-            <svg className="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+
+        {mostSevereAppEvent && alertSeverityClass && (
+          <div
+            className={`${alertSeverityClass} absolute -top-1 -right-1 w-3 h-3 rounded-full flex items-center justify-center`}
+          >
+            <AlertTriangle className="h-2 w-2 text-white" />
           </div>
         )}
       </div>
+
       {isOnline && (
         <div
-          className="absolute -top-1 -right-1 w-4 h-4 rounded-full animate-ping opacity-75"
-          style={{ backgroundColor: alertColor }}
+          className={`${stationStatusClass} absolute -top-1 -right-1 w-4 h-4 rounded-full animate-ping opacity-75`}
         ></div>
       )}
     </div>
   );
 
   const customIcon = L.divIcon({
-    className: "", // Removed custom-weather-marker class
+    className: "",
     html: ReactDOMServer.renderToStaticMarkup(iconHtml),
     iconSize: [32, 32],
     iconAnchor: [16, 16],

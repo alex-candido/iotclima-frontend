@@ -8,9 +8,9 @@ import { APP_TEXT } from "@/data/ui-content";
 import { useStationSensors } from "@/hooks/use-station-sensor";
 import { StationSensorFilterFormData } from "@/schemas/station-sensor-schema";
 
-import { StationSensorsHeaderSection } from "@/components/pages/admin/station-sensors/station-sensors-header-section";
-import { StationSensorsListSection } from "@/components/pages/admin/station-sensors/station-sensors-list-section";
-import { StationSensorsStatsSection } from "@/components/pages/admin/station-sensors/station-sensors-stats-section";
+import { StationSensorsHeaderSection } from "@/components/admin/station-sensors/station-sensors-header-section";
+import { StationSensorsListSection } from "@/components/admin/station-sensors/station-sensors-list-section";
+import { StationSensorsStatsSection } from "@/components/admin/station-sensors/station-sensors-stats-section";
 
 export default function StationSensorsPage() {
   const [filterParams, setFilterParams] = useState<StationSensorFilterFormData>(

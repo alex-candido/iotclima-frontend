@@ -8,14 +8,14 @@ import { toast } from "sonner";
 import { APP_TEXT } from "@/data/ui-content";
 import { useCreatePlace } from "@/hooks/use-places";
 import {
-  CreatePlaceFormData,
-  PlaceStatusEnum,
-  PlaceTypeEnum,
-  UpdatePlaceFormData,
+    CreatePlaceFormData,
+    PlaceStatusEnum,
+    PlaceTypeEnum,
+    UpdatePlaceFormData,
 } from "@/schemas/place-schema";
 
-import { NewPlaceFormSection } from "@/components/pages/admin/places/new-place-form-section";
-import { NewPlaceHeaderSection } from "@/components/pages/admin/places/new-place-header-section";
+import { NewPlaceFormSection } from "@/components/admin/places/new-place-form-section";
+import { NewPlaceHeaderSection } from "@/components/admin/places/new-place-header-section";
 
 export default function NewPlacePage() {
   const router = useRouter();

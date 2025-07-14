@@ -3,20 +3,20 @@
 "use client";
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
 } from "@/components/ui/card";
 import { ArrowLeft, Cloud } from "lucide-react";
 import { useState } from "react";
 
-import { ForgotPasswordForm } from "@/components/pages/auth/forgot-password-form";
-import { ForgotPasswordSuccessMessage } from "@/components/pages/auth/forgot-password-success-message";
+import { ForgotPasswordForm } from "@/components/auth/forgot-password-form";
+import { ForgotPasswordSuccessMessage } from "@/components/auth/forgot-password-success-message";
 
-import { AuthFooter } from "@/components/pages/auth/auth-footer";
-import { AuthHero } from "@/components/pages/auth/auth-hero";
+import { AuthFooter } from "@/components/auth/auth-footer";
+import { AuthHero } from "@/components/auth/auth-hero";
 import { APP_TEXT } from "@/data/ui-content";
 import Link from "next/link";
 

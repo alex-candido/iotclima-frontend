@@ -7,8 +7,8 @@ import { useParams } from "next/navigation";
 import { APP_TEXT } from "@/data/ui-content";
 import { useSensor } from "@/hooks/use-sensors";
 
-import { SensorBasicInfoSection } from "@/components/pages/admin/sensors/sensor-basic-info-section";
-import { SensorDetailHeaderSection } from "@/components/pages/admin/sensors/sensor-detail-header-section";
+import { SensorBasicInfoSection } from "@/components/admin/sensors/sensor-basic-info-section";
+import { SensorDetailHeaderSection } from "@/components/admin/sensors/sensor-detail-header-section";
 export default function SensorDetailPage() {
   const { id } = useParams<{ id: string }>();
 

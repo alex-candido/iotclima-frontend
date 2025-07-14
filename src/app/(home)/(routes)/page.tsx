@@ -1,6 +1,6 @@
 // src/app/(admin)/admin/dashboard/page.tsx
 
-import { HeaderSection } from "@/components/pages/home/header-section";
+import { HeaderSection } from "@/components/home/header-section";
 
 export default async function Page() {
   return (

@@ -123,3 +123,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  @apply !bg-[var(--card)];
+}
+
+.shadcn-popup .leaflet-popup-content {
+  @apply !m-0;
+  color: var(--card-foreground);
+  p {
+    @apply !m-0;
+  }
+}
+
+.leaflet-popup-tip {
+  @apply !bg-[var(--card)];
+}

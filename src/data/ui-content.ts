@@ -519,6 +519,7 @@ export const APP_TEXT = {
     ITEMS_DISPLAYED_COUNT: "itens exibidos",
     NO_DATA_FOUND_TITLE: "Nenhum dado encontrado",
     NO_DATA_FOUND_DESCRIPTION: "Ajuste os filtros ou verifique a conexão com a API.",
+    LAYERS_BUTTON_LABEL: "Camadas"
   },
   COMMON_UI: {
     SAVE_BUTTON: "Salvar",
@@ -576,6 +577,7 @@ export const APP_TEXT = {
     TRY_AGAIN_BUTTON: "Tentar Novamente",
     CLEAR_FILTERS_BUTTON: "Limpar Filtros",
     APPLY_FILTERS_BUTTON: "Aplicar Filtros",
-    LOADING_MAP: "Carregando mapa..."
+    LOADING_MAP: "Carregando mapa...",
+    REFRESH_BUTTON: "Atualizar"
   },
 };

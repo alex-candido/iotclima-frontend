@@ -7,9 +7,9 @@ import { useParams } from "next/navigation";
 import { APP_TEXT } from "@/data/ui-content";
 import { useUser } from "@/hooks/use-users";
 
-import { UserBasicInfoSection } from "@/components/pages/admin/users/user-basic-info-section";
-import { UserDetailHeaderSection } from "@/components/pages/admin/users/user-detail-header-section";
-import { UserTabsSection } from "@/components/pages/admin/users/user-tabs-section";
+import { UserBasicInfoSection } from "@/components/admin/users/user-basic-info-section";
+import { UserDetailHeaderSection } from "@/components/admin/users/user-detail-header-section";
+import { UserTabsSection } from "@/components/admin/users/user-tabs-section";
 
 export default function UserDetailPage() {
   const { id } = useParams<{ id: string }>();

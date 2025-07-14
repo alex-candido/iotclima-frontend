@@ -10,13 +10,13 @@ import { UserInput } from "@/actions/user-actions";
 import { APP_TEXT } from "@/data/ui-content";
 import { useUpdateUser, useUser } from "@/hooks/use-users";
 import {
-  UpdateUserFormData,
-  UserGroupData,
-  UserGroupEnum,
+    UpdateUserFormData,
+    UserGroupData,
+    UserGroupEnum,
 } from "@/schemas/user-schema";
 
-import { EditUserFormSection } from "@/components/pages/admin/users/edit-user-form-section";
-import { EditUserHeaderSection } from "@/components/pages/admin/users/edit-user-header-section";
+import { EditUserFormSection } from "@/components/admin/users/edit-user-form-section";
+import { EditUserHeaderSection } from "@/components/admin/users/edit-user-header-section";
 
 export default function EditUserPage() {
   const router = useRouter();

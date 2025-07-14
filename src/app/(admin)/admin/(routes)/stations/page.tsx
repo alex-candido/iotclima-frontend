@@ -5,9 +5,9 @@ import { useState } from "react";
 
 import { AlertTriangle, Loader2 } from "lucide-react";
 
-import { StationsHeaderSection } from "@/components/pages/admin/stations/stations-header-section";
-import { StationsListSection } from "@/components/pages/admin/stations/stations-list-section";
-import { StationsStatsSection } from "@/components/pages/admin/stations/stations-stats-section";
+import { StationsHeaderSection } from "@/components/admin/stations/stations-header-section";
+import { StationsListSection } from "@/components/admin/stations/stations-list-section";
+import { StationsStatsSection } from "@/components/admin/stations/stations-stats-section";
 import { APP_TEXT } from "@/data/ui-content";
 import { useStations } from "@/hooks/use-stations";
 import { StationFilterFormData } from "@/schemas/station-schema";

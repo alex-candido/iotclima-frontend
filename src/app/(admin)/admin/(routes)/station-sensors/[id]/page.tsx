@@ -7,9 +7,9 @@ import { useParams } from "next/navigation";
 import { APP_TEXT } from "@/data/ui-content";
 import { useStationSensor } from "@/hooks/use-station-sensor";
 
-import { StationSensorBasicInfoSection } from "@/components/pages/admin/station-sensors/station-sensor-basic-info-section";
-import { StationSensorDetailHeaderSection } from "@/components/pages/admin/station-sensors/station-sensor-detail-header-section";
-import { StationSensorTabsSection } from "@/components/pages/admin/station-sensors/station-sensor-tabs-section";
+import { StationSensorBasicInfoSection } from "@/components/admin/station-sensors/station-sensor-basic-info-section";
+import { StationSensorDetailHeaderSection } from "@/components/admin/station-sensors/station-sensor-detail-header-section";
+import { StationSensorTabsSection } from "@/components/admin/station-sensors/station-sensor-tabs-section";
 
 export default function StationSensorDetailPage() {
   const { id } = useParams<{ id: string }>();

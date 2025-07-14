@@ -284,7 +284,7 @@ export default function LeafletMap({ stations, onStationClick }: LeafletMapProps
       <div id="leaflet-map" className="w-full h-full rounded-lg" />
 
       {/* Custom CSS for markers and popups */}
-      <style jsx global>{`
+      {/* <style jsx global>{`
         .custom-weather-marker {
           background: transparent !important;
           border: none !important;
@@ -308,7 +308,7 @@ export default function LeafletMap({ stations, onStationClick }: LeafletMapProps
           background: rgba(255, 255, 255, 0.8) !important;
           backdrop-filter: blur(4px) !important;
         }
-      `}</style>
+      `}</style> */}
 
       {/* No Results Overlay */}
       {stations.length === 0 && (

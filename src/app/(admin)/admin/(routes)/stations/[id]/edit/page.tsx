@@ -13,8 +13,8 @@ import { UpdateStationFormData } from "@/schemas/station-schema";
 import { StationStatus } from "@/types/station";
 
 import { StationInput } from "@/actions/station-actions";
-import { EditStationFormSection } from "@/components/pages/admin/stations/edit-station-form-section";
-import { EditStationHeaderSection } from "@/components/pages/admin/stations/edit-station-header-section";
+import { EditStationFormSection } from "@/components/admin/stations/edit-station-form-section";
+import { EditStationHeaderSection } from "@/components/admin/stations/edit-station-header-section";
 
 export default function EditStationPage() {
   const router = useRouter();

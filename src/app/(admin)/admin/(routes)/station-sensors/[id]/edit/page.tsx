@@ -7,14 +7,14 @@ import { toast } from "sonner";
 
 import { APP_TEXT } from "@/data/ui-content";
 import {
-  useStationSensor,
-  useUpdateStationSensor,
+    useStationSensor,
+    useUpdateStationSensor,
 } from "@/hooks/use-station-sensor";
 import { UpdateStationSensorFormData } from "@/schemas/station-sensor-schema";
 
 import { StationSensorInput } from "@/actions/station-sensor-actions";
-import { EditStationSensorFormSection } from "@/components/pages/admin/station-sensors/edit-station-sensor-form-section";
-import { EditStationSensorHeaderSection } from "@/components/pages/admin/station-sensors/edit-station-sensor-header-section";
+import { EditStationSensorFormSection } from "@/components/admin/station-sensors/edit-station-sensor-form-section";
+import { EditStationSensorHeaderSection } from "@/components/admin/station-sensors/edit-station-sensor-header-section";
 
 export default function EditStationSensorPage() {
   const router = useRouter();

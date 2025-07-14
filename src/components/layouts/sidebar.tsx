@@ -68,10 +68,10 @@ export function Sidebar() {
           </SidebarGroupLabel>
           <SidebarMenu>
             {generalLinks.map((item) => {
-              const IconComponent =
-                item.icon && LucideIconMap[item.icon]
-                  ? LucideIconMap[item.icon]
-                  : null;
+              // const IconComponent =
+              //   item.icon && LucideIconMap[item.icon]
+              //     ? LucideIconMap[item.icon]
+              //     : null;
               return (
                 <SidebarMenuItem key={item.href}>
                   <Link
@@ -83,7 +83,7 @@ export function Sidebar() {
                         : "hover:bg-muted hover:text-foreground"
                     )}
                   >
-                    {IconComponent && <IconComponent className="h-5 w-5" />}
+                    {/* {IconComponent && <IconComponent className="h-5 w-5" />} */}
                     {item.label}
                   </Link>
                 </SidebarMenuItem>
@@ -99,10 +99,10 @@ export function Sidebar() {
             </SidebarGroupLabel>
             <SidebarMenu>
               {otherLinks.map((item) => {
-                const IconComponent =
-                  item.icon && LucideIconMap[item.icon]
-                    ? LucideIconMap[item.icon]
-                    : null;
+                // const IconComponent =
+                //   item.icon && LucideIconMap[item.icon]
+                //     ? LucideIconMap[item.icon]
+                //     : null;
                 return (
                   <SidebarMenuItem key={item.href}>
                     <Link
@@ -114,7 +114,7 @@ export function Sidebar() {
                           : "hover:bg-muted hover:text-foreground"
                       )}
                     >
-                      {IconComponent && <IconComponent className="h-5 w-5" />}
+                      {/* {IconComponent && <IconComponent className="h-5 w-5" />} */}
                       {item.label}
                     </Link>
                   </SidebarMenuItem>

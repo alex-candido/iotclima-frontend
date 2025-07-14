@@ -1,3 +1,5 @@
+// src/types/station.ts
+
 export enum StationStatus {
   ACTIVE = 1,
   INACTIVE = 0,

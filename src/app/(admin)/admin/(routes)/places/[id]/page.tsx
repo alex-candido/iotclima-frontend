@@ -7,9 +7,9 @@ import { useParams } from "next/navigation";
 import { APP_TEXT } from "@/data/ui-content";
 import { usePlace } from "@/hooks/use-places";
 
-import { PlaceBasicInfoSection } from "@/components/pages/admin/places/place-basic-info-section";
-import { PlaceDetailHeaderSection } from "@/components/pages/admin/places/place-detail-header-section";
-import { PlaceTabsSection } from "@/components/pages/admin/places/place-tabs-section";
+import { PlaceBasicInfoSection } from "@/components/admin/places/place-basic-info-section";
+import { PlaceDetailHeaderSection } from "@/components/admin/places/place-detail-header-section";
+import { PlaceTabsSection } from "@/components/admin/places/place-tabs-section";
 
 export default function PlaceDetailPage() {
   const { id } = useParams<{ id: string }>();

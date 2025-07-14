@@ -10,8 +10,8 @@ import { APP_TEXT } from "@/data/ui-content";
 import { useCreateUser } from "@/hooks/use-users";
 import { CreateUserFormData } from "@/schemas/user-schema";
 
-import { NewUserFormSection } from "@/components/pages/admin/users/new-user-form-section";
-import { NewUserHeaderSection } from "@/components/pages/admin/users/new-user-header-section";
+import { NewUserFormSection } from "@/components/admin/users/new-user-form-section";
+import { NewUserHeaderSection } from "@/components/admin/users/new-user-header-section";
 
 export default function NewUserPage() {
   const router = useRouter();

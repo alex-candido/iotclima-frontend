@@ -1,12 +1,14 @@
-// src/data/icons.ts
+// src/lib/icons.ts
 
 import {
   ActivitySquare,
   AlertTriangle,
   BarChart2,
+  BatteryCharging,
   BellRing,
   ClipboardList,
   Cloud,
+  CloudRain,
   FileText,
   Gauge,
   HelpCircle,
@@ -17,30 +19,46 @@ import {
   MapPin,
   Search,
   Settings,
+  Sun,
   Thermometer,
   User as UserIcon,
   Users,
+  Wind
 } from "lucide-react";
 
 export const LucideIconMap: { [key: string]: React.ElementType } = {
-  'LayoutDashboard': LayoutDashboard,
-  'Map': Map,
-  'MapPin': MapPin,
-  'Cloud': Cloud,
-  'ActivitySquare': ActivitySquare,
-  'Gauge': Gauge,
-  'BarChart2': BarChart2,
-  'BellRing': BellRing,
-  'ClipboardList': ClipboardList,
-  'Users': Users,
-  'Settings': Settings,
-  'User': UserIcon,
-  'Thermometer': Thermometer,
-  'AlertTriangle': AlertTriangle,
-  'FileText': FileText,
-  'Home': Home,
-  'HelpCircle': HelpCircle,
-
-  'LogOut': LogOut,
-  'Search': Search,
+  LayoutDashboard,
+  Map,
+  MapPin,
+  Cloud,
+  ActivitySquare,
+  Gauge,
+  BarChart2,
+  BellRing,
+  ClipboardList,
+  Users,
+  Settings,
+  User: UserIcon,
+  Thermometer,
+  AlertTriangle,
+  FileText,
+  Home,
+  HelpCircle,
+  LogOut,
+  Search,
 };
+
+export const WeatherIconMap: { [key: string]: React.ElementType } = {
+  AlertCritical: AlertTriangle,
+  AlertHigh: AlertTriangle,
+  AlertMedium: AlertTriangle,
+  AlertLow: AlertTriangle,
+  AlertWarn: AlertTriangle,
+
+  Rain: CloudRain,
+  Sun: Sun,
+  Wind: Wind,
+  Maintenance: UserIcon,
+  BatteryLow: BatteryCharging,
+};
+

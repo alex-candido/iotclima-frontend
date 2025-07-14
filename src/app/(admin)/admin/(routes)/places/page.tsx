@@ -9,9 +9,9 @@ import { APP_TEXT } from "@/data/ui-content";
 import { usePlaces } from "@/hooks/use-places";
 import { PlaceFilterFormData } from "@/schemas/place-schema";
 
-import { PlacesHeaderSection } from "@/components/pages/admin/places/places-header-section";
-import { PlacesListSection } from "@/components/pages/admin/places/places-list-section";
-import { PlacesStatsSection } from "@/components/pages/admin/places/places-stats-section";
+import { PlacesHeaderSection } from "@/components/admin/places/places-header-section";
+import { PlacesListSection } from "@/components/admin/places/places-list-section";
+import { PlacesStatsSection } from "@/components/admin/places/places-stats-section";
 
 import { PlaceStatus } from "@/types/place";
 

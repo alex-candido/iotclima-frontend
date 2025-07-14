@@ -6,9 +6,9 @@ import { useState } from "react";
 import { useUsers } from "@/hooks/use-users";
 import { UserFilterFormData } from "@/schemas/user-schema";
 
-import { UsersHeaderSection } from "@/components/pages/admin/users/users-header-section";
-import { UsersListSection } from "@/components/pages/admin/users/users-list-section";
-import { UsersStatsSection } from "@/components/pages/admin/users/users-stats-section";
+import { UsersHeaderSection } from "@/components/admin/users/users-header-section";
+import { UsersListSection } from "@/components/admin/users/users-list-section";
+import { UsersStatsSection } from "@/components/admin/users/users-stats-section";
 
 import { APP_ROUTES } from "@/data/routes";
 import { APP_TEXT } from "@/data/ui-content";

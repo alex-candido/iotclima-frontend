@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 
 import { StationSensorInput } from "@/actions/station-sensor-actions";
-import { NewStationSensorFormSection } from "@/components/pages/admin/station-sensors/new-station-sensor-form-section";
-import { NewStationSensorHeaderSection } from "@/components/pages/admin/station-sensors/new-station-sensor-header-section";
+import { NewStationSensorFormSection } from "@/components/admin/station-sensors/new-station-sensor-form-section";
+import { NewStationSensorHeaderSection } from "@/components/admin/station-sensors/new-station-sensor-header-section";
 import { APP_TEXT } from "@/data/ui-content";
 import { useCreateStationSensor } from "@/hooks/use-station-sensor";
 import { CreateStationSensorFormData } from "@/schemas/station-sensor-schema";

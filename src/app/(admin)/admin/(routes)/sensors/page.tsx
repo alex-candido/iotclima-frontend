@@ -9,9 +9,9 @@ import { useSensors } from "@/hooks/use-sensors";
 import { SensorFilterFormData } from "@/schemas/sensor-schema";
 import { SensorStatus } from "@/types/sensor";
 
-import { SensorsHeaderSection } from "@/components/pages/admin/sensors/sensors-header-section";
-import { SensorsListSection } from "@/components/pages/admin/sensors/sensors-list-section";
-import { SensorsStatsSection } from "@/components/pages/admin/sensors/sensors-stats-section";
+import { SensorsHeaderSection } from "@/components/admin/sensors/sensors-header-section";
+import { SensorsListSection } from "@/components/admin/sensors/sensors-list-section";
+import { SensorsStatsSection } from "@/components/admin/sensors/sensors-stats-section";
 
 export default function SensorsPage() {
   const [filterParams, setFilterParams] = useState<SensorFilterFormData>({

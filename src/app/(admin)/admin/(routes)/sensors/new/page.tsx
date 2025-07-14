@@ -11,8 +11,8 @@ import { CreateSensorFormData } from "@/schemas/sensor-schema";
 import { SensorStatus, SensorType, UnitType } from "@/types/sensor";
 
 import { SensorInput } from "@/actions/sensor-actions";
-import { NewSensorFormSection } from "@/components/pages/admin/sensors/new-sensor-form-section";
-import { NewSensorHeaderSection } from "@/components/pages/admin/sensors/new-sensor-header-section";
+import { NewSensorFormSection } from "@/components/admin/sensors/new-sensor-form-section";
+import { NewSensorHeaderSection } from "@/components/admin/sensors/new-sensor-header-section";
 
 export default function NewSensorPage() {
   const router = useRouter();

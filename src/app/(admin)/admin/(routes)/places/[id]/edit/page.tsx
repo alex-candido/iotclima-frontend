@@ -7,8 +7,8 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 
 import { PlaceInput } from "@/actions/place-actions";
-import { EditPlaceFormSection } from "@/components/pages/admin/places/edit-place-form-section";
-import { EditPlaceHeaderSection } from "@/components/pages/admin/places/edit-place-header-section";
+import { EditPlaceFormSection } from "@/components/admin/places/edit-place-form-section";
+import { EditPlaceHeaderSection } from "@/components/admin/places/edit-place-header-section";
 import { APP_TEXT } from "@/data/ui-content";
 import { usePlace, useUpdatePlace } from "@/hooks/use-places";
 import { UpdatePlaceFormData } from "@/schemas/place-schema";

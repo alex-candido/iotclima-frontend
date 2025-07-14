@@ -1,20 +1,52 @@
-// src/schemas/record.ts
+// src/schemas/record-schema.ts
 
-import { UI_MESSAGES } from '@/data/messages';
-import { RecordStatus } from '@/types/record'; // Enum de Record
-import { z } from 'zod';
+import { RecordStatus } from '@/types/record';
+import { z } from "zod";
 
+export const RecordStatusEnum = z.nativeEnum(RecordStatus);
 
-export const recordSchema = z.object({
-  recorded_at: z.string().min(1, { message: UI_MESSAGES.FORMS.REQUIRED_FIELD }), // ISO string
-  temperature: z.number().optional().nullable(),
-  humidity: z.number().optional().nullable(),
-  wind_speed: z.number().optional().nullable(),
-  wind_direction: z.number().optional().nullable(),
-  pressure: z.number().optional().nullable(),
-  rainfall: z.number().optional().nullable(),
+export const getRecordStatusLabel = (status: RecordStatus | "all"): string => {
+  if (status === "all") return "Todas";
+  switch (status) {
+    case RecordStatus.ACTIVE: return "Ativo";
+    case RecordStatus.INACTIVE: return "Inativo";
+    default: return String(status);
+  }
+};
 
-  status: z.nativeEnum(RecordStatus, { invalid_type_error: UI_MESSAGES.FORMS.REQUIRED_FIELD }).default(RecordStatus.ACTIVE),
+export const baseRecordSchema = z.object({
+  recorded_at: z.string().datetime({ message: "Data e hora da medição inválidas." }), 
+  temperature: z.number().nullable().optional(),
+  humidity: z.number().nullable().optional(),
+  wind_speed: z.number().nullable().optional(),
+  wind_direction: z.number().nullable().optional(), 
+  pressure: z.number().nullable().optional(),
+  rainfall: z.number().nullable().optional(),
 
-  station: z.number({ invalid_type_error: UI_MESSAGES.FORMS.REQUIRED_FIELD }), // Station ID
+  status: RecordStatusEnum, 
+
+  station: z.number().int({ message: "ID da estação deve ser um número inteiro." }), 
 });
+
+export const createRecordSchema = baseRecordSchema.extend({
+});
+
+export const updateRecordSchema = baseRecordSchema.partial();
+
+
+export const recordFilterSchema = z.object({
+  search_term: z.string().optional(), 
+  status: z.union([RecordStatusEnum, z.literal("all")]).optional().default("all"),
+  station: z.number().int().optional(), 
+  
+  recorded_at__gte: z.string().datetime().optional(),
+  recorded_at__lte: z.string().datetime().optional(),
+
+  page: z.number().int().min(1).optional().default(1),
+  page_size: z.number().int().min(1).max(100).optional().default(10),
+});
+
+
+export type CreateRecordFormData = z.infer<typeof createRecordSchema>;
+export type UpdateRecordFormData = z.infer<typeof updateRecordSchema>;
+export type RecordFilterFormData = z.infer<typeof recordFilterSchema>;
