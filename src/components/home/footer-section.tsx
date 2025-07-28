@@ -1,3 +1,4 @@
+// src/components/home/footer-section.tsx
 "use client"
 
 import { Container } from "@/components/base/container";
