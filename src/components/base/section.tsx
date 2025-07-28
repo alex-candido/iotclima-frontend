@@ -9,7 +9,7 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className={cn("section px-4 py-6", className)}>
+    <section className={cn("section px-4 pt-6 pb-16", className)}>
       {children}
     </section>
   );

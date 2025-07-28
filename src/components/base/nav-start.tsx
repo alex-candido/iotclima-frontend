@@ -1,5 +1,6 @@
 // src/components/base/nav-start.tsx
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "#overview", label: "Visão Geral" },
@@ -9,9 +10,9 @@ const navLinks = [
   { href: "#tech", label: "Tecnologia" },
 ];
 
-export function NavbarStart() {
+export function NavbarStart({ className }: { className?: string }) {
   return (
-    <nav className="nav-start hidden md:flex items-center gap-6">
+    <nav className={cn("nav-start hidden md:flex items-center gap-6", className)}>
       {navLinks.map(({ href, label }) => (
         <Link
           key={href}
