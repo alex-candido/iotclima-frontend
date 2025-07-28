@@ -1,3 +1,4 @@
+// src/components/base/showcase.tsx
 'use client';
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";

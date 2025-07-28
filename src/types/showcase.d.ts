@@ -1,3 +1,4 @@
+// src/types/showcase.d.ts
 export interface ShowcaseView {
   id: string;
   title: string;

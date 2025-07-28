@@ -7,11 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShowcaseView } from "@/types/showcase";
 import {
+  ArrowRight,
   Droplets,
-  Map,
   MapPin,
   Thermometer,
-  Wind,
+  Wind
 } from "lucide-react";
 import Link from "next/link";
 
@@ -97,8 +97,8 @@ export function HeroSection() {
                 href="/maps"
                 className="flex items-center gap-2 font-semibold text-sm"
               >
-                <Map className="w-4 h-4 stroke-[2.5]" />
-                Acessar Maps
+                Explorar Sistema
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
 
