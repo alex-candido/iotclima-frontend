@@ -1,8 +1,10 @@
 // src/components/base/container.tsx
 
-export function Container({ children }: { children: React.ReactNode }) {
+import { cn } from "@/lib/utils";
+
+export function Container({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
-    <div className="container w-full max-w-4/5 mx-auto flex items-center justify-between">
+    <div className={cn("container w-full max-w-4/5 mx-auto flex items-center justify-between", className)}>
       {children}
     </div>
   )

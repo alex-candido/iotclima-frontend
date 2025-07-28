@@ -6,10 +6,22 @@ import { Button } from "@/components/ui/button";
 import { Map, Menu } from "lucide-react";
 import Link from "next/link";
 
-export function NavbarEnd() {
+import { cn } from "@/lib/utils";
+
+export function NavbarEnd({ className }: { className?: string }) {
   return (
-    <div className="nav-end flex items-center gap-4">
+    <div className={cn("nav-end flex items-center gap-4", className)}>
       <ThemeSwitch />
+      <Button
+        variant="outline"
+        className="hidden md:inline-flex bg-transparent  text-sm font-medium hover:bg-gray-100/5"
+        asChild
+      >
+        <Link href="/docs">Ver Documentação</Link>
+      </Button>
+      <Button variant="ghost" className="md:hidden">
+        <Menu className="w-5 h-5" />
+      </Button>
       <Button asChild>
         <Link
           href="/maps"
@@ -18,16 +30,6 @@ export function NavbarEnd() {
           <Map className="w-4 h-4 stroke-[2.5]" />
           <span>Acessar Maps</span>
         </Link>
-      </Button>
-      <Button
-        variant="outline"
-        className="hidden md:inline-flex bg-transparent border-gray-700 text-sm font-medium hover:bg-gray-100/5"
-        asChild
-      >
-        <Link href="/docs">Documentação</Link>
-      </Button>
-      <Button variant="ghost" className="md:hidden">
-        <Menu className="w-5 h-5" />
       </Button>
     </div>
   );

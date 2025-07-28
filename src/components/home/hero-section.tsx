@@ -2,16 +2,75 @@
 
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
+import { Showcase } from "@/components/base/showcase";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Droplets, Map, MapPin, Thermometer, Wind } from "lucide-react";
+import { ShowcaseView } from "@/types/showcase";
+import {
+  Droplets,
+  Map,
+  MapPin,
+  Thermometer,
+  Wind,
+} from "lucide-react";
 import Link from "next/link";
+
+const mapViews: ShowcaseView[] = [
+  {
+    id: "overview",
+    title: "Visão Geral",
+    icon: "MapPin",
+    image: "",
+    description:
+      "Visualize todas as 72 estações meteorológicas distribuídas estrategicamente pelo estado do Ceará",
+  },
+  {
+    id: "temperature",
+    title: "Temperatura",
+    icon: "Thermometer",
+    image: "",
+    description:
+      "Mapa de calor com temperaturas em tempo real de todas as estações ativas",
+  },
+  {
+    id: "humidity",
+    title: "Umidade",
+    icon: "Droplets",
+    image: "",
+    description:
+      "Níveis de umidade relativa do ar distribuídos geograficamente pelo estado",
+  },
+  {
+    id: "wind",
+    title: "Vento",
+    icon: "Wind",
+    image: "",
+    description:
+      "Direção e velocidade do vento com indicadores visuais em tempo real",
+  },
+  {
+    id: "visibility",
+    title: "Visibilidade",
+    icon: "Eye",
+    image: "",
+    description:
+      "Condições de visibilidade atmosférica e qualidade do ar por região",
+  },
+  {
+    id: "filters",
+    title: "Filtros",
+    icon: "Filter",
+    image: "",
+    description:
+      "Sistema de filtros avançados para análise personalizada dos dados",
+  },
+];
 
 export function HeroSection() {
   return (
     <Section className="hero-section">
       <Container>
-        <div className="content mx-auto text-center">
+        <div className="content flex flex-col items-center w-full text-center">
           <Badge variant="secondary" className="mb-6 px-4 py-2">
             🌦️ Sistema de Monitoramento em Tempo Real
           </Badge>
@@ -38,23 +97,25 @@ export function HeroSection() {
                 href="/maps"
                 className="flex items-center gap-2 font-semibold text-sm"
               >
-                <Map className="w-4 h-4 stroke-[2.5]" /> 
+                <Map className="w-4 h-4 stroke-[2.5]" />
                 Acessar Maps
               </Link>
             </Button>
 
-            <Button asChild variant="outline" size="lg" className="px-8 py-3 text-lg bg-transparent">
-              <Link
-                href="/docs"
-                className="font-semibold text-sm"
-              >
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8 py-3 text-lg bg-transparent"
+            >
+              <Link href="/docs" className="font-semibold text-sm">
                 Ver Documentação
               </Link>
             </Button>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16">
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mx-auto mb-3">
                 <MapPin className="w-6 h-6 text-blue-600" />
@@ -84,6 +145,8 @@ export function HeroSection() {
               <div className="text-gray-600">Cobertura CE</div>
             </div>
           </div>
+
+          <Showcase views={mapViews} initialView="overview" />
         </div>
       </Container>
     </Section>
