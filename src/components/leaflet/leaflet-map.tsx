@@ -2,17 +2,11 @@
 
 "use client";
 
-import { LeafletMapCustomMarkerIcon } from "@/components/leaflet/leaflet-map-custom-marker-icon";
-import {
-  LatLngBoundsExpression,
-  LatLngExpression,
-  LeafletEventHandlerFnMap,
-  PointExpression,
-} from "leaflet";
+import L, { LatLngBoundsExpression, LatLngExpression, LeafletEventHandlerFnMap, PointExpression } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
-import { TileLayer, useMapEvents } from "react-leaflet";
 
+const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
 const LeafletMapMarker = dynamic(() => import("@/components/leaflet/leaflet-map-marker").then((mod) => mod.LeafletMapMarker), { ssr: false });
 const LeafletMapPopup = dynamic(() => import("@/components/leaflet/leaflet-map-popup").then((mod) => mod.LeafletMapPopup), { ssr: false });
@@ -49,6 +43,32 @@ interface LeafletMapProps<TData> {
   renderPopupContent?: (data: TData) => React.ReactNode;
 }
 
+const MapEventsHandlerComponent = dynamic(() => import("react-leaflet").then((mod) => {
+  const useMapEvents = mod.useMapEvents;
+  
+  return function MapEventsHandler({ onMapLoad, onMapZoomEnd, onMapMoveEnd }: {
+    onMapLoad?: (map: L.Map) => void;
+    onMapZoomEnd?: (map: L.Map) => void;
+    onMapMoveEnd?: (map: L.Map) => void;
+  }) {
+    const map = useMapEvents({
+      load: () => {
+        console.log("Map loaded. Initial Bounds:", map.getBounds());
+        void(onMapLoad && onMapLoad(map));
+      },
+      zoomend: () => {
+        console.log("Zoom ended. Current Bounds:", map.getBounds());
+        void(onMapZoomEnd && onMapZoomEnd(map));
+      },
+      moveend: () => {
+        console.log("Move ended. Current Bounds:", map.getBounds());
+        void(onMapMoveEnd && onMapMoveEnd(map));
+      },
+    });
+    return null;
+  };
+}), { ssr: false });
+
 export function LeafletMap<TData>({
   attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   urlLayer = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -80,24 +100,6 @@ export function LeafletMap<TData>({
   renderPopupContent,
   children,
 }: LeafletMapProps<TData>) {
-  const MapEventsHandler = () => {
-    const map = useMapEvents({
-      load: () => {
-        console.log("Map loaded. Initial Bounds:", map.getBounds());
-        void(onMapLoad && onMapLoad(map));
-      },
-      zoomend: () => {
-        console.log("Zoom ended. Current Bounds:", map.getBounds());
-        void(onMapZoomEnd && onMapZoomEnd(map));
-      },
-      moveend: () => {
-        console.log("Move ended. Current Bounds:", map.getBounds());
-        void(onMapMoveEnd && onMapMoveEnd(map));
-      },
-    });
-    return null;
-  };
-
   return (
     <div className="relative w-full h-full">
       <MapContainer
@@ -110,7 +112,7 @@ export function LeafletMap<TData>({
         zoomControl={zoomControl}
         attributionControl={attributionControl}
       >
-        <MapEventsHandler />
+        <MapEventsHandlerComponent onMapLoad={onMapLoad} onMapZoomEnd={onMapZoomEnd} onMapMoveEnd={onMapMoveEnd} />
         <TileLayer
           attribution={attribution}
           url={urlLayer}
@@ -126,11 +128,7 @@ export function LeafletMap<TData>({
               <LeafletMapMarker
                 key={item.id}
                 position={item.position}
-                icon={LeafletMapCustomMarkerIcon({
-                  children: renderMarkerIcon
-                    ? renderMarkerIcon(item.data)
-                    : null,
-                })}
+                renderIconContent={renderMarkerIcon ? renderMarkerIcon(item.data) : null}
                 eventHandlers={markerEventHandlers}
               >
                 <LeafletMapPopup
@@ -149,11 +147,7 @@ export function LeafletMap<TData>({
             <LeafletMapMarker
               key={item.id}
               position={item.position}
-              icon={LeafletMapCustomMarkerIcon({
-                children: renderMarkerIcon
-                  ? renderMarkerIcon(item.data)
-                  : null,
-              })}
+              renderIconContent={renderMarkerIcon ? renderMarkerIcon(item.data) : null}
               eventHandlers={markerEventHandlers}
             >
               <LeafletMapPopup
