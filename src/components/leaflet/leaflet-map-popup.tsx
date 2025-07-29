@@ -1,10 +1,10 @@
 // src/components/leaflet/leaflet-map-popup.tsx
 
+import { cn } from "@/lib/utils";
 import {
   Popup,
   PopupProps
 } from "react-leaflet";
-import { cn } from "@/lib/utils";
 
 interface LeafletMapPopupProps {
   children: React.ReactNode;

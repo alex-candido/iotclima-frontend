@@ -2,6 +2,7 @@
 
 "use client";
 
+import { useMap } from "@/providers/map-provider";
 import L, { LatLngBoundsExpression, LatLngExpression, LeafletEventHandlerFnMap, PointExpression } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
@@ -10,9 +11,10 @@ const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLa
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
 const LeafletMapMarker = dynamic(() => import("@/components/leaflet/leaflet-map-marker").then((mod) => mod.LeafletMapMarker), { ssr: false });
 const LeafletMapPopup = dynamic(() => import("@/components/leaflet/leaflet-map-popup").then((mod) => mod.LeafletMapPopup), { ssr: false });
-const LeafletMapZoomControl = dynamic(() => import("@/components/leaflet/leaflet-map-zoom-control").then((mod) => mod.LeafletMapZoomControl), { ssr: false });
 const LeafletMapLegend = dynamic(() => import("@/components/leaflet/leaflet-map-legend").then((mod) => mod.LeafletMapLegend), { ssr: false });
 const LeafletMapCluster = dynamic(() => import("@/components/leaflet/leaflet-map-cluster").then((mod) => mod.LeafletMapCluster), { ssr: false });
+const LeafletMapLayersControl = dynamic(() => import("@/components/leaflet/leaflet-map-layers-control").then((mod) => mod.LeafletMapLayersControl), { ssr: false });
+const LeafletMapLocateMeButton = dynamic(() => import("@/components/leaflet/leaflet-map-locate-me-button").then((mod) => mod.LeafletMapLocateMeButton), { ssr: false });
 
 interface LeafletMapProps<TData> {
   attribution?: string;
@@ -27,9 +29,8 @@ interface LeafletMapProps<TData> {
   maxBounds?: LatLngBoundsExpression;
   maxBoundsViscosity?: number;
   attributionControl?: boolean;
-  zoomControlPosition?: "topleft" | "topright" | "bottomleft" | "bottomright";
+  zoomControlPosition?: 'topleft' | 'topright' | 'bottomleft' | 'bottomright';
   children?: React.ReactNode;
-  legendComponent?: React.ReactNode;
   useCluster?: boolean;
   onMapLoad?: (map: L.Map) => void;
   onMapZoomEnd?: (map: L.Map) => void;
@@ -41,6 +42,10 @@ interface LeafletMapProps<TData> {
   items?: { id: string | number; position: LatLngExpression; data: TData }[];
   renderMarkerIcon?: (data: TData) => React.ReactNode;
   renderPopupContent?: (data: TData) => React.ReactNode;
+  legendComponent?: React.ReactNode;
+  layersControlComponent?: React.ReactNode;
+  locateMeButtonComponent?: React.ReactNode;
+  mapControls?: React.ReactNode; // New prop to hold all map controls
 }
 
 const MapEventsHandlerComponent = dynamic(() => import("react-leaflet").then((mod) => {
@@ -86,7 +91,6 @@ export function LeafletMap<TData>({
   maxBoundsViscosity = 1.0,
   attributionControl = false,
   zoomControlPosition = "topright",
-  legendComponent,
   useCluster = false,
   onMapLoad,
   onMapZoomEnd,
@@ -98,6 +102,10 @@ export function LeafletMap<TData>({
   items = [],
   renderMarkerIcon,
   renderPopupContent,
+  legendComponent,
+  layersControlComponent,
+  locateMeButtonComponent,
+  mapControls, // New prop
   children,
 }: LeafletMapProps<TData>) {
   return (
@@ -120,7 +128,6 @@ export function LeafletMap<TData>({
           minZoom={minZoom}
           opacity={opacity}
         />
-        <LeafletMapZoomControl position={zoomControlPosition} />
 
         {useCluster ? (
           <LeafletMapCluster>
@@ -160,9 +167,8 @@ export function LeafletMap<TData>({
             </LeafletMapMarker>
           ))
         )}
+        {mapControls}
       </MapContainer>
-
-      <LeafletMapLegend>{legendComponent}</LeafletMapLegend>
     </div>
   );
 }
