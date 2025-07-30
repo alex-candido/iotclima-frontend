@@ -2,12 +2,20 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useMap } from "@/providers/map-provider";
 import { LocateFixed } from "lucide-react";
+import { useMap as useLeafletMap } from "react-leaflet";
 
 export function LocateMeButton() {
+  const map = useLeafletMap();
+  const { currentLocation } = useMap();
+
   const handleLocateMe = () => {
-    console.log("Localizar minha posição");
-    // Lógica para localizar o usuário e centralizar o mapa será implementada posteriormente
+    if (map && currentLocation) {
+      map.flyTo([currentLocation.latitude, currentLocation.longitude], 15);
+    } else {
+      console.warn("Map instance or current location not available.");
+    }
   };
 
   return (

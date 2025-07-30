@@ -11,7 +11,6 @@ const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.Map
 const LeafletMapMarker = dynamic(() => import("@/components/leaflet/leaflet-map-marker").then((mod) => mod.LeafletMapMarker), { ssr: false });
 const LeafletMapPopup = dynamic(() => import("@/components/leaflet/leaflet-map-popup").then((mod) => mod.LeafletMapPopup), { ssr: false });
 const LeafletMapCluster = dynamic(() => import("@/components/leaflet/leaflet-map-cluster").then((mod) => mod.LeafletMapCluster), { ssr: false });
-const LeafletMapZoomControl = dynamic(() => import("@/components/leaflet/leaflet-map-zoom-control").then((mod) => mod.LeafletMapZoomControl), { ssr: false });
 
 interface LeafletMapProps<TData> {
   attribution?: string;
@@ -26,7 +25,6 @@ interface LeafletMapProps<TData> {
   maxBounds?: LatLngBoundsExpression;
   maxBoundsViscosity?: number;
   attributionControl?: boolean;
-  zoomControlPosition?: 'topleft' | 'topright' | 'bottomleft' | 'bottomright';
   children?: React.ReactNode;
   useCluster?: boolean;
   onMapLoad?: (map: L.Map) => void;
@@ -39,6 +37,9 @@ interface LeafletMapProps<TData> {
   items?: { id: string | number; position: LatLngExpression; data: TData }[];
   renderMarkerIcon?: (data: TData) => React.ReactNode;
   renderPopupContent?: (data: TData) => React.ReactNode;
+  currentLocation?: LatLngExpression;
+  renderCurrentLocationMarkerIcon?: () => React.ReactNode;
+  renderCurrentLocationPopupContent?: () => React.ReactNode; 
   mapControls?: React.ReactNode; 
 }
 
@@ -84,7 +85,6 @@ export function LeafletMap<TData>({
   ],
   maxBoundsViscosity = 1.0,
   attributionControl = false,
-  zoomControlPosition = "topright",
   useCluster = false,
   onMapLoad,
   onMapZoomEnd,
@@ -96,7 +96,9 @@ export function LeafletMap<TData>({
   items = [],
   renderMarkerIcon,
   renderPopupContent,
-  mapControls, // New prop
+  renderCurrentLocationMarkerIcon,
+  currentLocation,
+  mapControls,
   children,
 }: LeafletMapProps<TData>) {
   return (
@@ -119,8 +121,14 @@ export function LeafletMap<TData>({
           minZoom={minZoom}
           opacity={opacity}
         />
-        <LeafletMapZoomControl position={zoomControlPosition} />
-
+        {currentLocation && (
+          <LeafletMapMarker
+            key="current-location-marker"
+            position={currentLocation}
+            renderIconContent={renderCurrentLocationMarkerIcon ? renderCurrentLocationMarkerIcon() : null}
+            eventHandlers={markerEventHandlers}
+          />
+        )}
         {useCluster ? (
           <LeafletMapCluster>
             {items.map((item) => (

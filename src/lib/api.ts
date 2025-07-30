@@ -1,11 +1,13 @@
 // src/lib/api.ts
 
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const api = axios.create({
-  baseURL: '/api/v1',
+import { API_BASE_URL, API_CONTENT_TYPE } from '@/config/api';
+
+const api: AxiosInstance = axios.create({
+  baseURL: API_BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': API_CONTENT_TYPE,
   },
 });
 

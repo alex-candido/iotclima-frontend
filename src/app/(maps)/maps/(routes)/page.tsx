@@ -2,7 +2,6 @@
 "use client";
 
 import { ActionTriggers } from "@/components/maps/actions/action-triggers";
-import { FilterSidebarTrigger } from "@/components/maps/actions/filter-sidebar-trigger";
 import { RefreshMapButton } from "@/components/maps/actions/refresh-map-button";
 import { MapAside } from "@/components/maps/aside/map-aside";
 import { FloatingFilterPanel } from "@/components/maps/filter/floating-filter-panel";
@@ -23,7 +22,6 @@ export default function Page() {
           <WeatherTabs />                                                         
         <ActionTriggers>
           <RefreshMapButton />
-          <FilterSidebarTrigger />
         </ActionTriggers> 
       </TopBar>
       <FloatingFilterPanel />
