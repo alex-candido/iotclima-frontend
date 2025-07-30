@@ -8,9 +8,14 @@ import { SearchItemList } from "@/components/maps/search-box/search-item-list";
 import { cn } from "@/lib/utils";
 import { useMap } from "@/providers/map-provider";
 import { useEffect } from "react";
+import { useStations } from "@/hooks/use-stations";
+import { Station } from "@/types/station";
 
 export function SearchCollapse() {
-  const { isSearchCollapseOpen, hasSearchResults, searchQuery, selectedSearchItem, setSelectedSearchItem, isSelectingItem, setSelectedItemForSearch } = useMap();
+  const { isSearchCollapseOpen, searchQuery, selectedSearchItem, setSelectedSearchItem, isSelectingItem, setSelectedItemForSearch } = useMap();
+  const { data: stationsData, isLoading, isError } = useStations({
+    query: searchQuery,
+  });
 
   useEffect(() => {
     // Reset selectedItem when searchQuery changes, unless it's due to an item selection
@@ -19,35 +24,19 @@ export function SearchCollapse() {
     }
   }, [searchQuery, setSelectedSearchItem, isSelectingItem]);
 
-  interface SearchItem {
-  id: number;
-  name: string;
-  description: string;
-}
-
-  const handleItemClick = (item: SearchItem) => {
+  const handleItemClick = (item: Station) => {
     setSelectedItemForSearch(item);
   };
 
-  const renderSearchItem = (item: SearchItem) => (
+  const renderSearchItem = (item: Station) => (
     <div>
       <h4>{item.name}</h4>
       <p>{item.description}</p>
     </div>
   );
 
-  // Dummy data for demonstration
-  const recentItems = Array.from({ length: 10 }, (_, i) => ({
-    id: i + 1,
-    name: `Recent Location ${i + 1}`,
-    description: `Description for recent location ${i + 1}`,
-  }));
-
-  const searchResults = Array.from({ length: 10 }, (_, i) => ({
-    id: i + 11,
-    name: `Search Result ${searchQuery || 'Default'} ${i + 1}`,
-    description: `Description for search result ${searchQuery || 'Default'} ${i + 1}`,
-  }));
+  const searchResults = stationsData?.results || [];
+  const hasSearchResults = searchResults.length > 0;
 
   return (
     <FloatingCard className={cn(
@@ -59,10 +48,12 @@ export function SearchCollapse() {
       ) : (
         <>
           <CurrentLocationWeather />
-          {hasSearchResults ? (
+          {isLoading && <div>Carregando resultados...</div>}
+          {isError && <div>Erro ao carregar resultados.</div>}
+          {!isLoading && !isError && hasSearchResults ? (
             <SearchItemList items={searchResults} renderItem={renderSearchItem} onItemClick={handleItemClick} className="flex-grow overflow-y-auto min-h-0" />
           ) : (
-            <SearchItemList items={recentItems} renderItem={renderSearchItem} onItemClick={handleItemClick} className="flex-grow overflow-y-auto min-h-0" />
+            !isLoading && !isError && <div>Nenhum resultado encontrado.</div>
           )}
         </>
       )}

@@ -2,24 +2,20 @@
 "use client";
 
 import { LeafletMap } from "@/components/leaflet/leaflet-map";
-import { CustomMarkerIcon } from "@/components/maps/map-view/custom-marker-icon"; // Componente wrapper do ícone
-import { CustomPopupContent } from "@/components/maps/map-view/custom-popup-content"; // O conteúdo do popup
+import { CustomMarkerIcon } from "@/components/maps/map-view/custom-marker-icon";
+import { CustomPopupContent } from "@/components/maps/map-view/custom-popup-content";
 import { MapControlsBottomLeft } from "@/components/maps/map-view/map-controls-bottom-left";
 import { MapControlsBottomRight } from "@/components/maps/map-view/map-controls-bottom-right";
 import { useMap } from "@/providers/map-provider";
 import type { LatLngExpression } from 'leaflet';
-import { WeatherStationMarker } from "./weather-station-marker"; // O marcador em formato de pílula
+import { WeatherStationMarker } from "./weather-station-marker";
 
-// Tipos necessários (já corrigidos para usar alias @/types)
 import { PlaceStatus } from "@/types/place";
 import { SensorRecord } from "@/types/record";
 import { SensorType, UnitType } from "@/types/sensor";
 import { Station, StationStatus } from "@/types/station";
+import { CurrentLocationMarker } from "../markers/current-location-marker";
 
-// Removido: getWeatherIconAndDescription foi movido para custom-popup-content.tsx
-
-// Helper para obter o ícone do clima para o WeatherStationMarker
-// (simplificado, apenas para o marcador. Lógica completa está no popup)
 function getWeatherIconForMarker(
   sensors: SensorRecord[]
 ): string {
@@ -33,22 +29,21 @@ function getWeatherIconForMarker(
   const solarimeterValue = getNumericValue(solarimeter);
 
   if (pluviometerValue !== undefined && pluviometerValue > 0) {
-    return "🌧️"; // Chuva
+    return "🌧️"; 
   }
   if (solarimeterValue !== undefined && solarimeterValue > 500) {
-    return "☀️"; // Sol forte
+    return "☀️"; 
   }
-  return "☁️"; // Padrão
+  return "☁️"; 
 }
 
 export function MapView() {
-  const { mapRefreshKey, activeMapLayerUrl } = useMap();
+  const { mapRefreshKey, activeMapLayerUrl, currentLocation: currentLocationMarker } = useMap();
 
   const MAP_URL_LAYER = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
   const INITIAL_CENTER: LatLngExpression = [-3.74, -38.595];
   const INITIAL_ZOOM = 13;
 
-  // Dados de Exemplo (Tipados como Station[])
   const DUMMY_ITEMS: Station[] = [
     {
       id: 1,
@@ -81,7 +76,7 @@ export function MapView() {
       uuid: "uuid-2",
       name: "Estação B",
       description: "Estação de monitoramento B",
-      status: StationStatus.INACTIVE, // Exemplo de inativa
+      status: StationStatus.INACTIVE,
       info: { model: "Model B", firmware: "1.0", installed_at: "2023-02-01T11:00:00Z" },
       place: { id: 2, uuid: "place-uuid-2", name: "Local B", description: "Desc B", info: { address: "", city: "", state: "", country: "" }, geometry: { type: "Point", coordinates: [-3.75, -38.6] }, status: PlaceStatus.ACTIVE, latitude: -3.75, longitude: -38.6, created_at: "", updated_at: "" },
       records: [
@@ -133,16 +128,18 @@ export function MapView() {
       <LeafletMap
         key={mapRefreshKey} 
         urlLayer={activeMapLayerUrl || MAP_URL_LAYER} 
-        centerPosition={INITIAL_CENTER}
+        centerPosition={
+          currentLocationMarker
+            ? [currentLocationMarker.latitude, currentLocationMarker.longitude]
+            : INITIAL_CENTER
+        }
         zoomLevel={INITIAL_ZOOM}
         items={DUMMY_ITEMS.map(station => ({
           id: station.id,
           position: [station.place.latitude, station.place.longitude] as LatLngExpression,
           data: station,
         }))}
-        // renderMarkerIcon agora passa a prop `data` diretamente para WeatherStationMarker
         renderMarkerIcon={(data: Station) => {
-          // Lógica para obter os dados para o WeatherStationMarker
           const latestRecord = data.records && data.records.length > 0
             ? data.records.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0]
             : null;
@@ -155,31 +152,32 @@ export function MapView() {
           const weatherIcon = getWeatherIconForMarker(latestRecord?.sensors || []); 
 
           return (
-            // Assumimos que CustomMarkerIcon é um wrapper que aceita children
-            // e WeatherStationMarker é o ícone real.
-            // OU: Se CustomMarkerIcon for o próprio ícone e precisar de props:
-            // <CustomMarkerIcon data={{ temperature: temperature, weatherIcon: weatherIcon }} />
             <CustomMarkerIcon>
               <WeatherStationMarker
-                temperature={temperature} // Prop 'temperature' de WeatherStationMarker
-                weatherIcon={weatherIcon} // Prop 'weatherIcon' de WeatherStationMarker
-                // Se WeatherStationMarker precisar de outros dados como status ou ID:
-                // status={data.status === StationStatus.ACTIVE ? "online" : "offline"}
-                // id={data.id}
+                temperature={temperature} 
+                weatherIcon={weatherIcon} 
               />
             </CustomMarkerIcon>
           );
         }}
-        // renderPopupContent agora passa a prop `data: Station` corretamente
         renderPopupContent={(data: Station) => <CustomPopupContent data={data} />} 
         useCluster={false}
+        currentLocation={currentLocationMarker ? [currentLocationMarker.latitude, currentLocationMarker.longitude] : undefined}
+        renderCurrentLocationMarkerIcon={() => {
+          return (
+            <CustomMarkerIcon>
+              <CurrentLocationMarker />
+            </CustomMarkerIcon>
+          );
+        }}
         mapControls={
           <>
             <MapControlsBottomLeft />
             <MapControlsBottomRight />
           </>
         }
-      />
+      >
+      </LeafletMap>
     </div>
   );
 }

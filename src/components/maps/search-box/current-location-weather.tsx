@@ -1,11 +1,19 @@
 // src/components/maps/search-box/current-location-weather.tsx
+
 "use client";
 
+import { WeatherInfoCard } from "@/components/base/weather-info-card";
+import { openMeteoToWeatherCardData } from "@/lib/utils";
+import { useMap } from "@/providers/map-provider";
+
 export function CurrentLocationWeather() {
-  return (
-    <div className="p-4 border rounded-lg bg-card mb-2">
-      <h3 className="font-semibold">Current Location Weather</h3>
-      <p>Weather details for current location...</p>
-    </div>
-  );
+  const { weatherData, currentAddress } = useMap();
+
+  if (!weatherData) {
+    return null;
+  }
+
+  const weatherCardData = openMeteoToWeatherCardData(weatherData, currentAddress ?? undefined);
+
+  return <WeatherInfoCard data={weatherCardData} />;
 }

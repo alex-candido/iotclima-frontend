@@ -1,0 +1,86 @@
+// src/constants/api-endpoints.ts
+
+export const API_ENDPOINTS = {
+  AUTH: {
+    LOGIN: '/auth/login/',
+    REGISTER: '/auth/registration/',
+    PASSWORD_RESET_REQUEST: '/auth/password/reset/',
+    PASSWORD_RESET_CONFIRM: (uid: string, token: string) => `/auth/password/reset/confirm/${uid}/${token}/`,
+    PASSWORD_CHANGE: '/auth/password/change/',
+    USER_PROFILE: '/auth/user/',
+    LOGOUT: '/auth/logout/',
+    TOKEN_REFRESH: '/auth/token/refresh/',
+    TOKEN_VERIFY: '/auth/token/verify/',
+    VERIFY_EMAIL: '/auth/registration/verify-email/',
+    RESEND_VERIFY_EMAIL: '/auth/registration/resend-email/',
+  },
+  USERS: {
+    LIST: '/users/',
+    DETAIL: (id: number | string) => `/users/${id}/`,
+    CREATE: '/users/',
+    UPDATE: (id: number | string) => `/users/${id}/`, 
+    PARTIAL_UPDATE: (id: number | string) => `/users/${id}/`, 
+    DELETE: (id: number | string) => `/users/${id}/`,
+  },
+  PLACES: {
+    LIST: '/places/',
+    DETAIL: (id: number | string) => `/places/${id}/`,
+    CREATE: '/places/',
+    UPDATE: (id: number | string) => `/places/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/places/${id}/`,
+    DELETE: (id: number | string) => `/places/${id}/`,
+  },
+  STATIONS: {
+    LIST: '/stations/',
+    DETAIL: (id: number | string) => `/stations/${id}/`,
+    CREATE: '/stations/',
+    UPDATE: (id: number | string) => `/stations/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/stations/${id}/`,
+    DELETE: (id: number | string) => `/stations/${id}/`,
+  },
+  SENSORS: {
+    LIST: '/sensors/',
+    DETAIL: (id: number | string) => `/sensors/${id}/`,
+    CREATE: '/sensors/',
+    UPDATE: (id: number | string) => `/sensors/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/sensors/${id}/`,
+    DELETE: (id: number | string) => `/sensors/${id}/`,
+  },
+  STATION_SENSORS: {
+    LIST: '/station_sensors/',
+    DETAIL: (id: number | string) => `/station_sensors/${id}/`,
+    CREATE: '/station_sensors/',
+    UPDATE: (id: number | string) => `/station_sensors/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/station_sensors/${id}/`,
+    DELETE: (id: number | string) => `/station_sensors/${id}/`,
+  },
+  RECORDS: {
+    LIST: '/records/',
+    DETAIL: (id: number | string) => `/records/${id}/`,
+    CREATE: '/records/',
+    UPDATE: (id: number | string) => `/records/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/records/${id}/`,
+    DELETE: (id: number | string) => `/records/${id}/`,
+  },
+  EVENTS: {
+    LIST: '/events/',
+    DETAIL: (id: number | string) => `/events/${id}/`,
+    CREATE: '/events/',
+    UPDATE: (id: number | string) => `/events/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/events/${id}/`,
+    DELETE: (id: number | string) => `/events/${id}/`,
+  },
+  LOGS: {
+    LIST: '/logs/',
+    DETAIL: (id: number | string) => `/logs/${id}/`,
+    CREATE: '/logs/',
+    UPDATE: (id: number | string) => `/logs/${id}/`,
+    PARTIAL_UPDATE: (id: number | string) => `/logs/${id}/`,
+    DELETE: (id: number | string) => `/logs/${id}/`,
+  },
+  // Futuramente, se tiver relatórios agregados:
+  // AGGREGATED_METRICS: {
+  //   LIST: '/aggregated_metrics/',
+  //   GENERATE_DAILY: '/aggregated_metrics/generate-daily/',
+  // }
+};
