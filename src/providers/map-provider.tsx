@@ -3,6 +3,12 @@
 
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
 
+interface SearchItem {
+  id: string | number;
+  name: string;
+  description: string;
+}
+
 interface MapContextType {
   isSidebarExpanded: boolean;
   activeAsidePanel: string | null;
@@ -11,7 +17,7 @@ interface MapContextType {
   isSearchCollapseOpen: boolean;
   hasSearchResults: boolean;
   searchQuery: string;
-  selectedSearchItem: any | null;
+  selectedSearchItem: SearchItem | null;
   isSelectingItem: boolean; 
   toggleSidebar: () => void;
   toggleAsidePanel: (panelId: string) => void;
@@ -19,14 +25,16 @@ interface MapContextType {
   toggleSearchCollapse: () => void;
   setHasSearchResults: (value: boolean) => void;
   setSearchQuery: (query: string) => void;
-  setSelectedItemForSearch: (item: any) => void;
-  setSelectedSearchItem: (item: any | null) => void;
+  setSelectedItemForSearch: (item: SearchItem) => void;
+  setSelectedSearchItem: (item: SearchItem | null) => void;
   isFilterPanelOpen: boolean;
   mapRefreshKey: number;
-  activeMapLayerUrl: string; // New state for active map layer URL
+  activeMapLayerUrl: string;
+  activeWeatherFilter: string; // New state
   toggleFilterPanel: () => void;
   triggerMapRefresh: () => void;
-  setActiveMapLayerUrl: (url: string) => void; // New function to set active map layer URL
+  setActiveMapLayerUrl: (url: string) => void;
+  setActiveWeatherFilter: (filter: string) => void; // New function
   mapInstance: L.Map | null;
   setMapInstance: (map: L.Map) => void;
 }
@@ -39,11 +47,12 @@ export function MapProvider({ children }: { children: ReactNode }) {
   const [isSearchCollapseOpen, setIsSearchCollapseOpen] = useState(false);
   const [hasSearchResults, setHasSearchResults] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedSearchItem, setSelectedSearchItem] = useState<any | null>(null);
+  const [selectedSearchItem, setSelectedSearchItem] = useState<SearchItem | null>(null);
   const [isSelectingItem, setIsSelectingItem] = useState(false);
   const [isFilterPanelOpen, setIsFilterPanelOpen] = useState(false);
   const [mapRefreshKey, setMapRefreshKey] = useState(0);
   const [activeMapLayerUrl, setActiveMapLayerUrl] = useState("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"); // Initialize with default layer
+  const [activeWeatherFilter, setActiveWeatherFilter] = useState("all"); // Initialize with "all"
   const [mapInstance, setMapInstance] = useState<L.Map | null>(null);
 
   const sidebarWidth = useMemo(
@@ -80,7 +89,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const setSelectedItemForSearch = (item: any) => {
+  const setSelectedItemForSearch = (item: SearchItem) => {
     setIsSelectingItem(true);
     setSearchQuery(item.name || "");
     setSelectedSearchItem(item);
@@ -107,7 +116,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
     isSelectingItem,
     isFilterPanelOpen,
     mapRefreshKey,
-    activeMapLayerUrl, // Expose new state
+    activeMapLayerUrl,
+    activeWeatherFilter, // Expose new state
     toggleSidebar,
     toggleAsidePanel,
     closeAsidePanel,
@@ -118,7 +128,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
     setSelectedSearchItem,
     toggleFilterPanel,
     triggerMapRefresh,
-    setActiveMapLayerUrl, // Expose new function
+    setActiveMapLayerUrl,
+    setActiveWeatherFilter, // Expose new function
     mapInstance,
     setMapInstance,
   };

@@ -1,8 +1,14 @@
 // src/components/maps/search-box/search-item-detail.tsx
 "use client";
 
+interface SearchItem {
+  id: string | number;
+  name: string;
+  description: string;
+}
+
 interface SearchItemDetailProps {
-  item: any; // Replace 'any' with a more specific type later
+  item: SearchItem;
 }
 
 export function SearchItemDetail({ item }: SearchItemDetailProps) {

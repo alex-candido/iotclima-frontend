@@ -1,4 +1,8 @@
-// src/types/station.d.ts
+// src/types/station.ts
+
+import { Place } from "./place";
+import { Record } from "./record";
+import { Sensor } from "./sensor";
 
 export enum StationStatus {
   ACTIVE = 1,

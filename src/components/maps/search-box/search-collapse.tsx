@@ -19,11 +19,17 @@ export function SearchCollapse() {
     }
   }, [searchQuery, setSelectedSearchItem, isSelectingItem]);
 
-  const handleItemClick = (item: any) => {
+  interface SearchItem {
+  id: number;
+  name: string;
+  description: string;
+}
+
+  const handleItemClick = (item: SearchItem) => {
     setSelectedItemForSearch(item);
   };
 
-  const renderSearchItem = (item: any) => (
+  const renderSearchItem = (item: SearchItem) => (
     <div>
       <h4>{item.name}</h4>
       <p>{item.description}</p>

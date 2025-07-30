@@ -1,4 +1,4 @@
-// src/types/place.d.ts
+// src/types/place.ts
 
 export enum PlaceStatus {
   ACTIVE = 1,

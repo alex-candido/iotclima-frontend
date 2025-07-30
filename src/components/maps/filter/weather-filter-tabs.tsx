@@ -2,37 +2,54 @@
 "use client";
 
 import { FloatingCard } from "@/components/base/floating-card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useMap } from "@/providers/map-provider";
-import { useState } from "react";
 
-export function WeatherFilterTabs() {
-  const { setSearchQuery, toggleSearchCollapse } = useMap();
-  const tabs = ["Todos", "Ensolarado", "Nublado", "Chuvoso"];
-  const [activeTab, setActiveTab] = useState(tabs[0]); // Initialize with the first tab as active
+export function WeatherTabs() {
+  const {
+    activeWeatherFilter,
+    setActiveWeatherFilter,
+    setSearchQuery,
+    toggleSearchCollapse,
+  } = useMap();
 
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
-    setSearchQuery(tab);
+  const weatherFilters = [
+    { id: "all", label: "Todos", icon: "🌍", count: 156 },
+    { id: "sunny", label: "Sol", icon: "☀️", count: 45 },
+    { id: "cloudy", label: "Nublado", icon: "⛅", count: 32 },
+    { id: "rainy", label: "Chuva", icon: "️🌧️", count: 18 },
+    { id: "windy", label: "Vento", icon: "💨", count: 28 },
+    { id: "stormy", label: "Tempestade", icon: "⛈️", count: 5 },
+  ];
+
+  const handleTabClick = (filterId: string) => {
+    setActiveWeatherFilter(filterId);
+    setSearchQuery(filterId === "all" ? "" : filterId);
     toggleSearchCollapse();
   };
 
   return (
     <FloatingCard className="weather-filter-tabs px-4 py-2">
-      <nav className="weather-filter-tabs flex items-center space-x-1">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            type="button"
-            onClick={() => handleTabClick(tab)}
-            className={`rounded-md px-3 py-1 text-sm font-medium transition-colors ${
-              activeTab === tab
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-            }`}>
-            {tab}
-          </button>
+      <div className="flex items-center gap-1">
+        {weatherFilters.map((filter) => (
+          <Button
+            key={filter.id}
+            variant={activeWeatherFilter === filter.id ? "default" : "outline"}
+            size="sm"
+            onClick={() => handleTabClick(filter.id)}
+            className="relative h-8 px-3"
+          >
+            <span className="mr-1">{filter.icon}</span>
+            <span className="hidden sm:inline">{filter.label}</span>
+            {activeWeatherFilter === filter.id && (
+              <Badge variant="secondary" className="ml-1 h-4 px-1 text-xs">
+                {filter.count}
+              </Badge>
+            )}
+          </Button>
         ))}
-      </nav>
+      </div>
     </FloatingCard>
   );
 }

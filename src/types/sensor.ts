@@ -1,4 +1,4 @@
-// src/types/sensor.d.ts
+// src/types/sensor.ts
 
 export enum SensorType {
   THERMOMETER = 1,

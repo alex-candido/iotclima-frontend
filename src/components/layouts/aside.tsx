@@ -2,6 +2,6 @@
 
 export function Aside({ children }: { children: React.ReactNode }) {
   return (
-    <div>aside</div>
+    <div>{children}</div>
   )
 }
