@@ -1,4 +1,4 @@
-// src/types/record.d.ts
+// src/types/record.ts
 
 import { SensorType, UnitType } from "./sensor";
 

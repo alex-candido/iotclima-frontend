@@ -121,11 +121,17 @@
   }
 }
 
+/* Custom Leaflet Popup Styles */
+.leaflet-popup {
+  margin-bottom: 0 !important; /* Ensure no bottom margin on the popup itself */
+}
+
 .leaflet-popup-content-wrapper {
   padding: 0;
   border-radius: 0;
   box-shadow: none;
-  @apply !bg-[var(--card)];
+  margin: 0 !important; /* Explicitly remove all margins */
+  @apply !bg-[var(--card)] !m-0; /* Tailwind equivalent for good measure */
 }
 
 .shadcn-popup .leaflet-popup-content {
@@ -136,6 +142,13 @@
   }
 }
 
+.leaflet-popup-tip-container {
+  width: 30px; /* Adjust as needed */
+  height: 15px; /* Adjust as needed */
+  margin: 0 !important; /* Remove margin from the tip container */
+}
+
 .leaflet-popup-tip {
   @apply !bg-[var(--card)];
+  margin: 0 !important; /* Remove margin from the tip itself */
 }

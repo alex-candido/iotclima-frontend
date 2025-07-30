@@ -22,3 +22,5 @@ export const FloatingCard = forwardRef<HTMLDivElement, FloatingCardProps>(({ chi
     </div>
   );
 });
+
+FloatingCard.displayName = "FloatingCard";

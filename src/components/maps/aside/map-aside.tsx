@@ -8,17 +8,23 @@ import { mockDashboardContent, mockRecentSearches, mockSavedLocations } from "@/
 import { useMap } from "@/providers/map-provider";
 import { X } from "lucide-react";
 
+interface SearchItem {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export function MapAside() {
   const { activeAsidePanel, closeAsidePanel, sidebarWidth, setSelectedItemForSearch } = useMap();
 
-  const renderItem = (item: any) => (
+  const renderItem = (item: SearchItem) => (
     <div>
       <h4>{item.name}</h4>
       <p>{item.description}</p>
     </div>
   );
 
-  const handleItemClick = (item: any) => {
+  const handleItemClick = (item: SearchItem) => {
     setSelectedItemForSearch(item);
     closeAsidePanel(); // Close aside panel after selecting an item
   };

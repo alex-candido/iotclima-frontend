@@ -6,7 +6,7 @@ import { FilterSidebarTrigger } from "@/components/maps/actions/filter-sidebar-t
 import { RefreshMapButton } from "@/components/maps/actions/refresh-map-button";
 import { MapAside } from "@/components/maps/aside/map-aside";
 import { FloatingFilterPanel } from "@/components/maps/filter/floating-filter-panel";
-import { WeatherFilterTabs } from "@/components/maps/filter/weather-filter-tabs";
+import { WeatherTabs } from "@/components/maps/filter/weather-filter-tabs";
 import { MapView } from "@/components/maps/map-view/map-view";
 import { SearchBox } from "@/components/maps/search-box/search-box";
 import { MapSidebar } from "@/components/maps/sidebar/map-sidebar";
@@ -20,7 +20,7 @@ export default function Page() {
       <MapAside />
       <TopBar>
           <SearchBox />  
-          <WeatherFilterTabs />                                                         
+          <WeatherTabs />                                                         
         <ActionTriggers>
           <RefreshMapButton />
           <FilterSidebarTrigger />
