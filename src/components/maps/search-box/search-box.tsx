@@ -12,14 +12,12 @@ export function SearchBox() {
   const searchBoxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Update hasSearchResults based on searchQuery
     setHasSearchResults(searchQuery.length > 0);
   }, [searchQuery, setHasSearchResults]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchBoxRef.current && !searchBoxRef.current.contains(event.target as Node)) {
-        // Close SearchCollapse only if it's open AND no item is selected in detail view
         if (isSearchCollapseOpen && selectedSearchItem === null) {
           toggleSearchCollapse();
         }

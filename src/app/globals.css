@@ -129,26 +129,52 @@
 .leaflet-popup-content-wrapper {
   padding: 0;
   border-radius: 0;
-  box-shadow: none;
-  margin: 0 !important; /* Explicitly remove all margins */
-  @apply !bg-[var(--card)] !m-0; /* Tailwind equivalent for good measure */
+  box-shadow: none !important;
+  margin: 0 !important; /* Remove margin from the tip itself */
+  box-shadow: none !important;
+  @apply !bg-[var(--card)] !m-0 backdrop-blur-sm; /* Tailwind equivalent for good measure */
 }
 
 .shadcn-popup .leaflet-popup-content {
   @apply !m-0;
+  width: 200px!important; /* Set a fixed width for the popup content */
   color: var(--card-foreground);
   p {
     @apply !m-0;
   }
 }
 
-.leaflet-popup-tip-container {
-  width: 30px; /* Adjust as needed */
-  height: 15px; /* Adjust as needed */
-  margin: 0 !important; /* Remove margin from the tip container */
+/* Ensure the popup container itself doesn't restrict width */
+.leaflet-popup-pane .leaflet-popup {
+  max-width: none !important;
 }
 
-.leaflet-popup-tip {
-  @apply !bg-[var(--card)];
-  margin: 0 !important; /* Remove margin from the tip itself */
+@keyframes pulse-scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 0.5s ease-in-out;
+}
+
+@keyframes test-animation {
+  0% { background-color: red; }
+  50% { background-color: blue; }
+  100% { background-color: red; }
+}
+
+.animate-test {
+  animation: test-animation 2s infinite;
+}
+
+@keyframes pulse-once {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pulse-once {
+  animation: pulse-once 0.5s ease-in-out;
 }

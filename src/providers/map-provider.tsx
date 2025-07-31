@@ -3,10 +3,12 @@
 "use client";
 
 import { useReverseGeocoding } from "@/hooks/use-geocoding";
-import useLocationService from "@/hooks/use-location";
+import { useLocationService } from "@/hooks/use-location";
 import { useOpenMeteoForecast } from "@/hooks/use-open-meteo";
+import { useStations } from "@/hooks/use-stations";
 import { ReverseGeocodingResponse } from "@/store/actions/geocoding-actions";
 import { OpenMeteoForecastResponse } from "@/store/actions/open-meteo-actions";
+import { Station } from "@/types/station";
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
 
 interface SearchItem {
@@ -51,6 +53,9 @@ interface MapContextType {
   currentLocation: Location | null;
   weatherData: OpenMeteoForecastResponse | null | undefined;
   currentAddress: ReverseGeocodingResponse | null | undefined;
+  stations: Station[] | null;
+  animateWeatherCard: boolean;
+  setAnimateWeatherCard: (value: boolean) => void;
 }
 
 const MapContext = createContext<MapContextType | undefined>(undefined);
@@ -73,8 +78,11 @@ export function MapProvider({ children }: { children: ReactNode }) {
   const [activeWeatherFilter, setActiveWeatherFilter] = useState("all");
   const [mapInstance, setMapInstance] = useState<L.Map | null>(null);
   const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
+  const [animateWeatherCard, setAnimateWeatherCard] = useState(false);
 
   const { location, error: locationError } = useLocationService();
+  const { data: stationsData } = useStations();
+  const stations = stationsData?.results || [];
   const { data: weatherData, error: weatherError } = useOpenMeteoForecast(
     currentLocation?.latitude,
     currentLocation?.longitude,
@@ -84,6 +92,10 @@ export function MapProvider({ children }: { children: ReactNode }) {
     currentLocation?.latitude,
     currentLocation?.longitude
   );
+
+  useEffect(() => {
+    console.log(stations)
+  })
 
   useEffect(() => {
     if (location) {
@@ -184,6 +196,9 @@ export function MapProvider({ children }: { children: ReactNode }) {
     setActiveWeatherFilter,
     mapInstance,
     setMapInstance,
+    stations,
+    animateWeatherCard,
+    setAnimateWeatherCard,
   };
 
   return <MapContext.Provider value={value}>{children}</MapContext.Provider>;

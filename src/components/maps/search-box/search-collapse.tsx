@@ -5,11 +5,11 @@ import { FloatingCard } from "@/components/base/floating-card";
 import { CurrentLocationWeather } from "@/components/maps/search-box/current-location-weather";
 import { SearchItemDetail } from "@/components/maps/search-box/search-item-detail";
 import { SearchItemList } from "@/components/maps/search-box/search-item-list";
+import { useStations } from "@/hooks/use-stations";
 import { cn } from "@/lib/utils";
 import { useMap } from "@/providers/map-provider";
-import { useEffect } from "react";
-import { useStations } from "@/hooks/use-stations";
 import { Station } from "@/types/station";
+import { useEffect } from "react";
 
 export function SearchCollapse() {
   const { isSearchCollapseOpen, searchQuery, selectedSearchItem, setSelectedSearchItem, isSelectingItem, setSelectedItemForSearch } = useMap();
@@ -18,7 +18,6 @@ export function SearchCollapse() {
   });
 
   useEffect(() => {
-    // Reset selectedItem when searchQuery changes, unless it's due to an item selection
     if (!isSelectingItem) {
       setSelectedSearchItem(null);
     }

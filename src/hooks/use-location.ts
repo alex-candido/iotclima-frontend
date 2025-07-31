@@ -1,16 +1,16 @@
 // src/hooks/use-location.ts
 
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Location {
   latitude: number;
   longitude: number;
 }
 
-const useLocationService = () => {
+export const useLocationService = () => {
   const [location, setLocation] = useState<Location | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null | GeolocationPositionError>(null);
 
   useEffect(() => {
     const getLocation = () => {
@@ -36,5 +36,3 @@ const useLocationService = () => {
 
   return { location, error };
 };
-
-export default useLocationService;

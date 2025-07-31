@@ -2,26 +2,26 @@
 
 
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import {
   CloudRain,
   Droplet,
+  LucideIcon,
   Sun,
   Thermometer,
-  Wind,
-  LucideIcon,
+  Wind
 } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
+import { ReverseGeocodingResponse } from "@/store/actions/geocoding-actions";
+import { OpenMeteoForecastResponse } from "@/store/actions/open-meteo-actions";
 import { PlaceStatus } from "@/types/place";
 import { RecordStatus, SensorRecord } from "@/types/record";
 import { SensorStatus, SensorType, UnitType } from "@/types/sensor";
 import { Station, StationStatus } from "@/types/station";
 import { UserRole, UserStatus } from "@/types/user";
-import { WeatherCardData, SensorReading } from "@/types/weather";
-import { OpenMeteoForecastResponse } from "@/store/actions/open-meteo-actions";
-import { ReverseGeocodingResponse } from "@/store/actions/geocoding-actions";
+import { SensorReading, WeatherCardData } from "@/types/weather";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -82,10 +82,10 @@ export function getWeatherIconAndDescription(
   const getNumericValue = (sensorRecord: SensorRecord | undefined) =>
     typeof sensorRecord?.value === 'string' ? parseFloat(sensorRecord.value) : sensorRecord?.value;
 
-  const thermometer = sensors.find((s) => s.sensor_type === SensorType.THERMOMETER);
-  const pluviometer = sensors.find((s) => s.sensor_type === SensorType.PLUVIOMETER);
-  const hygrometer = sensors.find((s) => s.sensor_type === SensorType.HYGROMETER);
-  const solarimeter = sensors.find((s) => s.sensor_type === SensorType.SOLARIMETER);
+  const thermometer = sensors.find((s) => s.type === SensorType.THERMOMETER);
+  const pluviometer = sensors.find((s) => s.type === SensorType.PLUVIOMETER);
+  const hygrometer = sensors.find((s) => s.type === SensorType.HYGROMETER);
+  const solarimeter = sensors.find((s) => s.type === SensorType.SOLARIMETER);
 
   const pluviometerValue = getNumericValue(pluviometer);
   const hygrometerValue = getNumericValue(hygrometer);
@@ -176,30 +176,28 @@ export function stationToWeatherCardData(station: Station): WeatherCardData {
     ? station.records.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0]
     : null;
 
-  const temperatureSensor = latestRecord?.sensors.find(
-    (s) => s.sensor_type === SensorType.THERMOMETER
-  );
-
   const { icon: weatherEmoji, description: weatherDescription } =
     getWeatherIconAndDescription(latestRecord?.sensors || []);
 
-  const temperatureValue = typeof temperatureSensor?.value === 'string' ? parseFloat(temperatureSensor.value) : temperatureSensor?.value;
-
   const sensorReadings: SensorReading[] = latestRecord?.sensors.map((sensor) => {
-    const displayInfo = sensorDisplayMap[sensor.sensor_type];
+    const displayInfo = sensorDisplayMap[sensor.type];
     const sensorValue = typeof sensor.value === 'string' ? parseFloat(sensor.value) : sensor.value;
     const sensorUnit = getUnitSymbol(sensor.unit);
     return {
-      icon: displayInfo.icon,
+      icon: displayInfo ? displayInfo.icon : Thermometer, // Fallback icon must be a LucideIcon
       value: sensorValue || 'N/A',
       unit: sensorUnit,
     };
   }) || [];
 
+  // Find the temperature from the already processed sensorReadings
+  const temperatureReading = sensorReadings.find(s => s.unit === '°C' && s.value !== 'N/A');
+  const mainTemperatureValue = temperatureReading ? parseFloat(temperatureReading.value as string) : 'N/A';
+
   return {
-    locationName: `${station.place.info.city}, ${station.name}`,
-    timestamp: latestRecord?.created_at ? format(new Date(latestRecord.created_at), "h:mm a", { locale: ptBR }) : 'N/A',
-    mainTemperature: temperatureValue || 0,
+    locationName: station.name,
+    timestamp: latestRecord?.created_at ? format(new Date(latestRecord.created_at), "HH:mm:ss", { locale: ptBR }) : 'N/A',
+    mainTemperature: mainTemperatureValue,
     mainWeatherIcon: weatherEmoji,
     mainWeatherDescription: weatherDescription,
     sensorReadings: sensorReadings,
@@ -221,7 +219,7 @@ export function openMeteoToWeatherCardData(data: OpenMeteoForecastResponse, addr
 
     return {
         locationName: locationName,
-        timestamp: data.current_weather?.time ? format(new Date(data.current_weather.time), "h:mm a", { locale: ptBR }) : 'N/A',
+        timestamp: data.current_weather?.time ? format(new Date(data.current_weather.time), "HH:mm:ss", { locale: ptBR }) : 'N/A',
         mainTemperature: data.current_weather?.temperature || 0,
         mainWeatherIcon: icon,
         mainWeatherDescription: description,

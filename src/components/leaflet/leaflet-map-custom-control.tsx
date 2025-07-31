@@ -15,9 +15,6 @@ const createLeafletCustomControl = (props: LeafletMapCustomControlProps) => {
     onAdd: function () {
       const div = L.DomUtil.create("div");
       div.className = "leaflet-bar leaflet-control";
-      // Render React children into the div
-      // This part needs to be handled by React itself, not directly here.
-      // The createControlComponent only creates the Leaflet control, not the React rendering.
       return div;
     },
     onRemove: function () {},

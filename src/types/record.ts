@@ -8,7 +8,8 @@ export enum RecordStatus {
 }
 
 export type SensorRecord = {
-  sensor_type: SensorType;
+  name: string;
+  type: SensorType;
   value: number | string;
   unit: UnitType;
 };

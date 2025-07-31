@@ -26,9 +26,7 @@ export function SearchItemDetail({ item }: SearchItemDetailProps) {
   if (isStation(item)) {
     const weatherCardData = stationToWeatherCardData(item);
     return (
-      <div className="p-4 mt-2">
-        <WeatherInfoCard data={weatherCardData} />
-      </div>
+      <WeatherInfoCard data={weatherCardData} />
     );
   }
 
@@ -36,7 +34,6 @@ export function SearchItemDetail({ item }: SearchItemDetailProps) {
     <div className="p-4 border rounded-lg bg-card mt-2">
       <h3 className="font-semibold">Details for: {item.name || 'Item'}</h3>
       <p>More details about {item.name || 'this item'} will go here.</p>
-      {/* Add more detailed information here */}
     </div>
   );
 }

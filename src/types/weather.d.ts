@@ -7,12 +7,13 @@ export interface SensorReading {
   icon: LucideIcon;
   value: string | number;
   unit: string;
+  name: string;
 }
 
 export interface WeatherCardData {
   locationName: string;
   timestamp: string;
-  mainTemperature: number;
+  mainTemperature: number | string;
   mainWeatherIcon: string;
   mainWeatherDescription: string;
   sensorReadings: SensorReading[];
