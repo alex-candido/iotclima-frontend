@@ -1,0 +1,4538 @@
+[
+  {
+    "id": 1,
+    "uuid": "uuid-1",
+    "name": "Estação ALT 1",
+    "description": "Estação de monitoramento em Alto Santo",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "1971-04-19T19:09:07.896911"
+    },
+    "place": {
+      "id": 1,
+      "uuid": "place-uuid-1",
+      "name": "Local 1",
+      "description": "Localização da Estação 1",
+      "info": {
+        "address": "Recanto de Vargas, 67, Grotinha, 45892-680 Borges de da Paz / RS",
+        "city": "Alto Santo",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.2719351,
+          -5.5190371
+        ]
+      },
+      "status": 1,
+      "latitude": -5.5190371,
+      "longitude": -38.2719351,
+      "created_at": "1994-07-26T08:42:24.545890",
+      "updated_at": "1994-04-04T17:25:41.866462"
+    },
+    "records": [
+      {
+        "id": 1,
+        "uuid": "record-uuid-1",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 16.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 49.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 0.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "1991-04-12T22:31:23.197828",
+        "updated_at": "1974-12-23T16:08:14.351220"
+      }
+    ],
+    "created_at": "1982-07-30T19:33:50.648360",
+    "updated_at": "1973-06-13T06:34:37.876805"
+  },
+  {
+    "id": 2,
+    "uuid": "uuid-2",
+    "name": "Estação ERE 2",
+    "description": "Estação de monitoramento em Ereré",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.2",
+      "installed_at": "1979-07-12T21:43:59.236421"
+    },
+    "place": {
+      "id": 2,
+      "uuid": "place-uuid-2",
+      "name": "Local 2",
+      "description": "Localização da Estação 2",
+      "info": {
+        "address": "Avenida Matheus Vieira, 5, Vila São Geraldo, 55940380 Siqueira dos Dourados / MG",
+        "city": "Ereré",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.3482173,
+          -6.0311304
+        ]
+      },
+      "status": 1,
+      "latitude": -6.0311304,
+      "longitude": -38.3482173,
+      "created_at": "1983-03-21T17:18:47.305514",
+      "updated_at": "1971-06-20T11:14:10.521617"
+    },
+    "records": [
+      {
+        "id": 2,
+        "uuid": "record-uuid-2",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 20.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 41.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 19.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "2004-03-16T09:34:48.062762",
+        "updated_at": "1982-05-27T13:32:07.522094"
+      }
+    ],
+    "created_at": "2008-06-15T21:16:18.252217",
+    "updated_at": "1999-08-02T21:34:54.775429"
+  },
+  {
+    "id": 3,
+    "uuid": "uuid-3",
+    "name": "Estação IRA 3",
+    "description": "Estação de monitoramento em Iracema",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.9",
+      "installed_at": "1980-07-27T20:14:02.527936"
+    },
+    "place": {
+      "id": 3,
+      "uuid": "place-uuid-3",
+      "name": "Local 3",
+      "description": "Localização da Estação 3",
+      "info": {
+        "address": "Esplanada Campos, 91, Bernadete, 86836-449 Cavalcante / RR",
+        "city": "Iracema",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.3028294,
+          -5.8106219
+        ]
+      },
+      "status": 1,
+      "latitude": -5.8106219,
+      "longitude": -38.3028294,
+      "created_at": "1991-10-02T06:23:50.666510",
+      "updated_at": "2014-04-16T04:33:36.535365"
+    },
+    "records": [
+      {
+        "id": 3,
+        "uuid": "record-uuid-3",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 28.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 76.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 16.4,
+            "unit": 7
+          }
+        ],
+        "created_at": "1985-03-10T20:09:34.322296",
+        "updated_at": "2006-05-19T10:44:53.843509"
+      }
+    ],
+    "created_at": "1984-10-14T14:52:52.322435",
+    "updated_at": "1987-08-25T02:14:41.091538"
+  },
+  {
+    "id": 4,
+    "uuid": "uuid-4",
+    "name": "Estação JAG 4",
+    "description": "Estação de monitoramento em Jaguaretama",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.1",
+      "installed_at": "2019-03-28T10:40:42.446258"
+    },
+    "place": {
+      "id": 4,
+      "uuid": "place-uuid-4",
+      "name": "Local 4",
+      "description": "Localização da Estação 4",
+      "info": {
+        "address": "Quadra Lima, 63, Vila Sesc, 93747597 Alves / SP",
+        "city": "Jaguaretama",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.7630077,
+          -5.6092417
+        ]
+      },
+      "status": 1,
+      "latitude": -5.6092417,
+      "longitude": -38.7630077,
+      "created_at": "2008-08-11T00:53:57.616316",
+      "updated_at": "2017-12-28T06:18:07.593483"
+    },
+    "records": [
+      {
+        "id": 4,
+        "uuid": "record-uuid-4",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 32.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 69.8,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 7.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "2001-06-29T05:32:13.137702",
+        "updated_at": "1985-04-08T18:09:58.452862"
+      }
+    ],
+    "created_at": "2024-10-04T06:11:04.194481",
+    "updated_at": "2002-01-10T22:24:12.012677"
+  },
+  {
+    "id": 5,
+    "uuid": "uuid-5",
+    "name": "Estação JAG 5",
+    "description": "Estação de monitoramento em Jaguaribara",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.8",
+      "installed_at": "2020-08-27T20:22:41.355991"
+    },
+    "place": {
+      "id": 5,
+      "uuid": "place-uuid-5",
+      "name": "Local 5",
+      "description": "Localização da Estação 5",
+      "info": {
+        "address": "Trevo de Caldeira, 16, Ambrosina, 75019-284 Andrade / SE",
+        "city": "Jaguaribara",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.4679295,
+          -5.454494
+        ]
+      },
+      "status": 1,
+      "latitude": -5.454494,
+      "longitude": -38.4679295,
+      "created_at": "2016-09-11T14:06:55.053102",
+      "updated_at": "2009-02-07T19:16:17.180281"
+    },
+    "records": [
+      {
+        "id": 5,
+        "uuid": "record-uuid-5",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 17.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 86.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 15.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1998-10-18T04:48:31.155663",
+        "updated_at": "2021-05-11T06:55:42.746152"
+      }
+    ],
+    "created_at": "2011-11-25T04:39:08.649809",
+    "updated_at": "1987-09-22T14:43:50.862354"
+  },
+  {
+    "id": 6,
+    "uuid": "uuid-6",
+    "name": "Estação JAG 6",
+    "description": "Estação de monitoramento em Jaguaribe",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "2015-08-10T19:47:19.650007"
+    },
+    "place": {
+      "id": 6,
+      "uuid": "place-uuid-6",
+      "name": "Local 6",
+      "description": "Localização da Estação 6",
+      "info": {
+        "address": "Avenida Costa, 32, Santa Branca, 55817-514 Borges / MA",
+        "city": "Jaguaribe",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.6212957,
+          -5.8854585
+        ]
+      },
+      "status": 1,
+      "latitude": -5.8854585,
+      "longitude": -38.6212957,
+      "created_at": "2014-09-22T00:48:11.604764",
+      "updated_at": "2002-11-29T22:16:42.722590"
+    },
+    "records": [
+      {
+        "id": 6,
+        "uuid": "record-uuid-6",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 19.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 72.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 1.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "2021-08-07T02:35:03.615029",
+        "updated_at": "1981-07-03T08:01:58.036230"
+      }
+    ],
+    "created_at": "1993-12-15T06:14:44.522952",
+    "updated_at": "1992-11-20T04:57:53.847884"
+  },
+  {
+    "id": 7,
+    "uuid": "uuid-7",
+    "name": "Estação LIM 7",
+    "description": "Estação de monitoramento em Limoeiro do Norte",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.4",
+      "installed_at": "1989-05-02T18:32:34.731143"
+    },
+    "place": {
+      "id": 7,
+      "uuid": "place-uuid-7",
+      "name": "Local 7",
+      "description": "Localização da Estação 7",
+      "info": {
+        "address": "Trecho Rezende, 95, Castelo, 52042-194 Castro / PB",
+        "city": "Limoeiro do Norte",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.0984936,
+          -5.1455607
+        ]
+      },
+      "status": 1,
+      "latitude": -5.1455607,
+      "longitude": -38.0984936,
+      "created_at": "2021-04-20T16:25:20.522560",
+      "updated_at": "2008-06-14T09:49:27.980867"
+    },
+    "records": [
+      {
+        "id": 7,
+        "uuid": "record-uuid-7",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 34.5,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 32.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 3.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "1970-02-11T18:53:41.942692",
+        "updated_at": "2004-12-05T22:46:27.063050"
+      }
+    ],
+    "created_at": "1975-01-27T19:10:55.195057",
+    "updated_at": "1994-02-06T17:35:17.112092"
+  },
+  {
+    "id": 8,
+    "uuid": "uuid-8",
+    "name": "Estação MOR 8",
+    "description": "Estação de monitoramento em Morada Nova",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.8",
+      "installed_at": "1979-05-14T17:28:54.609669"
+    },
+    "place": {
+      "id": 8,
+      "uuid": "place-uuid-8",
+      "name": "Local 8",
+      "description": "Localização da Estação 8",
+      "info": {
+        "address": "Residencial de Oliveira, 16, Mariquinhas, 99828028 da Cunha do Campo / SC",
+        "city": "Morada Nova",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.3727852,
+          -5.1076699
+        ]
+      },
+      "status": 1,
+      "latitude": -5.1076699,
+      "longitude": -38.3727852,
+      "created_at": "2017-04-08T18:03:38.743049",
+      "updated_at": "2025-06-17T08:23:24.014915"
+    },
+    "records": [
+      {
+        "id": 8,
+        "uuid": "record-uuid-8",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 26.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 85.3,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 5.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1987-03-04T03:04:09.845670",
+        "updated_at": "2009-10-21T18:23:37.264641"
+      }
+    ],
+    "created_at": "1995-12-19T09:41:22.448184",
+    "updated_at": "2015-04-22T19:39:43.858786"
+  },
+  {
+    "id": 9,
+    "uuid": "uuid-9",
+    "name": "Estação PAL 9",
+    "description": "Estação de monitoramento em Palhano",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.8",
+      "installed_at": "1979-12-07T19:38:51.301354"
+    },
+    "place": {
+      "id": 9,
+      "uuid": "place-uuid-9",
+      "name": "Local 9",
+      "description": "Localização da Estação 9",
+      "info": {
+        "address": "Setor Andrade, 5, Vila Petropolis, 88447948 Moura de Viana / PR",
+        "city": "Palhano",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -37.9608401,
+          -4.7449408
+        ]
+      },
+      "status": 1,
+      "latitude": -4.7449408,
+      "longitude": -37.9608401,
+      "created_at": "1993-08-12T18:04:08.611543",
+      "updated_at": "1991-02-06T07:19:06.200798"
+    },
+    "records": [
+      {
+        "id": 9,
+        "uuid": "record-uuid-9",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 36.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 66.7,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 12.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "1976-07-27T01:46:47.496731",
+        "updated_at": "2010-08-30T09:51:29.574538"
+      }
+    ],
+    "created_at": "2014-02-03T15:57:25.894614",
+    "updated_at": "1993-12-05T11:42:19.909299"
+  },
+  {
+    "id": 10,
+    "uuid": "uuid-10",
+    "name": "Estação PER 10",
+    "description": "Estação de monitoramento em Pereiro",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.6",
+      "installed_at": "1988-06-09T14:25:51.912320"
+    },
+    "place": {
+      "id": 10,
+      "uuid": "place-uuid-10",
+      "name": "Local 10",
+      "description": "Localização da Estação 10",
+      "info": {
+        "address": "Vale da Mota, 8, Barreiro, 57544-973 Sá / AL",
+        "city": "Pereiro",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.4604192,
+          -6.046269
+        ]
+      },
+      "status": 1,
+      "latitude": -6.046269,
+      "longitude": -38.4604192,
+      "created_at": "1997-05-14T18:51:31.308877",
+      "updated_at": "2021-01-01T19:28:19.627520"
+    },
+    "records": [
+      {
+        "id": 10,
+        "uuid": "record-uuid-10",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 31.5,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 70.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 0.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "1987-08-07T01:13:26.324064",
+        "updated_at": "1984-04-24T21:41:19.551559"
+      }
+    ],
+    "created_at": "1991-04-22T02:10:51.430318",
+    "updated_at": "1986-04-10T04:36:13.882486"
+  },
+  {
+    "id": 11,
+    "uuid": "uuid-11",
+    "name": "Estação POT 11",
+    "description": "Estação de monitoramento em Potiretama",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.6",
+      "installed_at": "1982-11-11T15:18:48.302129"
+    },
+    "place": {
+      "id": 11,
+      "uuid": "place-uuid-11",
+      "name": "Local 11",
+      "description": "Localização da Estação 11",
+      "info": {
+        "address": "Chácara de Almeida, 34, Dom Cabral, 41397-367 Souza do Sul / AM",
+        "city": "Potiretama",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.154107,
+          -5.7226924
+        ]
+      },
+      "status": 1,
+      "latitude": -5.7226924,
+      "longitude": -38.154107,
+      "created_at": "2003-05-15T01:03:10.443584",
+      "updated_at": "2012-06-08T14:09:42.865980"
+    },
+    "records": [
+      {
+        "id": 11,
+        "uuid": "record-uuid-11",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 25.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 60.1,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 9.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2000-05-05T14:15:53.708467",
+        "updated_at": "1975-01-12T12:57:33.941663"
+      }
+    ],
+    "created_at": "1986-07-20T05:28:25.194413",
+    "updated_at": "2014-02-28T22:01:50.708194"
+  },
+  {
+    "id": 12,
+    "uuid": "uuid-12",
+    "name": "Estação QUI 12",
+    "description": "Estação de monitoramento em Quixeré",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.9",
+      "installed_at": "1980-05-29T12:05:40.189649"
+    },
+    "place": {
+      "id": 12,
+      "uuid": "place-uuid-12",
+      "name": "Local 12",
+      "description": "Localização da Estação 12",
+      "info": {
+        "address": "Viaduto de Moraes, 38, Dom Silverio, 44467-712 Alves da Prata / ES",
+        "city": "Quixeré",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -37.9892825,
+          -5.0742841
+        ]
+      },
+      "status": 1,
+      "latitude": -5.0742841,
+      "longitude": -37.9892825,
+      "created_at": "1984-08-13T05:54:52.953820",
+      "updated_at": "2006-06-10T11:49:03.184740"
+    },
+    "records": [
+      {
+        "id": 12,
+        "uuid": "record-uuid-12",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 29.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 88.7,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 5.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2001-12-29T23:20:19.599023",
+        "updated_at": "1993-03-18T23:53:36.083683"
+      }
+    ],
+    "created_at": "1987-12-24T07:35:59.398779",
+    "updated_at": "2008-01-06T13:12:27.001325"
+  },
+  {
+    "id": 13,
+    "uuid": "uuid-13",
+    "name": "Estação RUS 13",
+    "description": "Estação de monitoramento em Russas",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.7",
+      "installed_at": "1994-05-12T17:13:48.899613"
+    },
+    "place": {
+      "id": 13,
+      "uuid": "place-uuid-13",
+      "name": "Local 13",
+      "description": "Localização da Estação 13",
+      "info": {
+        "address": "Passarela Peixoto, 42, Boa União 2ª Seção, 89175894 Fogaça / RN",
+        "city": "Russas",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -37.9783838,
+          -4.9354279
+        ]
+      },
+      "status": 1,
+      "latitude": -4.9354279,
+      "longitude": -37.9783838,
+      "created_at": "2008-06-28T21:59:02.271517",
+      "updated_at": "1983-03-31T12:56:28.209472"
+    },
+    "records": [
+      {
+        "id": 13,
+        "uuid": "record-uuid-13",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 16.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 54.1,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 7.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "2005-09-12T05:05:59.989863",
+        "updated_at": "2018-09-10T20:07:26.724189"
+      }
+    ],
+    "created_at": "1976-11-25T16:46:26.607898",
+    "updated_at": "1973-01-14T13:55:07.787267"
+  },
+  {
+    "id": 14,
+    "uuid": "uuid-14",
+    "name": "Estação SÃO 14",
+    "description": "Estação de monitoramento em São João do Jaguaribe",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.7",
+      "installed_at": "1996-01-07T06:25:33.695637"
+    },
+    "place": {
+      "id": 14,
+      "uuid": "place-uuid-14",
+      "name": "Local 14",
+      "description": "Localização da Estação 14",
+      "info": {
+        "address": "Estação de Nogueira, Vila Havaí, 99217-107 Vargas / MA",
+        "city": "São João do Jaguaribe",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.271993,
+          -5.2719441
+        ]
+      },
+      "status": 1,
+      "latitude": -5.2719441,
+      "longitude": -38.271993,
+      "created_at": "1997-08-07T13:29:20.030508",
+      "updated_at": "1972-11-25T06:37:48.634040"
+    },
+    "records": [
+      {
+        "id": 14,
+        "uuid": "record-uuid-14",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 30.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 67.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 15.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "2022-05-20T00:22:56.199651",
+        "updated_at": "1980-05-22T18:28:29.851555"
+      }
+    ],
+    "created_at": "2007-02-16T03:04:25.797823",
+    "updated_at": "1977-09-29T22:16:14.577982"
+  },
+  {
+    "id": 15,
+    "uuid": "uuid-15",
+    "name": "Estação TAB 15",
+    "description": "Estação de monitoramento em Tabuleiro do Norte",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.9",
+      "installed_at": "1989-10-19T11:10:08.477660"
+    },
+    "place": {
+      "id": 15,
+      "uuid": "place-uuid-15",
+      "name": "Local 15",
+      "description": "Localização da Estação 15",
+      "info": {
+        "address": "Rua Rodrigues, 96, São Bento, 03946-857 Caldeira / PI",
+        "city": "Tabuleiro do Norte",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.1284605,
+          -5.2440865
+        ]
+      },
+      "status": 1,
+      "latitude": -5.2440865,
+      "longitude": -38.1284605,
+      "created_at": "2017-01-27T01:51:32.027638",
+      "updated_at": "2002-08-18T01:55:44.745893"
+    },
+    "records": [
+      {
+        "id": 15,
+        "uuid": "record-uuid-15",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 24.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 60.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 14.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2025-01-05T08:47:41.030313",
+        "updated_at": "2013-05-16T02:56:02.847609"
+      }
+    ],
+    "created_at": "1993-04-20T05:02:52.724663",
+    "updated_at": "2010-09-29T11:20:35.402488"
+  },
+  {
+    "id": 16,
+    "uuid": "uuid-16",
+    "name": "Estação AIU 16",
+    "description": "Estação de monitoramento em Aiuaba",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.9",
+      "installed_at": "2004-03-17T11:06:49.646652"
+    },
+    "place": {
+      "id": 16,
+      "uuid": "place-uuid-16",
+      "name": "Local 16",
+      "description": "Localização da Estação 16",
+      "info": {
+        "address": "Trecho Erick Siqueira, 7, Jardim Felicidade, 40014507 Fonseca / PB",
+        "city": "Aiuaba",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.1212278,
+          -6.5710836
+        ]
+      },
+      "status": 1,
+      "latitude": -6.5710836,
+      "longitude": -40.1212278,
+      "created_at": "1999-09-14T03:27:41.521814",
+      "updated_at": "1973-11-27T02:31:11.502370"
+    },
+    "records": [
+      {
+        "id": 16,
+        "uuid": "record-uuid-16",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 22.5,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 80.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 12.3,
+            "unit": 7
+          }
+        ],
+        "created_at": "2017-10-22T03:51:40.207244",
+        "updated_at": "2006-03-25T04:36:27.191755"
+      }
+    ],
+    "created_at": "1981-02-02T19:03:31.828168",
+    "updated_at": "1976-12-20T21:37:31.914455"
+  },
+  {
+    "id": 17,
+    "uuid": "uuid-17",
+    "name": "Estação ARN 17",
+    "description": "Estação de monitoramento em Arneiroz",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.6",
+      "installed_at": "1975-07-17T17:09:24.103626"
+    },
+    "place": {
+      "id": 17,
+      "uuid": "place-uuid-17",
+      "name": "Local 17",
+      "description": "Localização da Estação 17",
+      "info": {
+        "address": "Lago Araújo, 53, Belmonte, 38983933 Aragão Grande / CE",
+        "city": "Arneiroz",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.1603859,
+          -6.3235099
+        ]
+      },
+      "status": 1,
+      "latitude": -6.3235099,
+      "longitude": -40.1603859,
+      "created_at": "2001-01-21T07:59:54.433187",
+      "updated_at": "2012-07-06T00:28:35.244097"
+    },
+    "records": [
+      {
+        "id": 17,
+        "uuid": "record-uuid-17",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 26.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 84.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 13.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1989-04-06T09:48:57.492152",
+        "updated_at": "1992-04-09T07:28:00.287672"
+      }
+    ],
+    "created_at": "2019-10-08T17:40:22.785167",
+    "updated_at": "1995-10-25T06:29:10.524074"
+  },
+  {
+    "id": 18,
+    "uuid": "uuid-18",
+    "name": "Estação PAR 18",
+    "description": "Estação de monitoramento em Parambu",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.3",
+      "installed_at": "1993-09-28T05:53:32.018767"
+    },
+    "place": {
+      "id": 18,
+      "uuid": "place-uuid-18",
+      "name": "Local 18",
+      "description": "Localização da Estação 18",
+      "info": {
+        "address": "Ladeira Silveira, Vila Da Luz, 91404741 Campos dos Dourados / GO",
+        "city": "Parambu",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.6954982,
+          -6.2123856
+        ]
+      },
+      "status": 1,
+      "latitude": -6.2123856,
+      "longitude": -40.6954982,
+      "created_at": "1977-04-16T02:44:05.092198",
+      "updated_at": "2002-03-02T08:21:21.138343"
+    },
+    "records": [
+      {
+        "id": 18,
+        "uuid": "record-uuid-18",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 16.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 51.8,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 9.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "2002-01-11T14:34:41.575001",
+        "updated_at": "1982-12-17T07:13:05.492306"
+      }
+    ],
+    "created_at": "2019-04-23T16:24:59.990519",
+    "updated_at": "1996-11-30T13:08:12.732437"
+  },
+  {
+    "id": 19,
+    "uuid": "uuid-19",
+    "name": "Estação QUI 19",
+    "description": "Estação de monitoramento em Quiterianópolis",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.2",
+      "installed_at": "1990-02-17T17:29:27.458721"
+    },
+    "place": {
+      "id": 19,
+      "uuid": "place-uuid-19",
+      "name": "Local 19",
+      "description": "Localização da Estação 19",
+      "info": {
+        "address": "Loteamento de Ferreira, Lajedo, 77023-331 Cardoso / SP",
+        "city": "Quiterianópolis",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.7021812,
+          -5.8458117
+        ]
+      },
+      "status": 1,
+      "latitude": -5.8458117,
+      "longitude": -40.7021812,
+      "created_at": "1987-09-13T22:14:35.596762",
+      "updated_at": "1982-12-24T02:37:49.477549"
+    },
+    "records": [
+      {
+        "id": 19,
+        "uuid": "record-uuid-19",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 35.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 42.8,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 15.1,
+            "unit": 7
+          }
+        ],
+        "created_at": "1986-05-19T12:00:33.162873",
+        "updated_at": "2020-04-26T23:41:05.182655"
+      }
+    ],
+    "created_at": "1971-09-23T16:40:52.589928",
+    "updated_at": "1988-02-12T03:40:15.517220"
+  },
+  {
+    "id": 20,
+    "uuid": "uuid-20",
+    "name": "Estação TAU 20",
+    "description": "Estação de monitoramento em Tauá",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "1987-07-20T00:13:21.189113"
+    },
+    "place": {
+      "id": 20,
+      "uuid": "place-uuid-20",
+      "name": "Local 20",
+      "description": "Localização da Estação 20",
+      "info": {
+        "address": "Conjunto de Moraes, 5, Novo Aarão Reis, 18026-739 Alves Paulista / RS",
+        "city": "Tauá",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.2947268,
+          -6.0031372
+        ]
+      },
+      "status": 1,
+      "latitude": -6.0031372,
+      "longitude": -40.2947268,
+      "created_at": "2012-05-21T22:11:52.379365",
+      "updated_at": "2015-01-27T17:26:31.810578"
+    },
+    "records": [
+      {
+        "id": 20,
+        "uuid": "record-uuid-20",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 36.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 87.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 8.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "2006-10-27T14:20:32.920017",
+        "updated_at": "1978-04-10T23:03:43.523028"
+      }
+    ],
+    "created_at": "1984-03-26T13:33:56.462791",
+    "updated_at": "2001-08-19T20:52:03.471025"
+  },
+  {
+    "id": 21,
+    "uuid": "uuid-21",
+    "name": "Estação BOA 21",
+    "description": "Estação de monitoramento em Boa Viagem",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.5",
+      "installed_at": "1977-01-25T06:41:58.712971"
+    },
+    "place": {
+      "id": 21,
+      "uuid": "place-uuid-21",
+      "name": "Local 21",
+      "description": "Localização da Estação 21",
+      "info": {
+        "address": "Favela da Rocha, 25, Vila Santa Rosa, 97962402 Barros / PA",
+        "city": "Boa Viagem",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.7300055,
+          -5.1261877
+        ]
+      },
+      "status": 1,
+      "latitude": -5.1261877,
+      "longitude": -39.7300055,
+      "created_at": "2017-04-18T14:11:21.570090",
+      "updated_at": "1993-08-22T11:51:07.058620"
+    },
+    "records": [
+      {
+        "id": 21,
+        "uuid": "record-uuid-21",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 31.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 52.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 16.1,
+            "unit": 7
+          }
+        ],
+        "created_at": "1981-04-20T22:57:48.161103",
+        "updated_at": "2025-05-08T23:37:51.562353"
+      }
+    ],
+    "created_at": "1985-09-07T15:49:41.356874",
+    "updated_at": "1987-10-29T06:25:14.252880"
+  },
+  {
+    "id": 22,
+    "uuid": "uuid-22",
+    "name": "Estação CAN 22",
+    "description": "Estação de monitoramento em Canindé",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.4",
+      "installed_at": "2008-05-23T17:15:46.997696"
+    },
+    "place": {
+      "id": 22,
+      "uuid": "place-uuid-22",
+      "name": "Local 22",
+      "description": "Localização da Estação 22",
+      "info": {
+        "address": "Colônia Breno Santos, 69, São Gonçalo, 07581-017 da Luz / AP",
+        "city": "Canindé",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.3108516,
+          -4.3547946
+        ]
+      },
+      "status": 1,
+      "latitude": -4.3547946,
+      "longitude": -39.3108516,
+      "created_at": "1989-04-26T18:48:32.682292",
+      "updated_at": "1985-06-13T12:57:31.085403"
+    },
+    "records": [
+      {
+        "id": 22,
+        "uuid": "record-uuid-22",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 17.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 65.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 16.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "2025-01-03T20:04:15.011330",
+        "updated_at": "1973-09-12T11:32:25.021815"
+      }
+    ],
+    "created_at": "2015-04-15T15:28:05.454332",
+    "updated_at": "2022-04-10T08:44:08.864997"
+  },
+  {
+    "id": 23,
+    "uuid": "uuid-23",
+    "name": "Estação CAR 23",
+    "description": "Estação de monitoramento em Caridade",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.3",
+      "installed_at": "1986-02-04T14:14:46.089060"
+    },
+    "place": {
+      "id": 23,
+      "uuid": "place-uuid-23",
+      "name": "Local 23",
+      "description": "Localização da Estação 23",
+      "info": {
+        "address": "Vereda Peixoto, 78, Serra, 00587905 da Mota Verde / PR",
+        "city": "Caridade",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.1946515,
+          -4.2316487
+        ]
+      },
+      "status": 1,
+      "latitude": -4.2316487,
+      "longitude": -39.1946515,
+      "created_at": "2021-07-25T12:14:44.951840",
+      "updated_at": "1991-08-13T15:32:10.865975"
+    },
+    "records": [
+      {
+        "id": 23,
+        "uuid": "record-uuid-23",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 32.3,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 89.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 16.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1987-10-07T16:42:21.357745",
+        "updated_at": "1972-05-14T04:49:29.357308"
+      }
+    ],
+    "created_at": "2024-10-13T17:54:19.859823",
+    "updated_at": "1983-01-25T22:16:27.966500"
+  },
+  {
+    "id": 24,
+    "uuid": "uuid-24",
+    "name": "Estação ITA 24",
+    "description": "Estação de monitoramento em Itatira",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.5",
+      "installed_at": "1972-11-16T13:58:09.797341"
+    },
+    "place": {
+      "id": 24,
+      "uuid": "place-uuid-24",
+      "name": "Local 24",
+      "description": "Localização da Estação 24",
+      "info": {
+        "address": "Área Dias, 4, Vila Antena Montanhês, 74066-334 Leão do Galho / PI",
+        "city": "Itatira",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.6210481,
+          -4.5305504
+        ]
+      },
+      "status": 1,
+      "latitude": -4.5305504,
+      "longitude": -39.6210481,
+      "created_at": "1971-11-23T07:22:08.330310",
+      "updated_at": "2015-01-23T17:02:58.265792"
+    },
+    "records": [
+      {
+        "id": 24,
+        "uuid": "record-uuid-24",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 36.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 80.1,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 1.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "1988-05-02T06:23:25.473612",
+        "updated_at": "1974-04-07T06:18:01.715895"
+      }
+    ],
+    "created_at": "1981-12-24T00:50:13.783995",
+    "updated_at": "1989-03-04T05:58:21.887948"
+  },
+  {
+    "id": 25,
+    "uuid": "uuid-25",
+    "name": "Estação MAD 25",
+    "description": "Estação de monitoramento em Madalena",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.2",
+      "installed_at": "1984-11-07T01:58:38.171021"
+    },
+    "place": {
+      "id": 25,
+      "uuid": "place-uuid-25",
+      "name": "Local 25",
+      "description": "Localização da Estação 25",
+      "info": {
+        "address": "Estrada Nicole Nogueira, 287, Barro Preto, 70419-697 Ferreira / MT",
+        "city": "Madalena",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.5766436,
+          -4.8542961
+        ]
+      },
+      "status": 1,
+      "latitude": -4.8542961,
+      "longitude": -39.5766436,
+      "created_at": "2012-08-21T21:21:56.778731",
+      "updated_at": "2014-12-10T00:55:27.040499"
+    },
+    "records": [
+      {
+        "id": 25,
+        "uuid": "record-uuid-25",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 28.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 79.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 15.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "1971-12-05T05:13:46.927512",
+        "updated_at": "1999-10-27T03:29:09.282591"
+      }
+    ],
+    "created_at": "1996-04-01T23:39:03.742769",
+    "updated_at": "2013-03-11T12:59:44.453718"
+  },
+  {
+    "id": 26,
+    "uuid": "uuid-26",
+    "name": "Estação PAR 26",
+    "description": "Estação de monitoramento em Paramoti",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.9",
+      "installed_at": "1972-10-17T07:32:32.698389"
+    },
+    "place": {
+      "id": 26,
+      "uuid": "place-uuid-26",
+      "name": "Local 26",
+      "description": "Localização da Estação 26",
+      "info": {
+        "address": "Estação de Andrade, 5, Piraja, 31420777 Souza Verde / AL",
+        "city": "Paramoti",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.2390411,
+          -4.0964461
+        ]
+      },
+      "status": 1,
+      "latitude": -4.0964461,
+      "longitude": -39.2390411,
+      "created_at": "1997-12-14T13:59:36.323851",
+      "updated_at": "1995-04-21T00:29:19.473410"
+    },
+    "records": [
+      {
+        "id": 26,
+        "uuid": "record-uuid-26",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 20.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 53.1,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "1990-06-26T23:56:56.692567",
+        "updated_at": "2022-08-23T15:19:43.809929"
+      }
+    ],
+    "created_at": "1990-11-17T10:35:56.887272",
+    "updated_at": "2021-01-02T10:19:06.600333"
+  },
+  {
+    "id": 27,
+    "uuid": "uuid-27",
+    "name": "Estação ACA 27",
+    "description": "Estação de monitoramento em Acarape",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "2018-11-04T12:24:21.815176"
+    },
+    "place": {
+      "id": 27,
+      "uuid": "place-uuid-27",
+      "name": "Local 27",
+      "description": "Localização da Estação 27",
+      "info": {
+        "address": "Morro de Dias, 92, Ribeiro De Abreu, 65088-356 Pacheco / ES",
+        "city": "Acarape",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.7071663,
+          -4.2237866
+        ]
+      },
+      "status": 1,
+      "latitude": -4.2237866,
+      "longitude": -38.7071663,
+      "created_at": "1987-03-05T01:49:40.621459",
+      "updated_at": "1988-08-19T15:02:49.943367"
+    },
+    "records": [
+      {
+        "id": 27,
+        "uuid": "record-uuid-27",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 33.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 54.7,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.0,
+            "unit": 7
+          }
+        ],
+        "created_at": "1976-04-27T21:46:19.307513",
+        "updated_at": "1978-06-14T14:42:17.940185"
+      }
+    ],
+    "created_at": "2018-06-24T07:22:19.142800",
+    "updated_at": "2018-01-18T01:02:42.456707"
+  },
+  {
+    "id": 28,
+    "uuid": "uuid-28",
+    "name": "Estação ARA 28",
+    "description": "Estação de monitoramento em Aracoiaba",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.9",
+      "installed_at": "2008-10-21T14:51:50.662632"
+    },
+    "place": {
+      "id": 28,
+      "uuid": "place-uuid-28",
+      "name": "Local 28",
+      "description": "Localização da Estação 28",
+      "info": {
+        "address": "Lagoa Freitas, 56, Beija Flor, 40096-538 Marques / SE",
+        "city": "Aracoiaba",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.8084313,
+          -4.3702577
+        ]
+      },
+      "status": 1,
+      "latitude": -4.3702577,
+      "longitude": -38.8084313,
+      "created_at": "1971-03-11T05:36:43.372167",
+      "updated_at": "1991-01-20T08:35:09.884678"
+    },
+    "records": [
+      {
+        "id": 28,
+        "uuid": "record-uuid-28",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 15.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 50.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 7.3,
+            "unit": 7
+          }
+        ],
+        "created_at": "1974-07-30T14:48:39.924443",
+        "updated_at": "1979-04-01T04:49:17.757726"
+      }
+    ],
+    "created_at": "1977-07-22T20:11:43.992947",
+    "updated_at": "2022-08-13T01:42:22.356398"
+  },
+  {
+    "id": 29,
+    "uuid": "uuid-29",
+    "name": "Estação ARA 29",
+    "description": "Estação de monitoramento em Aratuba",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.1",
+      "installed_at": "2002-01-19T09:28:42.574004"
+    },
+    "place": {
+      "id": 29,
+      "uuid": "place-uuid-29",
+      "name": "Local 29",
+      "description": "Localização da Estação 29",
+      "info": {
+        "address": "Distrito de Moura, 268, Vila Engenho Nogueira, 41261-257 Sousa / RR",
+        "city": "Aratuba",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.0463737,
+          -4.4195958
+        ]
+      },
+      "status": 1,
+      "latitude": -4.4195958,
+      "longitude": -39.0463737,
+      "created_at": "1970-09-15T09:35:07.944771",
+      "updated_at": "1986-09-16T06:53:49.886919"
+    },
+    "records": [
+      {
+        "id": 29,
+        "uuid": "record-uuid-29",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 19.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 41.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 9.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "2020-11-27T18:51:39.254443",
+        "updated_at": "2003-05-01T20:22:22.749480"
+      }
+    ],
+    "created_at": "1979-12-22T17:44:49.440534",
+    "updated_at": "1979-11-01T04:40:42.383050"
+  },
+  {
+    "id": 30,
+    "uuid": "uuid-30",
+    "name": "Estação BAR 30",
+    "description": "Estação de monitoramento em Barreira",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.7",
+      "installed_at": "1976-04-12T11:56:27.718460"
+    },
+    "place": {
+      "id": 30,
+      "uuid": "place-uuid-30",
+      "name": "Local 30",
+      "description": "Localização da Estação 30",
+      "info": {
+        "address": "Quadra Anna Liz Pastor, 97, Vila Batik, 07688-135 das Neves de Goiás / PA",
+        "city": "Barreira",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.641094,
+          -4.2883361
+        ]
+      },
+      "status": 1,
+      "latitude": -4.2883361,
+      "longitude": -38.641094,
+      "created_at": "1999-04-26T04:48:57.792881",
+      "updated_at": "1970-02-20T12:49:33.102010"
+    },
+    "records": [
+      {
+        "id": 30,
+        "uuid": "record-uuid-30",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 28.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 71.8,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.0,
+            "unit": 7
+          }
+        ],
+        "created_at": "2000-09-21T07:19:38.946991",
+        "updated_at": "1981-07-14T16:41:57.134641"
+      }
+    ],
+    "created_at": "2008-10-08T06:33:19.271348",
+    "updated_at": "1988-02-01T23:17:33.605095"
+  },
+  {
+    "id": 31,
+    "uuid": "uuid-31",
+    "name": "Estação BAT 31",
+    "description": "Estação de monitoramento em Baturité",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "1988-12-20T13:12:20.229230"
+    },
+    "place": {
+      "id": 31,
+      "uuid": "place-uuid-31",
+      "name": "Local 31",
+      "description": "Localização da Estação 31",
+      "info": {
+        "address": "Conjunto Giovanna Câmara, 2, Nova America, 02851-699 Albuquerque da Prata / AM",
+        "city": "Baturité",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.8821055,
+          -4.3290203
+        ]
+      },
+      "status": 1,
+      "latitude": -4.3290203,
+      "longitude": -38.8821055,
+      "created_at": "1974-04-04T11:45:48.901710",
+      "updated_at": "1997-09-21T11:37:39.059232"
+    },
+    "records": [
+      {
+        "id": 31,
+        "uuid": "record-uuid-31",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 16.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 75.1,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 18.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "2004-08-27T02:23:39.558009",
+        "updated_at": "1982-10-21T14:53:43.446854"
+      }
+    ],
+    "created_at": "1978-09-04T07:34:28.127948",
+    "updated_at": "1971-10-05T09:08:30.163800"
+  },
+  {
+    "id": 32,
+    "uuid": "uuid-32",
+    "name": "Estação CAP 32",
+    "description": "Estação de monitoramento em Capistrano",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.3",
+      "installed_at": "2002-04-20T01:39:18.443850"
+    },
+    "place": {
+      "id": 32,
+      "uuid": "place-uuid-32",
+      "name": "Local 32",
+      "description": "Localização da Estação 32",
+      "info": {
+        "address": "Parque Isadora Camargo, 37, Caetano Furquim, 66205-848 Macedo do Norte / PE",
+        "city": "Capistrano",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.8956734,
+          -4.4644692
+        ]
+      },
+      "status": 1,
+      "latitude": -4.4644692,
+      "longitude": -38.8956734,
+      "created_at": "1988-08-26T22:02:55.615832",
+      "updated_at": "2008-01-11T16:51:26.176571"
+    },
+    "records": [
+      {
+        "id": 32,
+        "uuid": "record-uuid-32",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 22.7,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 30.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 16.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2006-08-22T23:09:35.277000",
+        "updated_at": "2001-03-15T19:02:18.928639"
+      }
+    ],
+    "created_at": "2002-02-25T22:57:53.227709",
+    "updated_at": "2007-12-21T10:12:36.684283"
+  },
+  {
+    "id": 33,
+    "uuid": "uuid-33",
+    "name": "Estação GUA 33",
+    "description": "Estação de monitoramento em Guaramiranga",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "2005-11-30T16:43:16.280534"
+    },
+    "place": {
+      "id": 33,
+      "uuid": "place-uuid-33",
+      "name": "Local 33",
+      "description": "Localização da Estação 33",
+      "info": {
+        "address": "Via Azevedo, 36, Graça, 36899470 Castro do Campo / SP",
+        "city": "Guaramiranga",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.9340115,
+          -4.2615779
+        ]
+      },
+      "status": 1,
+      "latitude": -4.2615779,
+      "longitude": -38.9340115,
+      "created_at": "2023-09-13T07:47:35.564487",
+      "updated_at": "1980-08-17T03:28:02.503945"
+    },
+    "records": [
+      {
+        "id": 33,
+        "uuid": "record-uuid-33",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 20.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 32.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 13.3,
+            "unit": 7
+          }
+        ],
+        "created_at": "2002-09-11T00:15:09.294338",
+        "updated_at": "1995-09-30T10:07:14.132980"
+      }
+    ],
+    "created_at": "1992-02-09T04:29:39.464327",
+    "updated_at": "2005-09-08T04:04:50.024897"
+  },
+  {
+    "id": 34,
+    "uuid": "uuid-34",
+    "name": "Estação ITA 34",
+    "description": "Estação de monitoramento em Itapiúna",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.2",
+      "installed_at": "1974-06-25T21:53:53.034426"
+    },
+    "place": {
+      "id": 34,
+      "uuid": "place-uuid-34",
+      "name": "Local 34",
+      "description": "Localização da Estação 34",
+      "info": {
+        "address": "Praia Manuella Carvalho, Conjunto Serra Verde, 97457-424 Leão / RS",
+        "city": "Itapiúna",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.9211537,
+          -4.5654191
+        ]
+      },
+      "status": 1,
+      "latitude": -4.5654191,
+      "longitude": -38.9211537,
+      "created_at": "2004-10-11T17:43:38.280496",
+      "updated_at": "2016-08-20T00:12:40.601793"
+    },
+    "records": [
+      {
+        "id": 34,
+        "uuid": "record-uuid-34",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 21.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 40.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 10.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2023-01-03T20:56:38.956649",
+        "updated_at": "1997-01-19T13:09:40.019535"
+      }
+    ],
+    "created_at": "1976-08-13T19:23:55.463601",
+    "updated_at": "2010-07-09T10:48:05.222578"
+  },
+  {
+    "id": 35,
+    "uuid": "uuid-35",
+    "name": "Estação MUL 35",
+    "description": "Estação de monitoramento em Mulungu",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.2",
+      "installed_at": "1976-01-07T13:49:55.429293"
+    },
+    "place": {
+      "id": 35,
+      "uuid": "place-uuid-35",
+      "name": "Local 35",
+      "description": "Localização da Estação 35",
+      "info": {
+        "address": "Praça de Rodrigues, 29, Nova Suíça, 55047454 Martins / DF",
+        "city": "Mulungu",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.9957787,
+          -4.3052327
+        ]
+      },
+      "status": 1,
+      "latitude": -4.3052327,
+      "longitude": -38.9957787,
+      "created_at": "1996-08-22T05:42:59.268022",
+      "updated_at": "1976-01-26T10:18:38.092114"
+    },
+    "records": [
+      {
+        "id": 35,
+        "uuid": "record-uuid-35",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 31.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 60.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 3.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "1978-11-23T23:23:33.061043",
+        "updated_at": "1994-01-27T00:21:58.358400"
+      }
+    ],
+    "created_at": "2011-02-10T14:07:47.641338",
+    "updated_at": "1997-03-14T21:26:37.020726"
+  },
+  {
+    "id": 36,
+    "uuid": "uuid-36",
+    "name": "Estação OCA 36",
+    "description": "Estação de monitoramento em Ocara",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.5",
+      "installed_at": "2015-10-10T06:07:33.406956"
+    },
+    "place": {
+      "id": 36,
+      "uuid": "place-uuid-36",
+      "name": "Local 36",
+      "description": "Localização da Estação 36",
+      "info": {
+        "address": "Alameda Martins, 72, Novo Das Industrias, 32972177 Sampaio / PB",
+        "city": "Ocara",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.5964829,
+          -4.4910653
+        ]
+      },
+      "status": 1,
+      "latitude": -4.4910653,
+      "longitude": -38.5964829,
+      "created_at": "2024-08-23T12:48:22.591849",
+      "updated_at": "1991-09-26T10:16:06.106050"
+    },
+    "records": [
+      {
+        "id": 36,
+        "uuid": "record-uuid-36",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 38.7,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 84.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 6.4,
+            "unit": 7
+          }
+        ],
+        "created_at": "2020-05-04T09:19:03.172534",
+        "updated_at": "1975-11-12T08:21:18.677704"
+      }
+    ],
+    "created_at": "1989-04-27T05:40:12.185219",
+    "updated_at": "2019-11-30T20:07:26.566074"
+  },
+  {
+    "id": 37,
+    "uuid": "uuid-37",
+    "name": "Estação PAC 37",
+    "description": "Estação de monitoramento em Pacoti",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.7",
+      "installed_at": "2015-01-12T22:10:02.144042"
+    },
+    "place": {
+      "id": 37,
+      "uuid": "place-uuid-37",
+      "name": "Local 37",
+      "description": "Localização da Estação 37",
+      "info": {
+        "address": "Pátio Thiago Sá, 86, Boa Esperança, 11637-374 da Conceição do Amparo / PB",
+        "city": "Pacoti",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.9208352,
+          -4.2253561
+        ]
+      },
+      "status": 1,
+      "latitude": -4.2253561,
+      "longitude": -38.9208352,
+      "created_at": "1989-11-14T06:26:56.055630",
+      "updated_at": "2009-06-29T22:39:14.823690"
+    },
+    "records": [
+      {
+        "id": 37,
+        "uuid": "record-uuid-37",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 21.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 68.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 10.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "1971-09-27T09:30:44.099059",
+        "updated_at": "2025-04-10T12:32:23.236779"
+      }
+    ],
+    "created_at": "1975-04-24T21:32:39.423294",
+    "updated_at": "2018-05-13T20:15:49.244901"
+  },
+  {
+    "id": 38,
+    "uuid": "uuid-38",
+    "name": "Estação PAL 38",
+    "description": "Estação de monitoramento em Palmácia",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.6",
+      "installed_at": "2020-10-21T20:55:54.232333"
+    },
+    "place": {
+      "id": 38,
+      "uuid": "place-uuid-38",
+      "name": "Local 38",
+      "description": "Localização da Estação 38",
+      "info": {
+        "address": "Morro Albuquerque, 952, Vila Real 2ª Seção, 06196029 Peixoto / RS",
+        "city": "Palmácia",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.8460317,
+          -4.1478012
+        ]
+      },
+      "status": 1,
+      "latitude": -4.1478012,
+      "longitude": -38.8460317,
+      "created_at": "1985-11-03T03:54:29.785920",
+      "updated_at": "2009-06-15T18:53:49.174643"
+    },
+    "records": [
+      {
+        "id": 38,
+        "uuid": "record-uuid-38",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 30.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 60.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 13.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "2022-08-07T19:29:01.042504",
+        "updated_at": "1990-08-26T11:22:10.726713"
+      }
+    ],
+    "created_at": "1998-06-09T09:19:48.950743",
+    "updated_at": "1973-07-27T11:14:41.249972"
+  },
+  {
+    "id": 39,
+    "uuid": "uuid-39",
+    "name": "Estação RED 39",
+    "description": "Estação de monitoramento em Redenção",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.6",
+      "installed_at": "1980-01-07T05:51:28.570538"
+    },
+    "place": {
+      "id": 39,
+      "uuid": "place-uuid-39",
+      "name": "Local 39",
+      "description": "Localização da Estação 39",
+      "info": {
+        "address": "Ladeira Luiza Costa, 6, Palmares, 15832-030 Borges / TO",
+        "city": "Redenção",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.7278461,
+          -4.2243979
+        ]
+      },
+      "status": 1,
+      "latitude": -4.2243979,
+      "longitude": -38.7278461,
+      "created_at": "2018-11-04T09:10:25.631762",
+      "updated_at": "2024-11-18T04:10:09.950202"
+    },
+    "records": [
+      {
+        "id": 39,
+        "uuid": "record-uuid-39",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 19.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 39.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 1.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "1992-09-23T06:01:21.154596",
+        "updated_at": "1974-02-05T12:05:40.998381"
+      }
+    ],
+    "created_at": "2008-07-21T15:51:13.205700",
+    "updated_at": "1978-04-30T15:50:13.364662"
+  },
+  {
+    "id": 40,
+    "uuid": "uuid-40",
+    "name": "Estação APU 40",
+    "description": "Estação de monitoramento em Apuiarés",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.7",
+      "installed_at": "1994-01-30T07:16:54.893053"
+    },
+    "place": {
+      "id": 40,
+      "uuid": "place-uuid-40",
+      "name": "Local 40",
+      "description": "Localização da Estação 40",
+      "info": {
+        "address": "Setor Farias, 18, Vila São Paulo, 23070-935 Santos / MS",
+        "city": "Apuiarés",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.4313298,
+          -3.9460303
+        ]
+      },
+      "status": 1,
+      "latitude": -3.9460303,
+      "longitude": -39.4313298,
+      "created_at": "2010-09-26T00:03:15.747188",
+      "updated_at": "2008-07-02T06:23:15.763053"
+    },
+    "records": [
+      {
+        "id": 40,
+        "uuid": "record-uuid-40",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 35.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 89.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 0.3,
+            "unit": 7
+          }
+        ],
+        "created_at": "2019-03-15T14:03:50.590737",
+        "updated_at": "2018-01-13T00:25:06.629555"
+      }
+    ],
+    "created_at": "2008-10-21T12:59:50.514409",
+    "updated_at": "1982-11-23T16:15:39.629917"
+  },
+  {
+    "id": 41,
+    "uuid": "uuid-41",
+    "name": "Estação GEN 41",
+    "description": "Estação de monitoramento em General Sampaio",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.7",
+      "installed_at": "1997-05-02T21:17:07.198785"
+    },
+    "place": {
+      "id": 41,
+      "uuid": "place-uuid-41",
+      "name": "Local 41",
+      "description": "Localização da Estação 41",
+      "info": {
+        "address": "Campo de Aragão, 131, Bonsucesso, 53817-970 da Rocha de Monteiro / MT",
+        "city": "General Sampaio",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.4509271,
+          -4.0517636
+        ]
+      },
+      "status": 1,
+      "latitude": -4.0517636,
+      "longitude": -39.4509271,
+      "created_at": "1976-01-02T01:59:10.604483",
+      "updated_at": "1980-12-30T23:43:57.037514"
+    },
+    "records": [
+      {
+        "id": 41,
+        "uuid": "record-uuid-41",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 31.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 54.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 1.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "2009-03-23T11:42:09.656209",
+        "updated_at": "2015-02-11T17:57:09.245552"
+      }
+    ],
+    "created_at": "1994-03-13T06:36:09.637307",
+    "updated_at": "1992-06-01T18:58:09.944481"
+  },
+  {
+    "id": 42,
+    "uuid": "uuid-42",
+    "name": "Estação IRA 42",
+    "description": "Estação de monitoramento em Irauçuba",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "2023-12-28T21:30:00.092511"
+    },
+    "place": {
+      "id": 42,
+      "uuid": "place-uuid-42",
+      "name": "Local 42",
+      "description": "Localização da Estação 42",
+      "info": {
+        "address": "Viaduto Theo da Cruz, 501, Laranjeiras, 23097156 Novais / TO",
+        "city": "Irauçuba",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.7840904,
+          -3.7466828
+        ]
+      },
+      "status": 1,
+      "latitude": -3.7466828,
+      "longitude": -39.7840904,
+      "created_at": "1980-07-01T02:24:36.646905",
+      "updated_at": "2014-05-29T18:44:54.208231"
+    },
+    "records": [
+      {
+        "id": 42,
+        "uuid": "record-uuid-42",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 36.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 63.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 13.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2005-07-15T02:45:19.363739",
+        "updated_at": "1986-07-03T18:40:04.236540"
+      }
+    ],
+    "created_at": "1991-03-29T11:25:01.372977",
+    "updated_at": "1979-07-20T19:35:32.477855"
+  },
+  {
+    "id": 43,
+    "uuid": "uuid-43",
+    "name": "Estação ITA 43",
+    "description": "Estação de monitoramento em Itapajé",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "2007-03-07T21:19:02.519197"
+    },
+    "place": {
+      "id": 43,
+      "uuid": "place-uuid-43",
+      "name": "Local 43",
+      "description": "Localização da Estação 43",
+      "info": {
+        "address": "Núcleo Silveira, Bonsucesso, 04440170 Caldeira de Rezende / MT",
+        "city": "Itapajé",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.5851265,
+          -3.6841324
+        ]
+      },
+      "status": 1,
+      "latitude": -3.6841324,
+      "longitude": -39.5851265,
+      "created_at": "1970-08-24T01:55:15.139158",
+      "updated_at": "2007-09-28T22:45:21.073462"
+    },
+    "records": [
+      {
+        "id": 43,
+        "uuid": "record-uuid-43",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 29.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 43.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 7.0,
+            "unit": 7
+          }
+        ],
+        "created_at": "1989-11-21T12:23:02.370387",
+        "updated_at": "1979-07-12T22:43:10.820685"
+      }
+    ],
+    "created_at": "2021-09-13T09:38:05.894510",
+    "updated_at": "2010-05-10T09:39:36.665861"
+  },
+  {
+    "id": 44,
+    "uuid": "uuid-44",
+    "name": "Estação MIR 44",
+    "description": "Estação de monitoramento em Miraíma",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.9",
+      "installed_at": "1985-10-13T05:01:37.284832"
+    },
+    "place": {
+      "id": 44,
+      "uuid": "place-uuid-44",
+      "name": "Local 44",
+      "description": "Localização da Estação 44",
+      "info": {
+        "address": "Jardim Ana Júlia Rodrigues, 65, Conjunto Califórnia Ii, 72992-696 das Neves Grande / ES",
+        "city": "Miraíma",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.966267,
+          -3.568674
+        ]
+      },
+      "status": 1,
+      "latitude": -3.568674,
+      "longitude": -39.966267,
+      "created_at": "1999-02-07T02:35:49.593524",
+      "updated_at": "2003-12-21T09:58:15.993399"
+    },
+    "records": [
+      {
+        "id": 44,
+        "uuid": "record-uuid-44",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 22.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 86.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 4.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1986-01-24T13:14:07.686048",
+        "updated_at": "1974-02-23T06:37:07.750367"
+      }
+    ],
+    "created_at": "1971-05-30T19:22:16.150043",
+    "updated_at": "1986-10-25T03:59:18.970762"
+  },
+  {
+    "id": 45,
+    "uuid": "uuid-45",
+    "name": "Estação PEN 45",
+    "description": "Estação de monitoramento em Pentecoste",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.9",
+      "installed_at": "1976-11-19T00:31:11.013315"
+    },
+    "place": {
+      "id": 45,
+      "uuid": "place-uuid-45",
+      "name": "Local 45",
+      "description": "Localização da Estação 45",
+      "info": {
+        "address": "Ladeira de da Costa, Marieta 1ª Seção, 46109785 Fonseca / PR",
+        "city": "Pentecoste",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.2670733,
+          -3.7950248
+        ]
+      },
+      "status": 1,
+      "latitude": -3.7950248,
+      "longitude": -39.2670733,
+      "created_at": "2009-05-16T10:13:11.739239",
+      "updated_at": "1980-05-24T02:58:22.380777"
+    },
+    "records": [
+      {
+        "id": 45,
+        "uuid": "record-uuid-45",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 33.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 77.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "1972-12-16T12:42:24.478300",
+        "updated_at": "1978-05-29T11:58:11.019854"
+      }
+    ],
+    "created_at": "2003-01-07T09:40:44.976136",
+    "updated_at": "2003-09-07T05:49:02.458517"
+  },
+  {
+    "id": 46,
+    "uuid": "uuid-46",
+    "name": "Estação TEJ 46",
+    "description": "Estação de monitoramento em Tejuçuoca",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.8",
+      "installed_at": "1973-03-23T12:50:10.925485"
+    },
+    "place": {
+      "id": 46,
+      "uuid": "place-uuid-46",
+      "name": "Local 46",
+      "description": "Localização da Estação 46",
+      "info": {
+        "address": "Estrada Guerra, Ouro Minas, 39602-104 Melo / PR",
+        "city": "Tejuçuoca",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.5797395,
+          -3.9884273
+        ]
+      },
+      "status": 1,
+      "latitude": -3.9884273,
+      "longitude": -39.5797395,
+      "created_at": "1971-06-22T00:18:07.193218",
+      "updated_at": "2023-11-23T12:00:28.638621"
+    },
+    "records": [
+      {
+        "id": 46,
+        "uuid": "record-uuid-46",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 18.7,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 39.8,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 11.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "1970-03-25T03:51:53.300547",
+        "updated_at": "2009-04-30T01:52:28.887177"
+      }
+    ],
+    "created_at": "1993-08-30T10:57:44.077155",
+    "updated_at": "1981-08-22T22:51:05.554099"
+  },
+  {
+    "id": 47,
+    "uuid": "uuid-47",
+    "name": "Estação TUR 47",
+    "description": "Estação de monitoramento em Tururu",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.9",
+      "installed_at": "1999-04-16T04:10:54.338743"
+    },
+    "place": {
+      "id": 47,
+      "uuid": "place-uuid-47",
+      "name": "Local 47",
+      "description": "Localização da Estação 47",
+      "info": {
+        "address": "Loteamento Davi Martins, 53, Europa, 98071287 Rezende / DF",
+        "city": "Tururu",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.4358101,
+          -3.5985489
+        ]
+      },
+      "status": 1,
+      "latitude": -3.5985489,
+      "longitude": -39.4358101,
+      "created_at": "2022-10-21T14:30:31.691195",
+      "updated_at": "2010-05-04T09:39:47.313505"
+    },
+    "records": [
+      {
+        "id": 47,
+        "uuid": "record-uuid-47",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 28.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 67.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 11.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "1976-11-24T00:59:33.162347",
+        "updated_at": "1975-01-30T06:18:51.244933"
+      }
+    ],
+    "created_at": "1992-11-11T18:20:33.254333",
+    "updated_at": "2001-09-02T11:09:58.627338"
+  },
+  {
+    "id": 48,
+    "uuid": "uuid-48",
+    "name": "Estação UMI 48",
+    "description": "Estação de monitoramento em Umirim",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.2",
+      "installed_at": "2005-07-10T10:45:25.219477"
+    },
+    "place": {
+      "id": 48,
+      "uuid": "place-uuid-48",
+      "name": "Local 48",
+      "description": "Localização da Estação 48",
+      "info": {
+        "address": "Largo de Almeida, 88, Conjunto Capitão Eduardo, 75820-608 Castro das Pedras / RN",
+        "city": "Umirim",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.348725,
+          -3.6777738
+        ]
+      },
+      "status": 1,
+      "latitude": -3.6777738,
+      "longitude": -39.348725,
+      "created_at": "1972-12-23T13:45:59.391617",
+      "updated_at": "2005-01-21T08:35:57.606447"
+    },
+    "records": [
+      {
+        "id": 48,
+        "uuid": "record-uuid-48",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 33.8,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 82.9,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 11.1,
+            "unit": 7
+          }
+        ],
+        "created_at": "1971-02-17T06:30:32.952373",
+        "updated_at": "2022-11-23T11:17:09.890709"
+      }
+    ],
+    "created_at": "2000-04-03T14:13:04.068661",
+    "updated_at": "1985-02-28T10:31:22.134165"
+  },
+  {
+    "id": 49,
+    "uuid": "uuid-49",
+    "name": "Estação URU 49",
+    "description": "Estação de monitoramento em Uruburetama",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.9",
+      "installed_at": "2006-09-11T04:15:29.732758"
+    },
+    "place": {
+      "id": 49,
+      "uuid": "place-uuid-49",
+      "name": "Local 49",
+      "description": "Localização da Estação 49",
+      "info": {
+        "address": "Parque Fernandes, 47, Horto, 49496-007 Abreu / RO",
+        "city": "Uruburetama",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.5050697,
+          -3.6235302
+        ]
+      },
+      "status": 1,
+      "latitude": -3.6235302,
+      "longitude": -39.5050697,
+      "created_at": "2003-08-28T07:19:48.955516",
+      "updated_at": "1987-06-15T00:17:52.709849"
+    },
+    "records": [
+      {
+        "id": 49,
+        "uuid": "record-uuid-49",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 16.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 70.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 19.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "1993-07-02T09:46:38.368555",
+        "updated_at": "2016-01-24T16:19:44.585905"
+      }
+    ],
+    "created_at": "2005-10-26T21:59:44.578007",
+    "updated_at": "1990-08-24T22:45:42.355786"
+  },
+  {
+    "id": 50,
+    "uuid": "uuid-50",
+    "name": "Estação ACA 50",
+    "description": "Estação de monitoramento em Acaraú",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "1996-06-05T22:45:42.880960"
+    },
+    "place": {
+      "id": 50,
+      "uuid": "place-uuid-50",
+      "name": "Local 50",
+      "description": "Localização da Estação 50",
+      "info": {
+        "address": "Via Oliveira, 93, Marieta 1ª Seção, 31223291 Abreu / MG",
+        "city": "Acaraú",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.1194713,
+          -2.8869514
+        ]
+      },
+      "status": 1,
+      "latitude": -2.8869514,
+      "longitude": -40.1194713,
+      "created_at": "2008-02-05T06:42:28.553719",
+      "updated_at": "2006-08-01T01:18:44.343242"
+    },
+    "records": [
+      {
+        "id": 50,
+        "uuid": "record-uuid-50",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 17.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 56.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 7.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "2022-02-17T03:47:19.961312",
+        "updated_at": "2004-12-22T15:45:13.029945"
+      }
+    ],
+    "created_at": "2017-06-16T05:46:45.197310",
+    "updated_at": "1970-05-25T23:03:39.300182"
+  },
+  {
+    "id": 51,
+    "uuid": "uuid-51",
+    "name": "Estação BAR 51",
+    "description": "Estação de monitoramento em Barroquinha",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.8",
+      "installed_at": "1997-10-09T09:51:52.961331"
+    },
+    "place": {
+      "id": 51,
+      "uuid": "place-uuid-51",
+      "name": "Local 51",
+      "description": "Localização da Estação 51",
+      "info": {
+        "address": "Núcleo Câmara, 52, Vila Nova Dos Milionarios, 96884-541 Mendonça / RJ",
+        "city": "Barroquinha",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -41.1339229,
+          -3.0200371
+        ]
+      },
+      "status": 1,
+      "latitude": -3.0200371,
+      "longitude": -41.1339229,
+      "created_at": "2002-11-18T06:52:54.022743",
+      "updated_at": "1989-12-08T15:43:39.521892"
+    },
+    "records": [
+      {
+        "id": 51,
+        "uuid": "record-uuid-51",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 24.5,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 38.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 13.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "2008-07-18T17:43:46.019421",
+        "updated_at": "2023-01-24T05:06:10.258885"
+      }
+    ],
+    "created_at": "1987-01-20T06:14:50.400822",
+    "updated_at": "1993-11-22T15:28:03.900470"
+  },
+  {
+    "id": 52,
+    "uuid": "uuid-52",
+    "name": "Estação BEL 52",
+    "description": "Estação de monitoramento em Bela Cruz",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "1989-01-27T21:01:34.647340"
+    },
+    "place": {
+      "id": 52,
+      "uuid": "place-uuid-52",
+      "name": "Local 52",
+      "description": "Localização da Estação 52",
+      "info": {
+        "address": "Condomínio Alice Macedo, Vila Santo Antônio, 51413547 Rios / RS",
+        "city": "Bela Cruz",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.167582,
+          -3.0529129
+        ]
+      },
+      "status": 1,
+      "latitude": -3.0529129,
+      "longitude": -40.167582,
+      "created_at": "2006-04-29T03:10:18.904621",
+      "updated_at": "1988-11-04T17:19:52.718974"
+    },
+    "records": [
+      {
+        "id": 52,
+        "uuid": "record-uuid-52",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 20.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 74.1,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 15.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "2008-05-01T16:55:45.639110",
+        "updated_at": "1972-02-15T13:38:02.490398"
+      }
+    ],
+    "created_at": "1972-05-19T08:45:10.476297",
+    "updated_at": "1993-09-22T23:30:52.282750"
+  },
+  {
+    "id": 53,
+    "uuid": "uuid-53",
+    "name": "Estação CAM 53",
+    "description": "Estação de monitoramento em Camocim",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.3",
+      "installed_at": "2003-03-05T15:01:22.572909"
+    },
+    "place": {
+      "id": 53,
+      "uuid": "place-uuid-53",
+      "name": "Local 53",
+      "description": "Localização da Estação 53",
+      "info": {
+        "address": "Morro de Fogaça, 8, Urca, 02564-354 Jesus / BA",
+        "city": "Camocim",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.8427389,
+          -2.9009918
+        ]
+      },
+      "status": 1,
+      "latitude": -2.9009918,
+      "longitude": -40.8427389,
+      "created_at": "2000-02-11T11:04:57.920650",
+      "updated_at": "1990-01-28T06:39:32.175219"
+    },
+    "records": [
+      {
+        "id": 53,
+        "uuid": "record-uuid-53",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 38.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 51.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 6.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2017-10-01T15:14:53.539262",
+        "updated_at": "1981-04-02T20:11:59.162658"
+      }
+    ],
+    "created_at": "1971-08-25T16:21:46.691610",
+    "updated_at": "1979-03-15T23:33:21.919952"
+  },
+  {
+    "id": 54,
+    "uuid": "uuid-54",
+    "name": "Estação CHA 54",
+    "description": "Estação de monitoramento em Chaval",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.9",
+      "installed_at": "1988-06-05T20:26:29.570377"
+    },
+    "place": {
+      "id": 54,
+      "uuid": "place-uuid-54",
+      "name": "Local 54",
+      "description": "Localização da Estação 54",
+      "info": {
+        "address": "Esplanada Maysa da Paz, Jardim Montanhês, 14665-329 Pires / MA",
+        "city": "Chaval",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -41.2438452,
+          -3.0339874
+        ]
+      },
+      "status": 1,
+      "latitude": -3.0339874,
+      "longitude": -41.2438452,
+      "created_at": "1982-02-14T10:07:40.312349",
+      "updated_at": "1975-01-19T22:44:55.183157"
+    },
+    "records": [
+      {
+        "id": 54,
+        "uuid": "record-uuid-54",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 20.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 75.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 6.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "2007-08-07T21:53:22.365071",
+        "updated_at": "2000-03-05T17:45:59.605500"
+      }
+    ],
+    "created_at": "2002-05-24T15:54:34.400532",
+    "updated_at": "2009-12-07T03:07:22.345620"
+  },
+  {
+    "id": 55,
+    "uuid": "uuid-55",
+    "name": "Estação CRU 55",
+    "description": "Estação de monitoramento em Cruz",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "2005-01-14T08:35:16.454847"
+    },
+    "place": {
+      "id": 55,
+      "uuid": "place-uuid-55",
+      "name": "Local 55",
+      "description": "Localização da Estação 55",
+      "info": {
+        "address": "Travessa de Cirino, 8, Independência, 78229-150 Viana / TO",
+        "city": "Cruz",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.175981,
+          -2.918128
+        ]
+      },
+      "status": 1,
+      "latitude": -2.918128,
+      "longitude": -40.175981,
+      "created_at": "1986-01-24T07:55:56.500926",
+      "updated_at": "1984-01-25T17:06:24.744470"
+    },
+    "records": [
+      {
+        "id": 55,
+        "uuid": "record-uuid-55",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 28.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 42.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 17.4,
+            "unit": 7
+          }
+        ],
+        "created_at": "2010-09-16T08:06:27.129824",
+        "updated_at": "1992-01-31T03:00:54.146927"
+      }
+    ],
+    "created_at": "1991-11-15T18:05:03.443468",
+    "updated_at": "2002-11-28T04:57:00.099622"
+  },
+  {
+    "id": 56,
+    "uuid": "uuid-56",
+    "name": "Estação GRA 56",
+    "description": "Estação de monitoramento em Granja",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.3",
+      "installed_at": "1974-11-16T05:22:36.509047"
+    },
+    "place": {
+      "id": 56,
+      "uuid": "place-uuid-56",
+      "name": "Local 56",
+      "description": "Localização da Estação 56",
+      "info": {
+        "address": "Viela de Teixeira, 66, Vila São Rafael, 30343987 Macedo / AP",
+        "city": "Granja",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.8284124,
+          -3.1212057
+        ]
+      },
+      "status": 1,
+      "latitude": -3.1212057,
+      "longitude": -40.8284124,
+      "created_at": "2002-05-24T00:25:02.866869",
+      "updated_at": "1975-10-18T02:13:06.464748"
+    },
+    "records": [
+      {
+        "id": 56,
+        "uuid": "record-uuid-56",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 31.3,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 70.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2006-09-10T06:44:25.217257",
+        "updated_at": "2015-10-24T19:54:53.435998"
+      }
+    ],
+    "created_at": "1989-05-12T10:12:01.326180",
+    "updated_at": "1997-01-22T01:09:28.423674"
+  },
+  {
+    "id": 57,
+    "uuid": "uuid-57",
+    "name": "Estação JIJ 57",
+    "description": "Estação de monitoramento em Jijoca de Jericoacoara",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.3",
+      "installed_at": "2022-11-30T06:16:02.585746"
+    },
+    "place": {
+      "id": 57,
+      "uuid": "place-uuid-57",
+      "name": "Local 57",
+      "description": "Localização da Estação 57",
+      "info": {
+        "address": "Alameda Yan Oliveira, 69, Vila Nova Dos Milionarios, 27778655 Sousa da Serra / AL",
+        "city": "Jijoca de Jericoacoara",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.4506081,
+          -2.8986278
+        ]
+      },
+      "status": 1,
+      "latitude": -2.8986278,
+      "longitude": -40.4506081,
+      "created_at": "1990-12-11T01:06:12.356508",
+      "updated_at": "1988-07-04T16:40:14.426898"
+    },
+    "records": [
+      {
+        "id": 57,
+        "uuid": "record-uuid-57",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 19.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 68.7,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 5.1,
+            "unit": 7
+          }
+        ],
+        "created_at": "1988-04-19T04:45:00.213140",
+        "updated_at": "2020-02-16T15:51:25.381877"
+      }
+    ],
+    "created_at": "1972-01-31T14:33:40.024337",
+    "updated_at": "1982-10-23T14:19:11.150507"
+  },
+  {
+    "id": 58,
+    "uuid": "uuid-58",
+    "name": "Estação MAR 58",
+    "description": "Estação de monitoramento em Marco",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.7",
+      "installed_at": "1988-04-16T12:08:46.220136"
+    },
+    "place": {
+      "id": 58,
+      "uuid": "place-uuid-58",
+      "name": "Local 58",
+      "description": "Localização da Estação 58",
+      "info": {
+        "address": "Loteamento Rios, 13, Santa Isabel, 31213-162 da Luz / RN",
+        "city": "Marco",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.1514585,
+          -3.1221945
+        ]
+      },
+      "status": 1,
+      "latitude": -3.1221945,
+      "longitude": -40.1514585,
+      "created_at": "1990-01-06T03:36:20.079745",
+      "updated_at": "2021-09-24T14:40:41.759230"
+    },
+    "records": [
+      {
+        "id": 58,
+        "uuid": "record-uuid-58",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 39.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 75.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 6.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "2012-10-16T17:13:59.900514",
+        "updated_at": "2010-04-25T12:36:57.535196"
+      }
+    ],
+    "created_at": "2006-01-17T20:08:00.511326",
+    "updated_at": "1981-10-29T07:06:11.519723"
+  },
+  {
+    "id": 59,
+    "uuid": "uuid-59",
+    "name": "Estação MOR 59",
+    "description": "Estação de monitoramento em Morrinhos",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "2010-10-18T18:14:54.300151"
+    },
+    "place": {
+      "id": 59,
+      "uuid": "place-uuid-59",
+      "name": "Local 59",
+      "description": "Localização da Estação 59",
+      "info": {
+        "address": "Sítio Vasconcelos, 192, Vila São João Batista, 07812-290 Viana / PE",
+        "city": "Morrinhos",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.1280783,
+          -3.2275749
+        ]
+      },
+      "status": 1,
+      "latitude": -3.2275749,
+      "longitude": -40.1280783,
+      "created_at": "2006-12-17T15:34:52.607595",
+      "updated_at": "1971-12-02T01:54:55.428200"
+    },
+    "records": [
+      {
+        "id": 59,
+        "uuid": "record-uuid-59",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 24.1,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 64.7,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "2010-10-26T05:42:26.531035",
+        "updated_at": "2013-04-05T12:16:39.156422"
+      }
+    ],
+    "created_at": "2012-02-07T04:11:08.910962",
+    "updated_at": "2024-03-02T14:50:14.204859"
+  },
+  {
+    "id": 60,
+    "uuid": "uuid-60",
+    "name": "Estação URU 60",
+    "description": "Estação de monitoramento em Uruoca",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.2",
+      "installed_at": "2004-07-26T02:39:30.063466"
+    },
+    "place": {
+      "id": 60,
+      "uuid": "place-uuid-60",
+      "name": "Local 60",
+      "description": "Localização da Estação 60",
+      "info": {
+        "address": "Setor Gustavo Henrique Barros, 86, Marieta 1ª Seção, 81368-392 Pacheco do Amparo / MS",
+        "city": "Uruoca",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.558957,
+          -3.3147591
+        ]
+      },
+      "status": 1,
+      "latitude": -3.3147591,
+      "longitude": -40.558957,
+      "created_at": "2006-03-10T01:05:45.868456",
+      "updated_at": "2011-03-20T04:45:25.744781"
+    },
+    "records": [
+      {
+        "id": 60,
+        "uuid": "record-uuid-60",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 27.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 58.3,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 0.4,
+            "unit": 7
+          }
+        ],
+        "created_at": "1982-12-12T06:27:39.890233",
+        "updated_at": "1970-08-03T14:59:57.057388"
+      }
+    ],
+    "created_at": "2009-05-05T03:43:05.673182",
+    "updated_at": "2024-08-15T20:56:24.254538"
+  },
+  {
+    "id": 61,
+    "uuid": "uuid-61",
+    "name": "Estação MAR 61",
+    "description": "Estação de monitoramento em Martinópole",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.5",
+      "installed_at": "1985-07-19T15:38:46.105168"
+    },
+    "place": {
+      "id": 61,
+      "uuid": "place-uuid-61",
+      "name": "Local 61",
+      "description": "Localização da Estação 61",
+      "info": {
+        "address": "Viela João Gabriel Moura, 50, Vitoria Da Conquista, 49018434 Lopes do Norte / RS",
+        "city": "Martinópole",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.6958832,
+          -3.2235114
+        ]
+      },
+      "status": 1,
+      "latitude": -3.2235114,
+      "longitude": -40.6958832,
+      "created_at": "1980-12-03T10:39:03.718977",
+      "updated_at": "2024-06-10T00:55:29.093919"
+    },
+    "records": [
+      {
+        "id": 61,
+        "uuid": "record-uuid-61",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 32.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 84.5,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 9.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1977-12-07T14:26:29.127292",
+        "updated_at": "1981-11-16T22:43:43.918344"
+      }
+    ],
+    "created_at": "1999-03-17T10:33:28.212778",
+    "updated_at": "1990-10-05T19:34:08.137056"
+  },
+  {
+    "id": 62,
+    "uuid": "uuid-62",
+    "name": "Estação CAR 62",
+    "description": "Estação de monitoramento em Carnaubal",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.3",
+      "installed_at": "2016-11-27T16:22:54.248003"
+    },
+    "place": {
+      "id": 62,
+      "uuid": "place-uuid-62",
+      "name": "Local 62",
+      "description": "Localização da Estação 62",
+      "info": {
+        "address": "Avenida Emanuelly Moraes, 12, Santa Isabel, 27487557 Cunha / BA",
+        "city": "Carnaubal",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.9412317,
+          -4.1611842
+        ]
+      },
+      "status": 1,
+      "latitude": -4.1611842,
+      "longitude": -40.9412317,
+      "created_at": "1973-08-31T18:24:21.951272",
+      "updated_at": "2015-03-28T22:13:13.387933"
+    },
+    "records": [
+      {
+        "id": 62,
+        "uuid": "record-uuid-62",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 36.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 80.3,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 0.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "2012-11-03T06:31:25.543965",
+        "updated_at": "1999-03-09T18:20:38.187114"
+      }
+    ],
+    "created_at": "2000-11-02T11:44:05.405752",
+    "updated_at": "1970-10-22T23:34:18.448076"
+  },
+  {
+    "id": 63,
+    "uuid": "uuid-63",
+    "name": "Estação CRO 63",
+    "description": "Estação de monitoramento em Croatá",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "2003-03-31T14:31:39.902151"
+    },
+    "place": {
+      "id": 63,
+      "uuid": "place-uuid-63",
+      "name": "Local 63",
+      "description": "Localização da Estação 63",
+      "info": {
+        "address": "Área de Pires, Cidade Jardim, 85403547 da Conceição / RN",
+        "city": "Croatá",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.9048081,
+          -4.4156199
+        ]
+      },
+      "status": 1,
+      "latitude": -4.4156199,
+      "longitude": -40.9048081,
+      "created_at": "1974-10-04T00:39:27.693172",
+      "updated_at": "2014-12-09T10:53:57.305257"
+    },
+    "records": [
+      {
+        "id": 63,
+        "uuid": "record-uuid-63",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 39.6,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 55.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 11.5,
+            "unit": 7
+          }
+        ],
+        "created_at": "1970-10-18T08:47:07.676358",
+        "updated_at": "1980-10-14T21:15:09.682194"
+      }
+    ],
+    "created_at": "1992-03-24T04:06:59.710168",
+    "updated_at": "2015-07-04T06:25:23.916880"
+  },
+  {
+    "id": 64,
+    "uuid": "uuid-64",
+    "name": "Estação GUA 64",
+    "description": "Estação de monitoramento em Guaraciaba do Norte",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.0",
+      "installed_at": "2009-06-20T17:45:22.104291"
+    },
+    "place": {
+      "id": 64,
+      "uuid": "place-uuid-64",
+      "name": "Local 64",
+      "description": "Localização da Estação 64",
+      "info": {
+        "address": "Rodovia Albuquerque, 15, Mariano De Abreu, 08935-191 Mendes / PA",
+        "city": "Guaraciaba do Norte",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.7495985,
+          -4.1632924
+        ]
+      },
+      "status": 1,
+      "latitude": -4.1632924,
+      "longitude": -40.7495985,
+      "created_at": "2021-07-18T00:13:00.752399",
+      "updated_at": "1987-07-15T20:06:37.624009"
+    },
+    "records": [
+      {
+        "id": 64,
+        "uuid": "record-uuid-64",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 21.4,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 65.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 2.2,
+            "unit": 7
+          }
+        ],
+        "created_at": "1982-02-23T23:15:26.560572",
+        "updated_at": "2019-06-29T21:28:09.417859"
+      }
+    ],
+    "created_at": "1995-06-18T01:16:44.924088",
+    "updated_at": "1971-03-11T15:35:32.077908"
+  },
+  {
+    "id": 65,
+    "uuid": "uuid-65",
+    "name": "Estação IBI 65",
+    "description": "Estação de monitoramento em Ibiapina",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "1997-02-01T20:49:05.887943"
+    },
+    "place": {
+      "id": 65,
+      "uuid": "place-uuid-65",
+      "name": "Local 65",
+      "description": "Localização da Estação 65",
+      "info": {
+        "address": "Condomínio Barros, 6, Funcionários, 22631-081 Ferreira do Oeste / RN",
+        "city": "Ibiapina",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.8890296,
+          -3.9228792
+        ]
+      },
+      "status": 1,
+      "latitude": -3.9228792,
+      "longitude": -40.8890296,
+      "created_at": "1985-01-14T20:35:49.441393",
+      "updated_at": "2018-07-28T23:44:51.734668"
+    },
+    "records": [
+      {
+        "id": 65,
+        "uuid": "record-uuid-65",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 18.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 59.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 9.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "2010-06-24T10:01:08.544876",
+        "updated_at": "2024-03-13T20:43:22.035693"
+      }
+    ],
+    "created_at": "2020-10-15T06:04:36.831838",
+    "updated_at": "1972-02-08T17:28:41.710910"
+  },
+  {
+    "id": 66,
+    "uuid": "uuid-66",
+    "name": "Estação IPU 66",
+    "description": "Estação de monitoramento em Ipu",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.5",
+      "installed_at": "1981-11-17T05:06:35.028050"
+    },
+    "place": {
+      "id": 66,
+      "uuid": "place-uuid-66",
+      "name": "Local 66",
+      "description": "Localização da Estação 66",
+      "info": {
+        "address": "Jardim Jesus, 48, Vila Nova Cachoeirinha 1ª Seção, 01494033 Leão / PA",
+        "city": "Ipu",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.7097463,
+          -4.3239824
+        ]
+      },
+      "status": 1,
+      "latitude": -4.3239824,
+      "longitude": -40.7097463,
+      "created_at": "2020-05-22T23:20:51.973985",
+      "updated_at": "2016-05-08T18:15:16.591892"
+    },
+    "records": [
+      {
+        "id": 66,
+        "uuid": "record-uuid-66",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 40.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 32.6,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 6.0,
+            "unit": 7
+          }
+        ],
+        "created_at": "1995-01-07T17:04:07.367997",
+        "updated_at": "2017-09-05T13:36:22.066824"
+      }
+    ],
+    "created_at": "1990-07-15T03:04:20.952747",
+    "updated_at": "1974-09-27T07:04:23.834240"
+  },
+  {
+    "id": 67,
+    "uuid": "uuid-67",
+    "name": "Estação SÃO 67",
+    "description": "Estação de monitoramento em São Benedito",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.6",
+      "installed_at": "2011-02-01T15:23:51.980700"
+    },
+    "place": {
+      "id": 67,
+      "uuid": "place-uuid-67",
+      "name": "Local 67",
+      "description": "Localização da Estação 67",
+      "info": {
+        "address": "Esplanada Alice Ramos, 88, Vila Coqueiral, 54349647 Castro Paulista / MG",
+        "city": "São Benedito",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.8646009,
+          -4.0484353
+        ]
+      },
+      "status": 1,
+      "latitude": -4.0484353,
+      "longitude": -40.8646009,
+      "created_at": "1994-06-09T09:33:47.832170",
+      "updated_at": "2005-08-15T16:06:38.826734"
+    },
+    "records": [
+      {
+        "id": 67,
+        "uuid": "record-uuid-67",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 39.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 43.3,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 8.9,
+            "unit": 7
+          }
+        ],
+        "created_at": "1981-03-27T04:03:14.134769",
+        "updated_at": "1974-05-08T15:31:51.555235"
+      }
+    ],
+    "created_at": "1978-07-23T08:32:53.723874",
+    "updated_at": "1972-01-11T21:54:26.333097"
+  },
+  {
+    "id": 68,
+    "uuid": "uuid-68",
+    "name": "Estação TIA 68",
+    "description": "Estação de monitoramento em Tianguá",
+    "status": 1,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.6",
+      "installed_at": "1991-01-09T19:56:30.386899"
+    },
+    "place": {
+      "id": 68,
+      "uuid": "place-uuid-68",
+      "name": "Local 68",
+      "description": "Localização da Estação 68",
+      "info": {
+        "address": "Residencial Almeida, 23, Renascença, 44330-074 da Mota de da Rocha / SE",
+        "city": "Tianguá",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -41.0004019,
+          -3.7307332
+        ]
+      },
+      "status": 1,
+      "latitude": -3.7307332,
+      "longitude": -41.0004019,
+      "created_at": "2018-05-15T15:37:45.560483",
+      "updated_at": "1974-11-10T06:11:54.318813"
+    },
+    "records": [
+      {
+        "id": 68,
+        "uuid": "record-uuid-68",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 15.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 56.3,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 5.4,
+            "unit": 7
+          }
+        ],
+        "created_at": "2015-05-11T13:00:54.318584",
+        "updated_at": "2014-11-15T00:10:38.433465"
+      }
+    ],
+    "created_at": "2007-07-31T03:58:01.542421",
+    "updated_at": "1990-10-09T02:01:34.884324"
+  },
+  {
+    "id": 69,
+    "uuid": "uuid-69",
+    "name": "Estação UBA 69",
+    "description": "Estação de monitoramento em Ubajara",
+    "status": 0,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.6",
+      "installed_at": "2015-10-10T21:18:09.888727"
+    },
+    "place": {
+      "id": 69,
+      "uuid": "place-uuid-69",
+      "name": "Local 69",
+      "description": "Localização da Estação 69",
+      "info": {
+        "address": "Rodovia de Costela, 9, Vila Real 2ª Seção, 20962-220 Santos das Pedras / RR",
+        "city": "Ubajara",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.9185642,
+          -3.8534468
+        ]
+      },
+      "status": 1,
+      "latitude": -3.8534468,
+      "longitude": -40.9185642,
+      "created_at": "1979-03-20T07:20:47.057101",
+      "updated_at": "1998-10-05T04:32:56.938936"
+    },
+    "records": [
+      {
+        "id": 69,
+        "uuid": "record-uuid-69",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 19.2,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 82.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 7.8,
+            "unit": 7
+          }
+        ],
+        "created_at": "1983-07-22T03:40:15.399410",
+        "updated_at": "2015-08-22T17:44:13.970919"
+      }
+    ],
+    "created_at": "1970-11-08T02:02:05.609374",
+    "updated_at": "2021-12-18T18:40:24.476481"
+  },
+  {
+    "id": 70,
+    "uuid": "uuid-70",
+    "name": "Estação VIÇ 70",
+    "description": "Estação de monitoramento em Viçosa do Ceará",
+    "status": 1,
+    "info": {
+      "model": "Model Y",
+      "firmware": "1.3",
+      "installed_at": "2004-03-16T16:27:03.345622"
+    },
+    "place": {
+      "id": 70,
+      "uuid": "place-uuid-70",
+      "name": "Local 70",
+      "description": "Localização da Estação 70",
+      "info": {
+        "address": "Recanto de Viana, 5, Laranjeiras, 38487-583 Sales / PA",
+        "city": "Viçosa do Ceará",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -41.091504,
+          -3.5667684
+        ]
+      },
+      "status": 1,
+      "latitude": -3.5667684,
+      "longitude": -41.091504,
+      "created_at": "1978-02-17T17:55:00.049428",
+      "updated_at": "2005-07-17T10:02:24.878784"
+    },
+    "records": [
+      {
+        "id": 70,
+        "uuid": "record-uuid-70",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 18.9,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 87.2,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 5.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "1993-11-21T16:13:38.366496",
+        "updated_at": "1989-03-31T18:13:18.134487"
+      }
+    ],
+    "created_at": "2022-05-01T20:39:56.561495",
+    "updated_at": "1979-06-22T04:01:41.366163"
+  },
+  {
+    "id": 71,
+    "uuid": "uuid-71",
+    "name": "Estação CHO 71",
+    "description": "Estação de monitoramento em Chorozinho",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.8",
+      "installed_at": "2000-03-15T23:39:31.024957"
+    },
+    "place": {
+      "id": 71,
+      "uuid": "place-uuid-71",
+      "name": "Local 71",
+      "description": "Localização da Estação 71",
+      "info": {
+        "address": "Jardim Vitor Gabriel Pastor, 946, Concórdia, 60157-429 Costela das Pedras / RO",
+        "city": "Chorozinho",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -38.4976923,
+          -4.3010895
+        ]
+      },
+      "status": 1,
+      "latitude": -4.3010895,
+      "longitude": -38.4976923,
+      "created_at": "1987-06-13T08:56:50.527063",
+      "updated_at": "2019-01-24T01:32:54.590670"
+    },
+    "records": [
+      {
+        "id": 71,
+        "uuid": "record-uuid-71",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 20.0,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 77.4,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 4.6,
+            "unit": 7
+          }
+        ],
+        "created_at": "1976-03-10T10:04:16.198147",
+        "updated_at": "2002-02-02T15:38:38.005034"
+      }
+    ],
+    "created_at": "1980-03-22T18:23:37.931367",
+    "updated_at": "2021-07-26T03:45:11.297226"
+  },
+  {
+    "id": 72,
+    "uuid": "uuid-72",
+    "name": "Estação SÃO 72",
+    "description": "Estação de monitoramento em São Luís do Curu",
+    "status": 0,
+    "info": {
+      "model": "Model X",
+      "firmware": "1.1",
+      "installed_at": "1990-05-14T02:11:42.034667"
+    },
+    "place": {
+      "id": 72,
+      "uuid": "place-uuid-72",
+      "name": "Local 72",
+      "description": "Localização da Estação 72",
+      "info": {
+        "address": "Colônia Danilo Freitas, 26, Vila Petropolis, 99422-544 da Rocha / AM",
+        "city": "São Luís do Curu",
+        "state": "Ceará",
+        "country": "Brazil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -39.2364881,
+          -3.672399
+        ]
+      },
+      "status": 1,
+      "latitude": -3.672399,
+      "longitude": -39.2364881,
+      "created_at": "1987-11-19T22:32:14.772290",
+      "updated_at": "2025-07-30T17:56:15.662617"
+    },
+    "records": [
+      {
+        "id": 72,
+        "uuid": "record-uuid-72",
+        "sensors": [
+          {
+            "sensor_type": 1,
+            "value": 24.3,
+            "unit": 1
+          },
+          {
+            "sensor_type": 2,
+            "value": 34.0,
+            "unit": 3
+          },
+          {
+            "sensor_type": 4,
+            "value": 4.7,
+            "unit": 7
+          }
+        ],
+        "created_at": "2008-11-03T01:21:44.752835",
+        "updated_at": "2007-03-20T03:15:33.810838"
+      }
+    ],
+    "created_at": "2001-07-05T06:28:05.301460",
+    "updated_at": "2004-04-07T09:39:40.250926"
+  }
+]
