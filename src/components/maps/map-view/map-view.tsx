@@ -10,12 +10,12 @@ import { useMap } from "@/providers/map-provider";
 import type { LatLngExpression } from 'leaflet';
 import { WeatherStationMarker } from "./weather-station-marker";
 
+import { MapFlyToHandler } from "@/components/maps/map-view/map-fly-to-handler";
+import { CurrentLocationMarker } from "@/components/maps/markers/current-location-marker";
 import { stationToWeatherCardData } from "@/lib/utils";
 import { Station } from "@/types/station";
-import { CurrentLocationMarker } from "../markers/current-location-marker";
 
 export function MapView() {
-  // Altere 'stations' para 'allStations'
   const { mapRefreshKey, activeMapLayerUrl, currentLocation: currentLocationMarker, allStations } = useMap();
 
   const MAP_URL_LAYER = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
@@ -33,7 +33,6 @@ export function MapView() {
             : INITIAL_CENTER
         }
         zoomLevel={INITIAL_ZOOM}
-        // Use allStations para mapear os marcadores
         items={allStations ? allStations.map(station => ({
           id: station.id,
           position: [station.place.latitude, station.place.longitude] as LatLngExpression,
@@ -63,6 +62,7 @@ export function MapView() {
         }}
         mapControls={
           <>
+            <MapFlyToHandler />
             <MapControlsBottomLeft />
             <MapControlsBottomRight />
           </>

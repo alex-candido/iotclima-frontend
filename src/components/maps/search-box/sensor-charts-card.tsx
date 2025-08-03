@@ -1,6 +1,13 @@
 // src/components/maps/search-box/sensor-charts-card.tsx
 "use client";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { getSensorTypeLabel, getUnitSymbol } from "@/lib/utils";
 import { Record } from "@/types/record";
 import { SensorType } from "@/types/sensor";
@@ -49,9 +56,7 @@ export function SensorChartsCard({ records, isLoading, isError }: SensorChartsCa
     const timestamp = new Date(record.created_at);
     const timeLabel = format(timestamp, "HH:mm");
     
-    // Lógica corrigida para converter o enum em string antes de buscar
     const getSensorValue = (type: SensorType) => {
-      // Converte o enum para a string correspondente
       const typeString = getSensorTypeLabel(type).toLowerCase();
       const sensor = record.sensors.find((s) => String(s.type) === typeString);
       
@@ -85,67 +90,54 @@ export function SensorChartsCard({ records, isLoading, isError }: SensorChartsCa
   const unitPrecipitation = getUnit(SensorType.PLUVIOMETER);
   const unitSolar = getUnit(SensorType.SOLARIMETER);
 
+  const chartItems = [
+    { id: 'temperature', title: `Temperatura (${unitTemperature})`, component: LineChart, dataKey: 'temperature', stroke: '#FF5733', type: 'line' },
+    { id: 'humidity', title: `Umidade (${unitHumidity})`, component: LineChart, dataKey: 'humidity', stroke: '#337AFF', type: 'line' },
+    { id: 'wind', title: `Vento (${unitWind})`, component: LineChart, dataKey: 'windSpeed', stroke: '#C45A3C', type: 'line' },
+    { id: 'solar', title: `Radiação Solar (${unitSolar})`, component: LineChart, dataKey: 'solarRadiation', stroke: '#FEE140', type: 'line' },
+    { id: 'precipitation', title: `Precipitação (${unitPrecipitation})`, component: BarChart, dataKey: 'precipitation', fill: '#00C49F', type: 'bar' },
+  ];
+
   return (
-    <div className="flex flex-col gap-4 p-4 border rounded-lg bg-card">
-      {/* Gráfico de Linha para Temperatura */}
-      <h3 className="font-semibold mb-2">Temperatura ({unitTemperature})</h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <Tooltip />
-          <Line type="monotone" dataKey="temperature" stroke="#FF5733" strokeWidth={2} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
-
-      {/* Gráfico de Linha para Umidade */}
-      <h3 className="font-semibold mb-2">Umidade ({unitHumidity})</h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <Tooltip />
-          <Line type="monotone" dataKey="humidity" stroke="#337AFF" strokeWidth={2} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
-      
-      {/* Gráfico de Linha para Velocidade do Vento */}
-      <h3 className="font-semibold mb-2">Velocidade do Vento ({unitWind})</h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <Tooltip />
-          <Line type="monotone" dataKey="windSpeed" stroke="#C45A3C" strokeWidth={2} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
-
-      {/* Gráfico de Linha para Radiação Solar */}
-      <h3 className="font-semibold mb-2">Radiação Solar ({unitSolar})</h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <Tooltip />
-          <Line type="monotone" dataKey="solarRadiation" stroke="#FEE140" strokeWidth={2} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
-
-      {/* Gráfico de Barras para Precipitação */}
-      <h3 className="font-semibold mb-2">Precipitação ({unitPrecipitation})</h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-          <Tooltip />
-          <Bar dataKey="precipitation" fill="#00C49F" />
-        </BarChart>
-      </ResponsiveContainer>
+    <div className="p-4 border rounded-lg bg-card">
+      <h3 className="font-semibold text-foreground mb-2">Dados Históricos</h3>
+      <Carousel
+        opts={{
+          align: "start",
+        }}
+        className="relative w-full"
+      >
+        <CarouselContent className="-ml-4">
+          {chartItems.map(item => (
+            <CarouselItem key={item.id} className="basis-full pl-4">
+              <div className="min-h-[250px]">
+                <h4 className="font-semibold mb-2 text-sm">{item.title}</h4>
+                <ResponsiveContainer width="100%" height={200}>
+                  {item.type === 'line' ? (
+                    <LineChart data={data} margin={{ left: 10, right: 10 }}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                      <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                      <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                      <Tooltip />
+                      <Line type="monotone" dataKey={item.dataKey} stroke={item.stroke} strokeWidth={2} dot={false} />
+                    </LineChart>
+                  ) : (
+                    <BarChart data={data} margin={{ left: 10, right: 10 }}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                      <XAxis dataKey="time" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                      <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                      <Tooltip />
+                      <Bar dataKey={item.dataKey} fill={item.fill} />
+                    </BarChart>
+                  )}
+                </ResponsiveContainer>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="-left-4" />
+        <CarouselNext className="-right-4" />
+      </Carousel>
     </div>
   );
 }

@@ -58,6 +58,9 @@ interface MapContextType {
   animateWeatherCard: boolean;
   setAnimateWeatherCard: (value: boolean) => void;
   filterCounts: Record<string, number>;
+  flyToCoordinates: Location | null;
+  setFlyToCoordinates: (coordinates: Location | null) => void;
+  locationError: GeolocationPositionError | string | null;
 }
 
 const MapContext = createContext<MapContextType | undefined>(undefined);
@@ -81,6 +84,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
   const [mapInstance, setMapInstance] = useState<L.Map | null>(null);
   const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
   const [animateWeatherCard, setAnimateWeatherCard] = useState(false);
+  const [flyToCoordinates, setFlyToCoordinates] = useState<Location | null>(null);
 
   const { location, error: locationError } = useLocationService();
   const { data: stationsData } = useStations();
@@ -92,8 +96,7 @@ export function MapProvider({ children }: { children: ReactNode }) {
     { current_weather: true }
   );
   const { data: currentAddress, error: geocodingError } = useReverseGeocoding(
-    currentLocation?.latitude,
-    currentLocation?.longitude
+    currentLocation?.latitude, currentLocation?.longitude
   );
 
   const filterCounts = useMemo(() => {
@@ -133,7 +136,6 @@ export function MapProvider({ children }: { children: ReactNode }) {
     if (searchQuery) {
       const lowercasedQuery = searchQuery.toLowerCase();
       return results.filter(station =>
-        // Filtro por nome, descrição E cidade
         station.name.toLowerCase().includes(lowercasedQuery) ||
         (station.description && station.description.toLowerCase().includes(lowercasedQuery)) ||
         (station.place?.info?.city && station.place.info.city.toLowerCase().includes(lowercasedQuery))
@@ -157,11 +159,16 @@ export function MapProvider({ children }: { children: ReactNode }) {
     if (location) {
       setCurrentLocation(location);
     }
+    // AQUI ESTÁ A CORREÇÃO FINAL:
     if (locationError) {
-      if (locationError instanceof GeolocationPositionError && locationError.code === GeolocationPositionError.PERMISSION_DENIED) {
+      if (
+        (locationError instanceof GeolocationPositionError &&
+          locationError.code === GeolocationPositionError.PERMISSION_DENIED) ||
+        locationError === "User denied Geolocation"
+      ) {
         console.warn("Geolocation permission denied by the user.");
       } else {
-        console.error(locationError);
+        console.error("Error getting location:", locationError);
       }
     }
     if (weatherError) {
@@ -257,6 +264,9 @@ export function MapProvider({ children }: { children: ReactNode }) {
     animateWeatherCard,
     setAnimateWeatherCard,
     filterCounts,
+    flyToCoordinates,
+    setFlyToCoordinates,
+    locationError,
   };
 
   return <MapContext.Provider value={value}>{children}</MapContext.Provider>;

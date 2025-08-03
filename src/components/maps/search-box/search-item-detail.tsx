@@ -3,11 +3,12 @@
 
 import { FloatingCard } from "@/components/base/floating-card";
 import { WeatherInfoCard } from "@/components/base/weather-info-card";
-import { useStationRecords } from "@/hooks/use-records"; // Importe o novo hook
+import { useStationRecords } from "@/hooks/use-records";
 import { stationToWeatherCardData } from "@/lib/utils";
 import { Station } from "@/types/station";
 import { HourlyForecastCard } from "./hourly-forecast-card";
 import { SensorChartsCard } from "./sensor-charts-card";
+import { SensorDetailsCard } from "./sensor-details-card";
 
 interface SearchItem {
   id: string | number;
@@ -22,28 +23,37 @@ interface SearchItemDetailProps {
 export function SearchItemDetail({ item }: SearchItemDetailProps) {
   if (!item) return null;
 
-  // Type guard to check if the item is a Station
   const isStation = (item: SearchItem): item is Station => {
     return (item as Station).place !== undefined && (item as Station).status !== undefined;
   };
 
   if (isStation(item)) {
     const weatherCardData = stationToWeatherCardData(item);
-
-    // Use o novo hook para buscar os registros da estação
     const { data: recordsData, isLoading: isRecordsLoading, isError: recordsError } = useStationRecords(item.uuid);
     const records = recordsData?.results;
 
+    // Adiciona uma verificação de segurança para as coordenadas
+    const hasCoordinates = item.place?.latitude !== undefined && item.place?.longitude !== undefined;
+    const stationCoordinates = hasCoordinates 
+      ? { latitude: item.place.latitude, longitude: item.place.longitude } 
+      : undefined;
+
     return (
       <div className="flex flex-col gap-4 p-4 overflow-y-auto max-h-[calc(100vh-100px)]">
-        {/* Card de resumo do clima atual da estação */}
-        <WeatherInfoCard data={weatherCardData} />
+        {/* Card de resumo do clima atual */}
+        <WeatherInfoCard 
+          data={weatherCardData}
+          stationCoordinates={stationCoordinates} // Passa a nova variável
+        />
         
         {/* Card de previsão do tempo por hora */}
         <HourlyForecastCard station={item} />
 
-        {/* Card de gráficos com dados históricos dos sensores */}
+        {/* Card de gráficos com dados históricos */}
         <SensorChartsCard records={records} isLoading={isRecordsLoading} isError={recordsError} />
+
+        {/* Card de detalhes dos sensores */}
+        <SensorDetailsCard sensors={item.sensors} />
       </div>
     );
   }

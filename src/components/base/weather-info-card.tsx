@@ -1,20 +1,25 @@
 // src/components/base/weather-info-card.tsx
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useMap } from "@/providers/map-provider";
 import { Record } from "@/types/record";
 import { WeatherCardData } from "@/types/weather";
 import { format } from "date-fns";
-import { ReactNode, useEffect } from "react";
+import { ptBR } from "date-fns/locale";
+import { LocateFixed } from "lucide-react";
+import { useEffect } from "react";
 
 interface WeatherInfoCardProps {
   data: WeatherCardData;
   latestRecord?: Record;
-  children?: ReactNode;
+  isCurrentLocation?: boolean;
+  stationCoordinates?: { latitude: number; longitude: number };
 }
 
-export function WeatherInfoCard({ data, latestRecord, children }: WeatherInfoCardProps) {
-  const { animateWeatherCard, setAnimateWeatherCard } = useMap();
+export function WeatherInfoCard({ data, latestRecord, isCurrentLocation, stationCoordinates }: WeatherInfoCardProps) {
+  const { animateWeatherCard, setAnimateWeatherCard, setFlyToCoordinates } = useMap(); 
 
   useEffect(() => {
     if (latestRecord) {
@@ -34,12 +39,29 @@ export function WeatherInfoCard({ data, latestRecord, children }: WeatherInfoCar
     }))
   : data.sensorReadings;
 
-  const timestampToDisplay = latestRecord ? format(new Date(latestRecord.created_at), "HH:mm:ss") : data.timestamp;
+  const timestampToDisplay = latestRecord
+    ? format(new Date(latestRecord.created_at), "dd/MM/yyyy HH:mm:ss", { locale: ptBR })
+    : data.timestamp;
+
+  const handleLocateStation = () => {
+    if (stationCoordinates) {
+      setFlyToCoordinates(stationCoordinates);
+    } else {
+      console.warn("Station coordinates not available.");
+    }
+  };
+
+  useEffect(() => {
+    console.log("WeatherInfoCard: flyToCoordinates changed", stationCoordinates);
+  }, [stationCoordinates]);
 
   return (
     <div className="flex flex-col justify-between p-4 border rounded-lg bg-card">
-      <div  className="flex justify-between items-center text-xs font-semibold text-muted-foreground h-[2.5rem]">
-        <div>{data.locationName}</div>
+      <div className="flex justify-between items-center text-xs font-semibold text-muted-foreground h-[2.5rem]">
+        <div className="flex items-center gap-2">
+          <div>{data.locationName}</div>
+          {isCurrentLocation && <Badge variant="secondary">Localização Atual</Badge>}
+        </div>
         <p className="text-sm text-gray-500">{timestampToDisplay}</p>
       </div>
 
@@ -64,8 +86,21 @@ export function WeatherInfoCard({ data, latestRecord, children }: WeatherInfoCar
               </span>
             </div>
           ))}
+      </div>
+      
+      {stationCoordinates && (
+        <div className="mt-4 pt-3 border-t">
+          <Button 
+            onClick={handleLocateStation} 
+            variant="outline" 
+            className="w-full"
+            disabled={!stationCoordinates}
+          >
+            <LocateFixed className="h-4 w-4 mr-2" />
+            Localizar Estação no Mapa
+          </Button>
         </div>
-        {children && <div className="mt-4">{children}</div>}
+      )}
     </div>
   );
 }

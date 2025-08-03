@@ -46,6 +46,16 @@ export function getSensorTypeLabel(type: SensorType): string {
   return labels[type] || "Unknown";
 }
 
+export function getUnitTypeLabel(type: UnitType): string {
+  const labels: Record<UnitType, string> = {
+    [UnitType.CELSIUS]: "celsius",
+    [UnitType.PERCENT]: "percentage",
+    [UnitType.METERS_PER_SECOND]: "meters per second",
+    [UnitType.MILLIMETERS]: "millimeters",
+    [UnitType.WATTS_PER_METER_SQUARED]: "watts per Square Meter ",
+  };
+  return labels[type] || "Unknown";
+}
 
 export function getStatusLabel(
   status: PlaceStatus | RecordStatus | SensorStatus | StationStatus | UserStatus
@@ -155,8 +165,9 @@ export function stationToWeatherCardData(station: Station): WeatherCardData {
 
   return {
     locationName: station.name,
-    timestamp: latestRecord?.created_at ? format(new Date(latestRecord.created_at), "HH:mm:ss", { locale: ptBR }) : 'N/A',
-    mainTemperature: mainTemperatureValue,
+    timestamp: latestRecord?.created_at 
+      ? format(new Date(latestRecord.created_at), "dd/MM/yyyy HH:mm:ss", { locale: ptBR }) 
+      : 'N/A',    mainTemperature: mainTemperatureValue,
     mainWeatherIcon: weatherEmoji,
     mainWeatherDescription: weatherDescription,
     sensorReadings: sensorReadings,
@@ -182,7 +193,9 @@ export function openMeteoToWeatherCardData(data: OpenMeteoForecastResponse, addr
 
     return {
         locationName: locationName,
-        timestamp: data.current_weather?.time ? format(new Date(data.current_weather.time), "HH:mm:ss", { locale: ptBR }) : 'N/A',
+        timestamp: data.current_weather?.time 
+        ? format(new Date(data.current_weather.time), "dd/MM/yyyy HH:mm:ss", { locale: ptBR }) 
+        : 'N/A',        
         mainTemperature: data.current_weather?.temperature || 0,
         mainWeatherIcon: icon,
         mainWeatherDescription: description,

@@ -6,7 +6,7 @@ import { ZoomControl } from "./zoom-control";
 
 export function MapControlsBottomRight() {
   return (
-    <div className="absolute bottom-4 right-4 flex flex-col gap-2 z-[400]">
+    <div className="absolute bottom-4 right-4 flex flex-col gap-2 z-[1000]">
       <LocateMeButton />
       <ZoomControl />
     </div>

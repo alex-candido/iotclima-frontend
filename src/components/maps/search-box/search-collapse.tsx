@@ -49,7 +49,7 @@ export function SearchCollapse() {
 
   return (
     <FloatingCard className={cn(
-      "search-collapse max-h-[calc(100vh-100px)] absolute top-full left-0 right-0 mt-2 z-20 flex flex-col",
+      "search-collapse absolute top-full left-0 right-0 mt-2 z-20 flex flex-col",
       !isSearchCollapseOpen && "hidden"
     )}>
       {selectedSearchItem ? (
