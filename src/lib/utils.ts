@@ -17,7 +17,7 @@ import { twMerge } from "tailwind-merge";
 import { ReverseGeocodingResponse } from "@/store/actions/geocoding-actions";
 import { OpenMeteoForecastResponse } from "@/store/actions/open-meteo-actions";
 import { PlaceStatus } from "@/types/place";
-import { RecordStatus, SensorRecord } from "@/types/record";
+import { RecordStatus } from "@/types/record";
 import { SensorStatus, SensorType, UnitType } from "@/types/sensor";
 import { Station, StationStatus } from "@/types/station";
 import { UserRole, UserStatus } from "@/types/user";
@@ -35,36 +35,26 @@ export function getLabelByEnumValue<T extends object>(
   return entry ? entry[0] : "Unknown";
 }
 
+export function getSensorTypeLabel(type: SensorType): string {
+  const labels: Record<SensorType, string> = {
+    [SensorType.THERMOMETER]: "thermometer",
+    [SensorType.HYGROMETER]: "hygrometer",
+    [SensorType.ANEMOMETER]: "anemometer",
+    [SensorType.PLUVIOMETER]: "pluviometer",
+    [SensorType.SOLARIMETER]: "solarimeter",
+  };
+  return labels[type] || "Unknown";
+}
+
+
 export function getStatusLabel(
   status: PlaceStatus | RecordStatus | SensorStatus | StationStatus | UserStatus
 ): string {
   const labels = {
-    1: "Ativo",
-    0: "Inativo",
+    1: "active",
+    0: "inactive",
   };
   return labels[status as keyof typeof labels] || "Unknown";
-}
-
-export function getSensorTypeLabel(type: SensorType): string {
-  const labels: Record<SensorType, string> = {
-    [SensorType.THERMOMETER]: "Termômetro",
-    [SensorType.HYGROMETER]: "Higrômetro",
-    [SensorType.ANEMOMETER]: "Anemômetro",
-    [SensorType.PLUVIOMETER]: "Pluviômetro",
-    [SensorType.SOLARIMETER]: "Solarímetro",
-  };
-  return labels[type] || "Unknown";
-}
-
-export function getUnitTypeLabel(type: UnitType): string {
-  const labels: Record<UnitType, string> = {
-    [UnitType.CELSIUS]: "Celsius",
-    [UnitType.PERCENT]: "Porcento",
-    [UnitType.METERS_PER_SECOND]: "Metros por Segundo",
-    [UnitType.MILLIMETERS]: "Milímetros",
-    [UnitType.WATTS_PER_METER_SQUARED]: "Watts por Metro Quadrado",
-  };
-  return labels[type] || "Unknown";
 }
 
 export function getUserRoleLabel(role: UserRole): string {
@@ -74,44 +64,6 @@ export function getUserRoleLabel(role: UserRole): string {
     [UserRole.VIEWER]: "Visualizador",
   };
   return labels[role] || "Unknown";
-}
-
-export function getWeatherIconAndDescription(
-  sensors: SensorRecord[]
-): { icon: string; description: string } {
-  const getNumericValue = (sensorRecord: SensorRecord | undefined) =>
-    typeof sensorRecord?.value === 'string' ? parseFloat(sensorRecord.value) : sensorRecord?.value;
-
-  const thermometer = sensors.find((s) => s.type === SensorType.THERMOMETER);
-  const pluviometer = sensors.find((s) => s.type === SensorType.PLUVIOMETER);
-  const hygrometer = sensors.find((s) => s.type === SensorType.HYGROMETER);
-  const solarimeter = sensors.find((s) => s.type === SensorType.SOLARIMETER);
-
-  const pluviometerValue = getNumericValue(pluviometer);
-  const hygrometerValue = getNumericValue(hygrometer);
-  const thermometerValue = getNumericValue(thermometer);
-  const solarimeterValue = getNumericValue(solarimeter);
-
-  if (pluviometerValue !== undefined && pluviometerValue > 0) {
-    return { icon: "🌧️", description: "Chuva Forte" };
-  }
-  if (hygrometerValue !== undefined && hygrometerValue > 80 && (thermometerValue === undefined || thermometerValue < 20)) {
-    return { icon: "🌫️", description: "Neblina/Úmido" };
-  }
-  if (thermometerValue !== undefined && thermometerValue > 30) {
-    return { icon: "☀️", description: "Ensolarado" };
-  }
-  if (thermometerValue !== undefined && thermometerValue < 10) {
-    return { icon: "❄️", description: "Frio" };
-  }
-  if (solarimeterValue !== undefined && solarimeterValue < 200) {
-    return { icon: "☁️", description: "Nublado" };
-  }
-  if (solarimeterValue !== undefined && solarimeterValue >= 200 && solarimeterValue <= 600) {
-    return { icon: "⛅", description: "Parcialmente Nublado" };
-  }
-
-  return { icon: "☀️", description: "Ensolarado" };
 }
 
 export const getUnitSymbol = (unit: UnitType | undefined): string => {
@@ -126,11 +78,11 @@ export const getUnitSymbol = (unit: UnitType | undefined): string => {
     }
 };
 
-export function getWeatherInfoByCode(code: number | undefined): { icon: string; description: string } {
+export function getWeatherInfoByCode(code: number | undefined, isDay: boolean): { icon: string; description: string } {
     if (code === undefined) return { icon: "🤷", description: "Desconhecido" };
 
     const weatherMap: Record<number, { icon: string; description: string }> = {
-        0: { icon: "☀️", description: "Céu Limpo" },
+        0: { icon: isDay ? "☀️" : "🌙", description: "Céu Limpo" },
         1: { icon: "🌤️", description: "Quase Limpo" },
         2: { icon: "⛅", description: "Parcialmente Nublado" },
         3: { icon: "☁️", description: "Nublado" },
@@ -175,22 +127,29 @@ export function stationToWeatherCardData(station: Station): WeatherCardData {
   const latestRecord = station.records && station.records.length > 0
     ? station.records.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0]
     : null;
+  
+    const recordDate = latestRecord?.created_at ? new Date(latestRecord.created_at) : new Date();
+    const hour = recordDate.getHours();
+    const isDaytime = hour > 6 && hour < 18;
 
-  const { icon: weatherEmoji, description: weatherDescription } =
-    getWeatherIconAndDescription(latestRecord?.sensors || []);
+    // Utilize o weather_code do latestRecord
+    const { icon: weatherEmoji, description: weatherDescription } =
+    getWeatherInfoByCode(latestRecord?.weather_code, isDaytime);
 
-  const sensorReadings: SensorReading[] = latestRecord?.sensors.map((sensor) => {
-    const displayInfo = sensorDisplayMap[sensor.type];
-    const sensorValue = typeof sensor.value === 'string' ? parseFloat(sensor.value) : sensor.value;
-    const sensorUnit = getUnitSymbol(sensor.unit);
-    return {
-      icon: displayInfo ? displayInfo.icon : Thermometer, // Fallback icon must be a LucideIcon
-      value: sensorValue || 'N/A',
-      unit: sensorUnit,
-    };
-  }) || [];
+  const sensorReadings: SensorReading[] = Array.isArray(latestRecord?.sensors)
+    ? latestRecord.sensors.map((sensor) => {
+        const displayInfo = sensorDisplayMap[sensor.type];
+        const sensorValue = typeof sensor.value === 'string' ? parseFloat(sensor.value) : sensor.value;
+        const sensorUnit = getUnitSymbol(sensor.unit);
+        return {
+          icon: displayInfo ? displayInfo.icon : Thermometer,
+          value: (sensorValue === null || sensorValue === undefined) ? 'N/A' : sensorValue,
+          unit: sensorUnit,
+          name: displayInfo ? displayInfo.name : "Desconhecido",
+        };
+      })
+    : [];
 
-  // Find the temperature from the already processed sensorReadings
   const temperatureReading = sensorReadings.find(s => s.unit === '°C' && s.value !== 'N/A');
   const mainTemperatureValue = temperatureReading ? parseFloat(temperatureReading.value as string) : 'N/A';
 
@@ -205,7 +164,11 @@ export function stationToWeatherCardData(station: Station): WeatherCardData {
 }
 
 export function openMeteoToWeatherCardData(data: OpenMeteoForecastResponse, addressData?: ReverseGeocodingResponse): WeatherCardData {
-    const { icon, description } = getWeatherInfoByCode(data.current_weather?.weathercode);
+    const weatherTime = data.current_weather?.time ? new Date(data.current_weather.time) : new Date();
+    const hour = weatherTime.getHours();
+    const isDaytime = hour >= 6 && hour <= 18;
+
+    const { icon, description } = getWeatherInfoByCode(data.current_weather?.weathercode, isDaytime);
     
     let locationName = "Localização Atual";
     if (addressData) {
@@ -223,6 +186,17 @@ export function openMeteoToWeatherCardData(data: OpenMeteoForecastResponse, addr
         mainTemperature: data.current_weather?.temperature || 0,
         mainWeatherIcon: icon,
         mainWeatherDescription: description,
-        sensorReadings: [], // Open-Meteo data doesn't have the same sensor breakdown
+        sensorReadings: [], 
     };
 }
+
+export const weatherCodeToFilterId: Record<string, number[]> = {
+  all: [],
+  sunny: [0, 1],
+  cloudy: [2, 3],
+  rainy: [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
+  windy: [40, 41, 42],
+  stormy: [95, 96, 99],
+  foggy: [45, 48],
+  snowy: [71, 73, 75, 77, 85, 86],
+};

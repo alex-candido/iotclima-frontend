@@ -1,11 +1,11 @@
 // src/providers/map-provider.tsx
-
 "use client";
 
 import { useReverseGeocoding } from "@/hooks/use-geocoding";
 import { useLocationService } from "@/hooks/use-location";
 import { useOpenMeteoForecast } from "@/hooks/use-open-meteo";
 import { useStations } from "@/hooks/use-stations";
+import { weatherCodeToFilterId } from "@/lib/utils";
 import { ReverseGeocodingResponse } from "@/store/actions/geocoding-actions";
 import { OpenMeteoForecastResponse } from "@/store/actions/open-meteo-actions";
 import { Station } from "@/types/station";
@@ -53,9 +53,11 @@ interface MapContextType {
   currentLocation: Location | null;
   weatherData: OpenMeteoForecastResponse | null | undefined;
   currentAddress: ReverseGeocodingResponse | null | undefined;
-  stations: Station[] | null;
+  allStations: Station[] | null;
+  filteredStations: Station[] | null;
   animateWeatherCard: boolean;
   setAnimateWeatherCard: (value: boolean) => void;
+  filterCounts: Record<string, number>;
 }
 
 const MapContext = createContext<MapContextType | undefined>(undefined);
@@ -82,7 +84,8 @@ export function MapProvider({ children }: { children: ReactNode }) {
 
   const { location, error: locationError } = useLocationService();
   const { data: stationsData } = useStations();
-  const stations = stationsData?.results || [];
+  const allStations = stationsData?.results || [];
+
   const { data: weatherData, error: weatherError } = useOpenMeteoForecast(
     currentLocation?.latitude,
     currentLocation?.longitude,
@@ -93,9 +96,62 @@ export function MapProvider({ children }: { children: ReactNode }) {
     currentLocation?.longitude
   );
 
-  useEffect(() => {
-    console.log(stations)
-  })
+  const filterCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      all: allStations.length,
+      sunny: 0,
+      cloudy: 0,
+      rainy: 0,
+      windy: 0,
+      stormy: 0,
+      foggy: 0,
+      snowy: 0,
+    };
+    
+    allStations.forEach(station => {
+      const latestRecord = station.records && station.records.length > 0
+        ? station.records.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0]
+        : null;
+      
+      if (latestRecord && latestRecord.weather_code !== undefined) {
+        if (weatherCodeToFilterId.sunny.includes(latestRecord.weather_code)) counts.sunny++;
+        if (weatherCodeToFilterId.cloudy.includes(latestRecord.weather_code)) counts.cloudy++;
+        if (weatherCodeToFilterId.rainy.includes(latestRecord.weather_code)) counts.rainy++;
+        if (weatherCodeToFilterId.windy.includes(latestRecord.weather_code)) counts.windy++;
+        if (weatherCodeToFilterId.stormy.includes(latestRecord.weather_code)) counts.stormy++;
+        if (weatherCodeToFilterId.foggy.includes(latestRecord.weather_code)) counts.foggy++;
+        if (weatherCodeToFilterId.snowy.includes(latestRecord.weather_code)) counts.snowy++;
+      }
+    });
+
+    return counts;
+  }, [allStations]);
+
+  const filteredStations = useMemo(() => {
+    let results = allStations || [];
+
+    if (searchQuery) {
+      const lowercasedQuery = searchQuery.toLowerCase();
+      return results.filter(station =>
+        // Filtro por nome, descrição E cidade
+        station.name.toLowerCase().includes(lowercasedQuery) ||
+        (station.description && station.description.toLowerCase().includes(lowercasedQuery)) ||
+        (station.place?.info?.city && station.place.info.city.toLowerCase().includes(lowercasedQuery))
+      );
+    }
+    
+    if (activeWeatherFilter !== 'all' && weatherCodeToFilterId[activeWeatherFilter]) {
+      const allowedCodes = weatherCodeToFilterId[activeWeatherFilter];
+      return results.filter(station => {
+        const latestRecord = station.records?.[0];
+        return latestRecord && allowedCodes.includes(latestRecord.weather_code);
+      });
+    }
+
+    return results;
+
+  }, [allStations, activeWeatherFilter, searchQuery]);
+
 
   useEffect(() => {
     if (location) {
@@ -196,9 +252,11 @@ export function MapProvider({ children }: { children: ReactNode }) {
     setActiveWeatherFilter,
     mapInstance,
     setMapInstance,
-    stations,
+    allStations,
+    filteredStations,
     animateWeatherCard,
     setAnimateWeatherCard,
+    filterCounts,
   };
 
   return <MapContext.Provider value={value}>{children}</MapContext.Provider>;

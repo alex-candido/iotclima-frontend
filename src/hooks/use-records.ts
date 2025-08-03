@@ -16,6 +16,7 @@ export const RECORD_QUERY_KEYS = {
   LIST: "recordList",
   DETAIL: "recordDetail",
   LATEST: "latestRecord",
+  STATION_RECORDS: "stationRecords"
 };
 
 export function useRecordList(params?: {
@@ -52,3 +53,12 @@ export const useLatestRecord = (stationId: string) => {
     enabled: !!stationId, // Only run if stationId is provided
   });
 };
+
+export function useStationRecords(stationId: string | number) {
+  return useQuery<RecordListResponse>({
+    queryKey: [RECORD_QUERY_KEYS.STATION_RECORDS, stationId],
+    queryFn: () => getRecords({ station__uuid: stationId, page_size: 50 }),
+    enabled: !!stationId,
+    staleTime: 5 * 60 * 1000, // Mantém os dados "frescos" por 5 minutos
+  });
+}

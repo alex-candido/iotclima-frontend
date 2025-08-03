@@ -19,7 +19,7 @@ export interface Record {
   uuid: string;
 
   sensors: SensorRecord[];
-
+  weather_code: number;
   created_at: string;
   updated_at: string;
 }

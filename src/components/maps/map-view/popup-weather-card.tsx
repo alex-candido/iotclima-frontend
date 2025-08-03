@@ -13,7 +13,7 @@ interface WeatherInfoCardProps {
   children?: ReactNode;
 }
 
-export function WeatherInfoCard({ data, latestRecord, children }: WeatherInfoCardProps) {
+export function PopUpWeatherCard({ data, latestRecord, children }: WeatherInfoCardProps) {
   const { animateWeatherCard, setAnimateWeatherCard } = useMap();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export function WeatherInfoCard({ data, latestRecord, children }: WeatherInfoCar
   const timestampToDisplay = latestRecord ? format(new Date(latestRecord.created_at), "HH:mm:ss") : data.timestamp;
 
   return (
-    <div className="flex flex-col justify-between p-4 border rounded-lg bg-card">
+    <div className="flex flex-col justify-between rounded-lg bg-card">
       <div  className="flex justify-between items-center text-xs font-semibold text-muted-foreground h-[2.5rem]">
         <div>{data.locationName}</div>
         <p className="text-sm text-gray-500">{timestampToDisplay}</p>

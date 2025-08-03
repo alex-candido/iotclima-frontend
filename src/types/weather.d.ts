@@ -17,4 +17,5 @@ export interface WeatherCardData {
   mainWeatherIcon: string;
   mainWeatherDescription: string;
   sensorReadings: SensorReading[];
+  weatherCode?: number;
 }

@@ -16,6 +16,8 @@ export type HourlyData = {
   relative_humidity_2m: number[];
   wind_speed_10m: number[];
   precipitation: number[];
+  // Adicione weather_code aqui para refletir o que a API retorna
+  weather_code?: number[];
 };
 
 export type DailyData = {

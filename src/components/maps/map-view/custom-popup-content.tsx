@@ -3,12 +3,12 @@
 
 "use client";
 
-import { WeatherInfoCard } from "@/components/base/weather-info-card";
 import { Button } from "@/components/ui/button";
 import { useLatestRecord } from "@/hooks/use-records";
 import { stationToWeatherCardData } from "@/lib/utils";
 import { useMap } from "@/providers/map-provider";
 import { Station } from "@/types/station";
+import { PopUpWeatherCard } from "./popup-weather-card";
 
 interface CustomPopupContentProps {
   data: Station;
@@ -33,10 +33,10 @@ export function CustomPopupContent({ data }: CustomPopupContentProps) {
   }
 
   return (
-    <WeatherInfoCard data={weatherCardData} latestRecord={latestRecord}>
+    <PopUpWeatherCard data={weatherCardData} latestRecord={latestRecord}>
       <Button onClick={handleViewDetails} size="sm" className="w-full cursor-pointer">
         Ver Detalhes
       </Button>
-    </WeatherInfoCard>
+    </PopUpWeatherCard>
   );
 }
